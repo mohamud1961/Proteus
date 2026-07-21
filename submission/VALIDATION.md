@@ -9,7 +9,8 @@ python3 -m venv /private/tmp/proteus-light-venv-2
 /private/tmp/proteus-light-venv-2/bin/python -m pip install -e ".[dev]"
 ```
 
-The default `.[dev]` install is the lightweight deterministic path. The
+The default `.[dev]` install is the lightweight deterministic path, including
+the HTTP client used by the provider-boundary tests. The
 optional `.[live]`, `.[vision]`, and `.[full]` extras add model-provider and
 OCR/PDF dependencies without making the judge path depend on them.
 
