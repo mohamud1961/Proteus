@@ -1,0 +1,5 @@
+{
+  "kind": "service",
+  "description": "Future example: launch a local service, probe its process generation, and verify a response.",
+  "status": "planned_extension_not_part_of_required_demo"
+}

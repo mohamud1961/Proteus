@@ -1,0 +1,5 @@
+{
+  "kind": "artifact",
+  "description": "Create a bounded file artifact, record its hash, and independently verify it.",
+  "status": "illustrative_task_contract"
+}
