@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": "multi_turn_composite_116",
+      "involved_classes": ["TicketAPI"],
+      "initial_config": {"TicketAPI": {}},
+      "ground_truth": [["ping(tag='a')"], ["ping(tag='b')"]]
+    },
+    {
+      "id": "multi_turn_composite_97",
+      "involved_classes": ["MessageAPI"],
+      "initial_config": {"MessageAPI": {}},
+      "ground_truth": [["ping(tag='a')"], ["ping(tag='b')"]]
+    },
+    {
+      "id": "multi_turn_miss_param_55",
+      "involved_classes": ["TravelAPI"],
+      "initial_config": {"TravelAPI": {}},
+      "ground_truth": [["ping(tag='a')"], ["ping(tag='b')"]]
+    }
+  ]
+}

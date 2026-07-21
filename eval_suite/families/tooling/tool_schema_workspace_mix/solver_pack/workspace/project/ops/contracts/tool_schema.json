@@ -1,0 +1,14 @@
+{
+  "required_order": [
+    "read_schema",
+    "read_live_snapshot",
+    "select_ticket",
+    "write_dispatch"
+  ],
+  "dispatch_required_fields": [
+    "workspace_id",
+    "ticket_id",
+    "action_commands",
+    "source_event_id"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "task_id": "g2_02_service_survives_exit",
+  "workspace_root": "workspace",
+  "time_budget_sec": 180
+}

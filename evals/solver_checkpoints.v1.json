@@ -1,0 +1,149 @@
+{
+  "schema": "aether.solver_checkpoints.v1",
+  "rules": {
+    "samples_per_case": 3,
+    "default_effort": "low",
+    "production_model_hooks_required": true,
+    "strict_parser_required": true,
+    "one_causal_action_required": true,
+    "chain_of_thought_not_requested": true
+  },
+  "cases": [
+    {
+      "id": "inspect_before_edit",
+      "official_archetypes": ["code_implementation", "data_transform_query"],
+      "task_prompt": "Update /app/config.json so the existing service entry uses the required public field name. Inspect the current file before changing it.",
+      "context": {
+        "artifacts_present": ["config.json"],
+        "latest_file_reads": [],
+        "pending_checks": [{"label": "schema:config.json", "passed": null, "failure_kind": "", "repair_hint": "Inspect the current schema before editing."}],
+        "active_completion_findings": [],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "act",
+        "allowed_action_kinds": ["read_file"],
+        "argument_equals": {"path": "config.json"}
+      }
+    },
+    {
+      "id": "failed_command_pivot",
+      "official_archetypes": ["build_install_toolchain", "debug_repair"],
+      "task_prompt": "Build the project using the available Python build entrypoint. The previous make command failed because make is unavailable.",
+      "context": {
+        "latest_failure": {"kind": "run_command", "command": "make", "failure_class": "missing_capability", "stderr": "make: command not found"},
+        "blocked_denied_receipts": [{"kind": "run_command", "command": "make", "summary": "exit 127"}],
+        "artifacts_present": ["build.py", "pyproject.toml"],
+        "observed_environment_support": {"commands": {"python3": "available", "make": "missing"}},
+        "action_constraints": ["Do not repeat make without new evidence."],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "act",
+        "allowed_action_kinds": ["read_file", "run_command"],
+        "forbidden_command_exact": ["make"]
+      }
+    },
+    {
+      "id": "service_launch_then_fresh_probe",
+      "official_archetypes": ["service_protocol", "process_concurrency", "emulation_virtualization"],
+      "task_prompt": "Keep the launched API service live and prove the current generation is listening before submission.",
+      "context": {
+        "tool_results": [{"kind": "launch_process", "success": true, "name": "api", "process_id": "proc-gen-7", "endpoint": "pid://712"}],
+        "live_processes": {"proc-gen-7": {"name": "api", "process_id": "proc-gen-7", "generation": "start-712"}},
+        "active_completion_findings": [{"finding_id": "fresh-probe", "summary": "The current api process generation has no fresh endpoint probe.", "applies_to": ["api", "proc-gen-7"]}],
+        "pending_checks": [],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "act",
+        "allowed_action_kinds": ["probe_service"],
+        "argument_any_contains": {"target": ["api", "proc-gen-7", "localhost", "127.0.0.1"]}
+      }
+    },
+    {
+      "id": "large_output_handle_retrieval",
+      "official_archetypes": ["long_context_output", "binary_reverse_engineering", "ml_model"],
+      "task_prompt": "Use the exact error near the end of the retained command output to decide the repair. Do not rerun the expensive command.",
+      "context": {
+        "command_results": [{"kind": "run_command", "command": "python3 train.py", "success": false, "stdout": "[head excerpt] ... full output externalised ... [tail excerpt]", "stdout_handle": "output:44:stdout", "stdout_bytes": 3400000}],
+        "output_handles": [{"handle": "output:44:stdout", "receipt_id": "cmd:44", "stream": "stdout", "bytes": 3400000}],
+        "action_constraints": ["Do not rerun python3 train.py; retrieve or search the retained output."],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "act",
+        "allowed_action_kinds": ["read_output", "grep_output"],
+        "argument_any_contains": {"handle": ["output:44:stdout"]}
+      }
+    },
+    {
+      "id": "stale_evidence_after_mutation",
+      "official_archetypes": ["stale_evidence", "exact_artifact", "scientific_numeric"],
+      "task_prompt": "Verify the current /app/result.json after it was modified. Prior inspection evidence is stale.",
+      "context": {
+        "artifact_history": [{"path": "result.json", "event": "write", "step": 12, "task_generation": 5}],
+        "active_completion_findings": [{"finding_id": "stale-result-proof", "summary": "The cited result.json inspection was generation 4, before the generation 5 write.", "applies_to": ["result.json"]}],
+        "observations": [{"summary": "old inspection id inspection:g4:result"}],
+        "pending_checks": [{"label": "schema:result.json", "passed": null, "failure_kind": "stale_evidence", "repair_hint": "Inspect current bytes."}],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "act",
+        "allowed_action_kinds": ["read_file", "inspect_artifact"],
+        "argument_equals": {"path": "result.json"}
+      }
+    },
+    {
+      "id": "verifier_finding_repair",
+      "official_archetypes": ["exact_artifact", "hidden_adversarial", "debug_repair"],
+      "task_prompt": "Create /app/out.txt containing the exact token PASS-123.",
+      "context": {
+        "latest_file_reads": [{"path": "out.txt", "content": "PASS-124\n"}],
+        "active_completion_findings": [{"finding_id": "exact-token", "summary": "Current out.txt contains PASS-124, but the task requires exact PASS-123.", "repair_instruction": "Rewrite out.txt with PASS-123.", "applies_to": ["out.txt"]}],
+        "pending_checks": [{"label": "content:out.txt", "passed": false, "failure_kind": "semantic_mismatch", "repair_hint": "Write exact PASS-123."}],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "act",
+        "allowed_action_kinds": ["write_file"],
+        "argument_equals": {"path": "out.txt"},
+        "argument_contains": {"content": "PASS-123"}
+      }
+    },
+    {
+      "id": "derived_representation_lineage",
+      "official_archetypes": ["perception_media", "derived_representation", "visual_semantic"],
+      "task_prompt": "Inspect diagram.png semantically. The current binary inspection returned metadata only; create an inspectable task-local representation bound to the source.",
+      "context": {
+        "tool_results": [{"kind": "inspect_artifact", "path": "diagram.png", "success": false, "detail": "metadata-only; semantic content unavailable", "content_hash": "source-sha256-abc"}],
+        "artifacts_present": ["diagram.png"],
+        "observed_environment_support": {"commands": {"python3": "available"}, "packages": {"PIL": "available"}},
+        "active_completion_findings": [{"finding_id": "semantic-observation-missing", "summary": "No semantic observation is bound to source-sha256-abc.", "applies_to": ["diagram.png"]}],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "act",
+        "allowed_action_kinds": ["run_command", "inspect_artifact"],
+        "forbidden_action_kinds": ["submit_outcome"]
+      }
+    },
+    {
+      "id": "submission_coherence",
+      "official_archetypes": ["exact_artifact", "protocol_interaction", "completion"],
+      "task_prompt": "Submit only after all current requirements are independently verified.",
+      "context": {
+        "pending_checks": [{"label": "official-visible contract", "passed": true, "failure_kind": "", "repair_hint": ""}],
+        "active_completion_findings": [],
+        "artifacts_present": ["out.txt"],
+        "observations": [{"summary": "fresh independent inspection inspection:g8:out proves current exact content", "task_generation": 8}],
+        "recent_progress": [{"kind": "model_verifier_result", "summary": "completed with current registered inspection"}],
+        "automatic_memory_available": true
+      },
+      "expected": {
+        "turn_kind": "submit_outcome",
+        "allowed_action_kinds": []
+      }
+    }
+  ]
+}

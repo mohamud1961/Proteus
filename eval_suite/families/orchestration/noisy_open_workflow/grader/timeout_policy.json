@@ -1,0 +1,8 @@
+{
+  "schema_version": "eval_grader_timeout_policy.v1",
+  "max_runtime_seconds": 45,
+  "rules": {
+    "infra_timeout": "invalid_environment_timeout",
+    "generic_timeout": "timeout_without_completion"
+  }
+}

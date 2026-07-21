@@ -1,0 +1,110 @@
+schema_version: final_harness_family_winner_registry.v1
+board_id: final_harness_eval_suite_v1
+generated_at: 2026-05-25T00:00:00Z
+winners:
+  - family_id: family_gamma
+    winner_id: winner_gamma
+    mechanism_id: mech_gamma
+    variant_or_route_id: var_gamma
+    touched_code_surfaces:
+      - blocks/context/structured_sections.py
+    claimed_changed_surfaces:
+      - context
+    family_board_evidence_refs:
+      - synthetic://family_gamma/board
+    result_row_refs:
+      - synthetic://family_gamma/result_rows
+    scoreboard_refs:
+      - synthetic://family_gamma/scoreboard
+    sentinel_refs:
+      - synthetic://family_gamma/sentinel
+    global_board_check_ref: synthetic://family_gamma/global_check
+    compatibility_check_refs:
+      - synthetic://family_gamma/compatibility
+    carry_forward_status: recipe_ingredient
+    authority_label: equivalent
+    promotion_scope: global_promoted
+    contamination_status: clean
+    invalidity_status: valid
+    cost_step_delta_vs_control:
+      cost_delta_pct: 2.0
+      step_delta_pct: 1.0
+    known_risks:
+      - synthetic_risk_gamma
+    known_interactions:
+      - synthetic_interaction_gamma
+    excluded_recipe_ids:
+      - recipe_candidate_b
+    eligible_recipe_ids:
+      - recipe_candidate_a
+    review_gate_status: passed
+  - family_id: family_beta
+    winner_id: winner_beta
+    mechanism_id: mech_beta
+    variant_or_route_id: var_beta
+    touched_code_surfaces:
+      - blocks/tools/raw_bash.py
+    claimed_changed_surfaces:
+      - tooling
+    family_board_evidence_refs:
+      - synthetic://family_beta/board
+    result_row_refs:
+      - synthetic://family_beta/result_rows
+    scoreboard_refs:
+      - synthetic://family_beta/scoreboard
+    sentinel_refs:
+      - synthetic://family_beta/sentinel
+    global_board_check_ref: synthetic://family_beta/global_check
+    compatibility_check_refs:
+      - synthetic://family_beta/compatibility
+    carry_forward_status: recipe_ingredient
+    authority_label: equivalent
+    promotion_scope: global_promoted
+    contamination_status: clean
+    invalidity_status: valid
+    cost_step_delta_vs_control:
+      cost_delta_pct: 1.0
+      step_delta_pct: 1.0
+    known_risks:
+      - synthetic_risk_beta
+    known_interactions:
+      - synthetic_interaction_beta
+    excluded_recipe_ids: []
+    eligible_recipe_ids:
+      - recipe_candidate_b
+    review_gate_status: passed
+  - family_id: family_alpha
+    winner_id: winner_alpha
+    mechanism_id: mech_alpha
+    variant_or_route_id: var_alpha
+    touched_code_surfaces:
+      - blocks/execution/flat_loop.py
+    claimed_changed_surfaces:
+      - execution
+    family_board_evidence_refs:
+      - synthetic://family_alpha/board
+    result_row_refs:
+      - synthetic://family_alpha/result_rows
+    scoreboard_refs:
+      - synthetic://family_alpha/scoreboard
+    sentinel_refs:
+      - synthetic://family_alpha/sentinel
+    global_board_check_ref: synthetic://family_alpha/global_check
+    compatibility_check_refs:
+      - synthetic://family_alpha/compatibility
+    carry_forward_status: recipe_ingredient
+    authority_label: equivalent
+    promotion_scope: global_promoted
+    contamination_status: clean
+    invalidity_status: valid
+    cost_step_delta_vs_control:
+      cost_delta_pct: 1.0
+      step_delta_pct: 0.0
+    known_risks:
+      - synthetic_risk_alpha
+    known_interactions:
+      - synthetic_interaction_alpha
+    excluded_recipe_ids: []
+    eligible_recipe_ids:
+      - recipe_candidate_a
+    review_gate_status: passed

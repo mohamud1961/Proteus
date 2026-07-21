@@ -1,0 +1,37 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fhard_07_original_tool_schema_workspace_mix",
+  "canonical_workspace_root": "/workspace/project",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/project/ops/contracts/tool_schema.json",
+      "kind": "tool_contract",
+      "note": "Defines required operation order and output contract."
+    },
+    {
+      "path": "solver_pack/workspace/project/data/live_snapshot.ndjson",
+      "kind": "truth_source",
+      "note": "Authoritative latest workspace state."
+    },
+    {
+      "path": "solver_pack/workspace/project/tmp/tool_cache/snapshot.json",
+      "kind": "decoy",
+      "note": "Looks cleaner but stale."
+    },
+    {
+      "path": "solver_pack/workspace/project/ops/runbooks/operator_notes.md",
+      "kind": "noise",
+      "note": "Contains mixed advice including one invalid ordering."
+    },
+    {
+      "path": "solver_pack/workspace/project/config/active_workspace.txt",
+      "kind": "repair_target",
+      "note": "Must be set to selected workspace id."
+    },
+    {
+      "path": "solver_pack/workspace/project/scripts/visible_verify.py",
+      "kind": "visible_verifier",
+      "note": "Checks dispatch plan shape and active workspace consistency."
+    }
+  ]
+}

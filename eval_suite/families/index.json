@@ -1,0 +1,72 @@
+{
+  "map_id": "public_eval_families_v1",
+  "scope_label": "public family-level eval leaves",
+  "families": [
+    {
+      "family_id": "public_manifest_repair_smoke",
+      "summary_ref": "eval_suite/families/public_manifest_repair_smoke.md",
+      "task_pack_ref": "eval_suite/families/filesystem/public_manifest_repair_smoke/task_pack.json",
+      "board_ref": "eval_suite/boards/public_manifest_repair_smoke_v1.json",
+      "scoreboard_ref": "eval_suite/scoreboards/public_manifest_repair_smoke_v1.example.scoreboard.json",
+      "surface_type": "verifier_repair",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Synthetic filesystem repair family with a deterministic grader."
+    },
+    {
+      "family_id": "public_homolog_contract_smoke",
+      "summary_ref": "eval_suite/families/homolog_contract_smoke.md",
+      "task_pack_ref": "eval_suite/families/runtime_contract/homolog_contract_smoke/task_pack.json",
+      "board_ref": "eval_suite/boards/homolog_contract_smoke_v1.json",
+      "scoreboard_ref": "eval_suite/scoreboards/homolog_contract_smoke_v1.example.scoreboard.json",
+      "surface_type": "mixed_runtime_contract",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Sanitized mixed-runtime contract family distilled from private homolog shape."
+    },
+    {
+      "family_id": "runtime_policy_hook_smoke",
+      "summary_ref": "eval_suite/families/runtime_policy_hook_smoke.md",
+      "task_pack_ref": "eval_suite/families/environment/runtime_policy_hook_smoke/task_pack.json",
+      "board_ref": "eval_suite/boards/runtime_policy_hook_smoke_v1.json",
+      "scoreboard_ref": "eval_suite/scoreboards/runtime_policy_hook_smoke_v1.example.scoreboard.json",
+      "surface_type": "synthetic_substrate_smoke",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Visible policy-hook and ordering smoke for runtime guard behavior."
+    },
+    {
+      "family_id": "mcp_registry_contract_smoke",
+      "summary_ref": "eval_suite/families/mcp_registry_contract_smoke.md",
+      "task_pack_ref": "eval_suite/families/tooling/mcp_registry_contract_smoke/task_pack.json",
+      "board_ref": "eval_suite/boards/mcp_registry_contract_smoke_v1.json",
+      "scoreboard_ref": "eval_suite/scoreboards/mcp_registry_contract_smoke_v1.example.scoreboard.json",
+      "surface_type": "registry_runtime_contract",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Typed registry and discovery smoke for public MCP-facing surfaces."
+    },
+    {
+      "family_id": "skill_loader_contract_smoke",
+      "summary_ref": "eval_suite/families/skill_loader_contract_smoke.md",
+      "task_pack_ref": "eval_suite/families/tooling/skill_loader_contract_smoke/task_pack.json",
+      "board_ref": "eval_suite/boards/skill_loader_contract_smoke_v1.json",
+      "scoreboard_ref": "eval_suite/scoreboards/skill_loader_contract_smoke_v1.example.scoreboard.json",
+      "surface_type": "skill_loading_contract",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Deterministic skill-loading smoke for public frontmatter and context rendering."
+    },
+    {
+      "family_id": "subagent_handoff_contract_smoke",
+      "summary_ref": "eval_suite/families/subagent_handoff_contract_smoke.md",
+      "task_pack_ref": "eval_suite/families/orchestration/subagent_handoff_contract_smoke/task_pack.json",
+      "board_ref": "eval_suite/boards/subagent_handoff_contract_smoke_v1.json",
+      "scoreboard_ref": "eval_suite/scoreboards/subagent_handoff_contract_smoke_v1.example.scoreboard.json",
+      "surface_type": "handoff_contract",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Structured worker packet and parent-visible handoff smoke."
+    }
+  ]
+}

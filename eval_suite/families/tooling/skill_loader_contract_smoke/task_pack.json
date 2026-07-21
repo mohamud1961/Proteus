@@ -1,0 +1,39 @@
+{
+  "task_id": "skill_loader_contract_smoke_v1",
+  "task_prompt": "Produce skill_audit.json proving deterministic path-based skill discovery, faithful frontmatter parsing, visible collision and missing-skill reason codes, retained hook and MCP-linked metadata, a bounded visible skills context block, and no hidden prompt mutation outside the recorded context.",
+  "fixture": {
+    "type": "synthetic_skill_loader_contract",
+    "workspace_ref": "eval_suite/families/tooling/skill_loader_contract_smoke/fixture/workspace",
+    "reference_ref": "eval_suite/families/tooling/skill_loader_contract_smoke/fixture/reference",
+    "workspace_dir": "workspace",
+    "reference_dir": "reference"
+  },
+  "canonical_root": "/app",
+  "backend_requirements": {
+    "certified_default": "linux_container",
+    "debug_backend": "debug_local_no_sandbox",
+    "network": "disabled"
+  },
+  "visible_verifier": {
+    "command": "python3 eval_suite/families/tooling/skill_loader_contract_smoke/grader.py --workspace /app/workspace --reference-root /app/reference --mode visible"
+  },
+  "hidden_verifier": {
+    "command_shape": "python3 eval_suite/families/tooling/skill_loader_contract_smoke/grader.py --workspace <workspace_root> --reference-root <reference_root> --mode hidden",
+    "checks_ref": "hidden://skill-loader-contract-smoke-v1",
+    "leak_hidden_checks_to_prompt": false
+  },
+  "grader": {
+    "type": "deterministic_skill_loader_contract",
+    "score_range": [0, 1]
+  },
+  "contamination_policy": {
+    "status": "clean",
+    "source": "original_synthetic",
+    "public_benchmark_row": false
+  },
+  "artifact_capture_policy": {
+    "capture": ["environment", "artifacts", "trace"]
+  },
+  "admission_level": "diagnostic",
+  "surface_type": "synthetic_substrate_smoke"
+}

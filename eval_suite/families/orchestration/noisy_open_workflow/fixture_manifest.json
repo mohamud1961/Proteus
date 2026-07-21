@@ -1,0 +1,32 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fhard_08_original_noisy_open_workflow",
+  "canonical_workspace_root": "/workspace/case",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/case/briefing/task_brief.md",
+      "kind": "task_brief",
+      "note": "High-level objective with intentionally incomplete detail."
+    },
+    {
+      "path": "solver_pack/workspace/case/evidence/tickets.jsonl",
+      "kind": "truth_source",
+      "note": "Structured ticket state transitions."
+    },
+    {
+      "path": "solver_pack/workspace/case/evidence/mailbox_dump.txt",
+      "kind": "noise",
+      "note": "Human chatter includes stale assumptions."
+    },
+    {
+      "path": "solver_pack/workspace/case/evidence/handwritten_scan_notes.txt",
+      "kind": "noise",
+      "note": "Informal notes with one red-herring ticket id."
+    },
+    {
+      "path": "solver_pack/workspace/case/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Checks report shape and minimal closure assertions."
+    }
+  ]
+}

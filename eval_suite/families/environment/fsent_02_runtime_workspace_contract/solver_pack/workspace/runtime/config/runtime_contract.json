@@ -1,0 +1,9 @@
+{
+  "required_python_command": "python3",
+  "required_workspace_root": "/workspace/runtime",
+  "required_runner_command": "uv run pytest -q",
+  "valid_runtime_classification": [
+    "valid_runtime_contract",
+    "invalid_environment"
+  ]
+}

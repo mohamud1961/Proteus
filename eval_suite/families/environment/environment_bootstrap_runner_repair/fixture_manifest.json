@@ -1,0 +1,42 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "environment_bootstrap_runner_repair",
+  "canonical_workspace_root": "/workspace/bootstrap",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/bootstrap/config/toolchain_contract.json",
+      "kind": "configuration",
+      "note": "Canonical runner contract: python command, test runner, target, package managers."
+    },
+    {
+      "path": "solver_pack/workspace/bootstrap/scripts/run_tests.sh",
+      "kind": "repair_target",
+      "note": "Primary runner script starts stale and must be patched to invoke the canonical runner."
+    },
+    {
+      "path": "solver_pack/workspace/bootstrap/scripts/run_legacy_tests.sh",
+      "kind": "decoy",
+      "note": "Legacy runner path referenced by stale docs; must not be selected."
+    },
+    {
+      "path": "solver_pack/workspace/bootstrap/tests/test_runner_contract.py",
+      "kind": "evidence",
+      "note": "Visible target test file proving the canonical runner target."
+    },
+    {
+      "path": "solver_pack/workspace/bootstrap/pyproject.toml",
+      "kind": "evidence",
+      "note": "Visible project metadata showing a modern Python project layout."
+    },
+    {
+      "path": "solver_pack/workspace/bootstrap/docs/stale_runner_guidance.md",
+      "kind": "decoy",
+      "note": "Stale notes pointing to the wrong runner and python command."
+    },
+    {
+      "path": "solver_pack/workspace/bootstrap/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Readiness gate: checks report shape only."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "board_id": "public_eval_harness_v1",
+  "board_type": "public_harness_overview",
+  "scope_label": "public family map and harness summary",
+  "family_index_ref": "eval_suite/families/index.json",
+  "family_summary_refs": [
+    "eval_suite/families/public_manifest_repair_smoke.md",
+    "eval_suite/families/homolog_contract_smoke.md",
+    "eval_suite/families/runtime_policy_hook_smoke.md",
+    "eval_suite/families/mcp_registry_contract_smoke.md",
+    "eval_suite/families/skill_loader_contract_smoke.md",
+    "eval_suite/families/subagent_handoff_contract_smoke.md"
+  ],
+  "smoke_family_pack_refs": [
+    "eval_suite/families/filesystem/public_manifest_repair_smoke/task_pack.json",
+    "eval_suite/families/runtime_contract/homolog_contract_smoke/task_pack.json",
+    "eval_suite/families/environment/runtime_policy_hook_smoke/task_pack.json",
+    "eval_suite/families/tooling/mcp_registry_contract_smoke/task_pack.json",
+    "eval_suite/families/tooling/skill_loader_contract_smoke/task_pack.json",
+    "eval_suite/families/orchestration/subagent_handoff_contract_smoke/task_pack.json"
+  ],
+  "calibration_lane_board_ref": "eval_suite/boards/public_calibration_lanes_v1.json",
+  "pressure_family_board_ref": "eval_suite/boards/public_pressure_families_v1.json",
+  "pressure_family_pack_root_ref": "eval_suite/families/",
+  "attempt_root_ref": "eval_suite/whole_harness/final_harness_v1/attempts/",
+  "scoreboard_ref": "eval_suite/scoreboards/public_eval_harness_v1.example.scoreboard.json",
+  "contamination_policy": {
+    "status": "clean",
+    "source": "synthetic_or_sanitized",
+    "notes": "public-safe executable pack and attempt map"
+  },
+  "notes": "Harness-wide public overview tying together executable smoke families, promoted pressure-family task packs, and real public attempt artifacts without exposing hidden verifier material."
+}

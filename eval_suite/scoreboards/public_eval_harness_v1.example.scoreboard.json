@@ -1,0 +1,162 @@
+{
+  "board_id": "public_eval_harness_v1",
+  "example_only": true,
+  "scope_label": "public harness overview and family coverage",
+  "result_rows": [
+    {
+      "run_id": "public_eval_harness_family_index",
+      "eval_id": "public_eval_harness_v1",
+      "task_pack_id": "public_eval_harness_v1",
+      "family": "public_eval_harness",
+      "surface_type": "public_family_index",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/whole_harness/runtime_control_harness_v1/runtime_control_harness_v1.json",
+      "artifact_refs": [
+        "eval_suite/families/index.json",
+        "eval_suite/whole_harness/runtime_control_harness_v1/runtime_control_harness_v1.json"
+      ],
+      "trace_refs": [
+        "eval_suite/whole_harness/README.md"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/whole_harness/runtime_control_harness_v1/runtime_control_harness_v1.json",
+      "score": 1.0
+    },
+    {
+      "run_id": "public_eval_harness_calibration_lanes",
+      "eval_id": "public_eval_harness_v1",
+      "task_pack_id": "public_eval_harness_v1",
+      "family": "public_eval_harness",
+      "surface_type": "public_calibration_summary",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/calibration_lanes/README.md",
+      "artifact_refs": [
+        "eval_suite/boards/public_calibration_lanes_v1.json"
+      ],
+      "trace_refs": [
+        "eval_suite/calibration_lanes/README.md"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/boards/public_calibration_lanes_v1.json",
+      "score": 1.0
+    },
+    {
+      "run_id": "public_eval_harness_pressure_family",
+      "eval_id": "public_eval_harness_v1",
+      "task_pack_id": "public_eval_harness_v1",
+      "family": "public_eval_harness",
+      "surface_type": "public_pressure_family_surface",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/families/",
+      "artifact_refs": [
+        "eval_suite/boards/public_pressure_families_v1.json",
+        "eval_suite/families/service/service_lifecycle_readiness_flagship/task_pack.yaml"
+      ],
+      "trace_refs": [
+        "eval_suite/families/README.md"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/families/service/service_lifecycle_readiness_flagship/grader/grade.py",
+      "score": 1.0
+    }
+  ],
+  "scoreboard": {
+    "row_count": 3,
+    "totals": {
+      "pass": 3,
+      "fail": 0,
+      "invalid": 0,
+      "total": 3
+    },
+    "cost_summary": {
+      "run_count": 3,
+      "model_backed_run_count": 0,
+      "total_input_messages": 0,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_output_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "usd": 0.0,
+      "usd_estimate": 0.0,
+      "cost_breakdown_usd": {
+        "input_cost": 0.0,
+        "cached_input_cost": 0.0,
+        "output_cost": 0.0,
+        "total_cost": 0.0
+      },
+      "pricing_model_ids": []
+    },
+    "by_family": {
+      "public_eval_harness": {
+        "pass": 3,
+        "fail": 0,
+        "invalid": 0,
+        "total": 3
+      }
+    },
+    "by_surface_type": {
+      "public_family_index": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "public_calibration_summary": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "public_pressure_family_surface": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      }
+    },
+    "by_admission_level": {
+      "diagnostic": {
+        "pass": 3,
+        "fail": 0,
+        "invalid": 0,
+        "total": 3
+      }
+    },
+    "by_contamination_status": {
+      "clean": {
+        "pass": 3,
+        "fail": 0,
+        "invalid": 0,
+        "total": 3
+      }
+    },
+    "by_failure_class": {
+      "none": {
+        "pass": 3,
+        "fail": 0,
+        "invalid": 0,
+        "total": 3
+      }
+    }
+  }
+}

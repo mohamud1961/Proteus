@@ -1,0 +1,22 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fsent_04_retrieval_reduction_closure",
+  "canonical_workspace_root": "/workspace/retrieval",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/retrieval/data/evidence_rows.jsonl",
+      "kind": "evidence",
+      "note": "Contains required and stale rows with overlapping values."
+    },
+    {
+      "path": "solver_pack/workspace/retrieval/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Visible check validates the exact scalar, required evidence IDs, stale rejection, and justification coverage from visible evidence rows."
+    },
+    {
+      "path": "solver_pack/workspace/retrieval/docs/stale_summary.txt",
+      "kind": "decoy",
+      "note": "Contains stale aggregate value that must be rejected."
+    }
+  ]
+}

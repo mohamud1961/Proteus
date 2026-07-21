@@ -1,0 +1,10 @@
+{
+  "lane_id": "filesystem_lane",
+  "surface_type": "filesystem",
+  "artifact_refs": [
+    "eval_suite/calibration_lanes/filesystem/filesystem_code.jsonl",
+    "eval_suite/calibration_lanes/filesystem/rubric.txt",
+    "eval_suite/calibration_lanes/filesystem/workspace/files/alpha.txt"
+  ],
+  "notes": "Public adapter-facing filesystem calibration lane."
+}

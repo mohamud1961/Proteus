@@ -1,0 +1,54 @@
+{
+  "board_id": "public_pressure_families_v1",
+  "board_type": "public_pressure_family_surface",
+  "scope_label": "public pressure families",
+  "family_groups": [
+    {
+      "group_id": "toolchain_bootstrap_runner_repair",
+      "public_name": "toolchain bootstrap and runner repair",
+      "surface_type": "environment_toolchain",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Renamed public-safe pressure family for toolchain bootstrap."
+    },
+    {
+      "group_id": "service_lifecycle_readiness",
+      "public_name": "service lifecycle readiness",
+      "surface_type": "service_orchestration",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Renamed public-safe pressure family for lifecycle readiness."
+    },
+    {
+      "group_id": "filesystem_decoy_target_selection",
+      "public_name": "filesystem decoy target selection",
+      "surface_type": "filesystem_path",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Renamed public-safe pressure family for path identity drift."
+    },
+    {
+      "group_id": "hidden_verifier_repair",
+      "public_name": "hidden verifier repair",
+      "surface_type": "verification_completion",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Renamed public-safe pressure family for repair-and-rerun closure."
+    },
+    {
+      "group_id": "structured_retrieval_reduction",
+      "public_name": "structured retrieval reduction",
+      "surface_type": "retrieval_reduction",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Renamed public-safe pressure family for retrieval and contradiction closure."
+    }
+  ],
+  "scoreboard_ref": "eval_suite/scoreboards/public_pressure_families_v1.example.scoreboard.json",
+  "contamination_policy": {
+    "status": "clean",
+    "source": "sanitized_private_registry_summary",
+    "notes": "public adaptation surface only"
+  },
+  "notes": "Public-safe adaptation surface for review and calibration of hard pressure families."
+}

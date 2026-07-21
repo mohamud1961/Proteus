@@ -1,0 +1,7 @@
+{
+  "task_pack_id": "fhard_01_toolchain_runner_repair",
+  "max_wall_clock_seconds": 900,
+  "max_tool_call_seconds": 120,
+  "max_retries": 1,
+  "timeout_classification": "invalid_due_to_environment"
+}

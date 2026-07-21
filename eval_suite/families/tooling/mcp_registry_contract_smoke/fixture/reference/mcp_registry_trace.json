@@ -1,0 +1,51 @@
+{
+  "discovery": {
+    "discovered_tool_names": [
+      "mcp__qa_server__echo_payload"
+    ],
+    "repeat_discovered_tool_names": [
+      "mcp__qa_server__echo_payload"
+    ],
+    "schema_issue_reason_codes": [
+      "mcp_schema_mapping_error"
+    ]
+  },
+  "schema_mapping": {
+    "qualified_name": "mcp__qa_server__echo_payload",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "payload": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "payload"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "invocation_results": {
+    "success_reason_code": null,
+    "timeout_reason_code": "mcp_tool_timeout",
+    "error_reason_code": "mcp_tool_error",
+    "unavailable_reason_code": "mcp_server_unavailable",
+    "schema_mapping_reason_code": "mcp_schema_mapping_error"
+  },
+  "hook_permission_trace": {
+    "events": [
+      "permission_request",
+      "pre_tool_use",
+      "post_tool_use"
+    ],
+    "permission_behavior": "allow"
+  },
+  "native_regression": {
+    "write_file_exit_code": 0,
+    "read_file_exit_code": 0,
+    "read_stdout_contains": "hello"
+  }
+}

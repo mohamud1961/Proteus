@@ -1,0 +1,30 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: fsent_05_long_handoff_composition_smoke
+row_id: fsent_05_long_handoff_composition_smoke
+row_type: composition
+is_flagship: false
+provenance_type: original_private
+admission_level_target: certified
+primary_clusters:
+  - long-horizon orchestration
+  - retrieval/reduction
+  - verification/completion
+canonical_workspace_root: /workspace/handoff
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 210
+expected_outputs:
+  candidate_json: /workspace/handoff/out/final_submission.json
+  final_bundle: /workspace/handoff/stage/final/handoff_bundle.json
+task_brief: >-
+  Carry an artifact through a short multi-step chain, preserve identity and hash,
+  and close only after delayed verifier confirmation.

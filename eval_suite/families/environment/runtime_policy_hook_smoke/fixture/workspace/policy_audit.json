@@ -1,0 +1,10 @@
+{
+  "arguments_mutated": true,
+  "denied_action_mutated_workspace": true,
+  "denied_observation_visible": false,
+  "events": [
+    "pre_tool_use",
+    "permission_request",
+    "post_tool_use"
+  ]
+}

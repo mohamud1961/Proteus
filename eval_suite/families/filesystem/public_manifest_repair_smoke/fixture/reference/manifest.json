@@ -1,0 +1,11 @@
+{
+  "files": [
+    "release/manifest.json",
+    "release/summary.txt",
+    "release/checksum.txt"
+  ],
+  "maintainer": "platform-ops",
+  "project": "Atlas Notes",
+  "release": "1.4.0",
+  "status": "ready"
+}

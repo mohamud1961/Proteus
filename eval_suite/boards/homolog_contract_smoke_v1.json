@@ -1,0 +1,16 @@
+{
+  "board_id": "homolog_contract_smoke_v1",
+  "board_type": "public_smoke_example",
+  "task_family": "public_homolog_contract_smoke",
+  "task_pack_ref": "eval_suite/families/runtime_contract/homolog_contract_smoke/task_pack.json",
+  "scoreboard_ref": "eval_suite/scoreboards/homolog_contract_smoke_v1.example.scoreboard.json",
+  "admission_level": "diagnostic",
+  "surface_type": "mixed_runtime_contract",
+  "contamination_policy": {
+    "status": "clean",
+    "source": "original_synthetic",
+    "private_row_copy": false,
+    "public_benchmark_row": false
+  },
+  "notes": "Public smoke only; not benchmark evidence."
+}

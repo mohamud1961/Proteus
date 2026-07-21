@@ -1,0 +1,11 @@
+schema_version: final_harness_current_stack_manifest.v1
+board_id: final_harness_eval_suite_v1
+generated_at: 2026-05-25T00:00:00Z
+freeze_status: provisional_pre_family_completion
+base_route_id: sc_b_01
+included_mechanism_ids:
+  - sc_b_01
+excluded_mechanism_ids: []
+authority_label: equivalent
+evidence_refs:
+  - synthetic://recipe_ingestion_governance/current_stack_manifest

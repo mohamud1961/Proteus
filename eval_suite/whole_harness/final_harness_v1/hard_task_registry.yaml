@@ -1,0 +1,183 @@
+schema_version: final_harness_hard_task_registry.v1
+board_id: final_harness_eval_suite_v1
+owner_block: block_5_principal_integration
+policy_note: registry_reconciled_against_existing_hard_task_pack_artifacts
+hard_tasks:
+  - row_id: environment_bootstrap_runner_repair
+    row_type: hard
+    is_flagship: false
+    provenance_type: pressure_family_mutated
+    source_family_hint: environment_bootstrap_and_toolchain_runner_resolution
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_pressure_family_tasks_adversarial_review.md
+    critical_clusters:
+      - environment/toolchain
+      - filesystem/path
+      - verification/completion
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/environment/environment_bootstrap_runner_repair/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/environment/environment_bootstrap_runner_repair/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/environment/environment_bootstrap_runner_repair/solver_pack/visible_verifier.py
+    grader_ref: eval_suite/families/environment/environment_bootstrap_runner_repair/grader/grade.py
+    timeout_policy_ref: eval_suite/families/environment/environment_bootstrap_runner_repair/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/environment/environment_bootstrap_runner_repair/known_bad/README.md
+    ceiling_ref: eval_suite/families/environment/environment_bootstrap_runner_repair/ceiling/README.md
+  - row_id: service_lifecycle_readiness_flagship
+    row_type: hard
+    is_flagship: true
+    provenance_type: pressure_family_mutated
+    source_family_hint: service_process_readiness
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_pressure_family_tasks_adversarial_review.md
+    critical_clusters:
+      - environment/toolchain
+      - tooling/tool-call
+      - verification/completion
+      - long-horizon orchestration
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/service/service_lifecycle_readiness_flagship/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/service/service_lifecycle_readiness_flagship/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/service/service_lifecycle_readiness_flagship/solver_pack/visible_verifier.py
+    grader_ref: eval_suite/families/service/service_lifecycle_readiness_flagship/grader/grade.py
+    timeout_policy_ref: eval_suite/families/service/service_lifecycle_readiness_flagship/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/service/service_lifecycle_readiness_flagship/known_bad/README.md
+    ceiling_ref: eval_suite/families/service/service_lifecycle_readiness_flagship/ceiling/README.md
+  - row_id: filesystem_decoy_target_selection
+    row_type: hard
+    is_flagship: false
+    provenance_type: pressure_family_mutated
+    source_family_hint: filesystem_target_selection
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_pressure_family_tasks_adversarial_review.md
+    critical_clusters:
+      - filesystem/path
+      - retrieval/reduction
+      - verification/completion
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/filesystem/filesystem_decoy_target_selection/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/filesystem/filesystem_decoy_target_selection/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/filesystem/filesystem_decoy_target_selection/solver_pack/visible_verifier.py
+    grader_ref: eval_suite/families/filesystem/filesystem_decoy_target_selection/grader/grade.py
+    timeout_policy_ref: eval_suite/families/filesystem/filesystem_decoy_target_selection/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/filesystem/filesystem_decoy_target_selection/known_bad/README.md
+    ceiling_ref: eval_suite/families/filesystem/filesystem_decoy_target_selection/ceiling/README.md
+  - row_id: hidden_verifier_repair
+    row_type: hard
+    is_flagship: false
+    provenance_type: pressure_family_mutated
+    source_family_hint: verification_completion_recovery
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_pressure_family_tasks_adversarial_review.md
+    critical_clusters:
+      - verification/completion
+      - filesystem/path
+      - environment/toolchain
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/verification/hidden_verifier_repair/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/verification/hidden_verifier_repair/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/verification/hidden_verifier_repair/solver_pack/visible_verifier.py
+    grader_ref: eval_suite/families/verification/hidden_verifier_repair/grader/grade.py
+    timeout_policy_ref: eval_suite/families/verification/hidden_verifier_repair/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/verification/hidden_verifier_repair/known_bad/README.md
+    ceiling_ref: eval_suite/families/verification/hidden_verifier_repair/ceiling/README.md
+  - row_id: structured_retrieval_reduction
+    row_type: hard
+    is_flagship: false
+    provenance_type: pressure_family_mutated
+    source_family_hint: context_retrieval_reduction_and_state_freshness
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_pressure_family_tasks_adversarial_review.md
+    critical_clusters:
+      - retrieval/reduction
+      - filesystem/path
+      - verification/completion
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/retrieval/structured_retrieval_reduction/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/retrieval/structured_retrieval_reduction/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/retrieval/structured_retrieval_reduction/solver_pack/visible_verifier.py
+    grader_ref: eval_suite/families/retrieval/structured_retrieval_reduction/grader/grade.py
+    timeout_policy_ref: eval_suite/families/retrieval/structured_retrieval_reduction/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/retrieval/structured_retrieval_reduction/known_bad/README.md
+    ceiling_ref: eval_suite/families/retrieval/structured_retrieval_reduction/ceiling/README.md
+  - row_id: original_repo_recovery_flagship
+    row_type: hard
+    is_flagship: true
+    provenance_type: original_private
+    source_family_hint: long_horizon_artifact_handoff
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_original_private_tasks_adversarial_review.md
+    critical_clusters:
+      - long-horizon orchestration
+      - retrieval/reduction
+      - verification/completion
+      - environment/toolchain
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/filesystem/original_repo_recovery_flagship/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/filesystem/original_repo_recovery_flagship/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/filesystem/original_repo_recovery_flagship/solver_pack/workspace/repo/scripts/verify_recovery.py
+    grader_ref: eval_suite/families/filesystem/original_repo_recovery_flagship/grader/grade.py
+    timeout_policy_ref: eval_suite/families/filesystem/original_repo_recovery_flagship/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/filesystem/original_repo_recovery_flagship/known_bad/README.md
+    ceiling_ref: eval_suite/families/filesystem/original_repo_recovery_flagship/ceiling/README.md
+  - row_id: tool_schema_workspace_mix
+    row_type: hard
+    is_flagship: false
+    provenance_type: original_private
+    source_family_hint: tooling_tool_contract
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_original_private_tasks_adversarial_review.md
+    critical_clusters:
+      - tooling/tool-call
+      - filesystem/path
+      - retrieval/reduction
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/tooling/tool_schema_workspace_mix/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/tooling/tool_schema_workspace_mix/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/tooling/tool_schema_workspace_mix/solver_pack/workspace/project/scripts/visible_verify.py
+    grader_ref: eval_suite/families/tooling/tool_schema_workspace_mix/grader/grade.py
+    timeout_policy_ref: eval_suite/families/tooling/tool_schema_workspace_mix/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/tooling/tool_schema_workspace_mix/known_bad/README.md
+    ceiling_ref: eval_suite/families/tooling/tool_schema_workspace_mix/ceiling/README.md
+  - row_id: noisy_open_workflow
+    row_type: hard
+    is_flagship: false
+    provenance_type: original_private
+    source_family_hint: workflow_phase_control_and_process_quality
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_original_private_tasks_adversarial_review.md
+    critical_clusters:
+      - retrieval/reduction
+      - filesystem/path
+      - verification/completion
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/orchestration/noisy_open_workflow/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+    fixture_ref: eval_suite/families/orchestration/noisy_open_workflow/fixture_manifest.json
+    visible_verifier_ref: eval_suite/families/orchestration/noisy_open_workflow/solver_pack/workspace/case/checks/visible_check.py
+    grader_ref: eval_suite/families/orchestration/noisy_open_workflow/grader/grade.py
+    timeout_policy_ref: eval_suite/families/orchestration/noisy_open_workflow/grader/timeout_policy.json
+    known_bad_ref: eval_suite/families/orchestration/noisy_open_workflow/known_bad/README.md
+    ceiling_ref: eval_suite/families/orchestration/noisy_open_workflow/ceiling/README.md

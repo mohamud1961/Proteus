@@ -1,0 +1,172 @@
+{
+  "cases": {
+    "architect:constraints-scheduling": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "architect:extract-elf": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "architect:filter-js-from-html": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "architect:fix-git": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "architect:gcode-to-text": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "architect:log-summary-date-ranges": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "architect:openssl-selfsigned-cert": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "architect:raman-fitting": {
+      "expected_replay_outcome": {
+        "valid": true
+      },
+      "fidelity": "exact_input_reconstructed",
+      "replay_type": "architect_only"
+    },
+    "solver:constraints-scheduling:step-0": {
+      "expected_replay_outcome": {
+        "reward": 1.0,
+        "status": "completed"
+      },
+      "fidelity": "exact_pre_turn_context",
+      "replay_type": "solver_pre_turn_checkpoint"
+    },
+    "solver:extract-elf:step-0": {
+      "expected_replay_outcome": {
+        "reward": 0.0,
+        "status": "incomplete"
+      },
+      "fidelity": "exact_pre_turn_context",
+      "replay_type": "solver_pre_turn_checkpoint"
+    },
+    "solver:filter-js-from-html:step-0": {
+      "expected_replay_outcome": {
+        "reward": 0.0,
+        "status": "completed"
+      },
+      "fidelity": "exact_pre_turn_context",
+      "replay_type": "solver_pre_turn_checkpoint"
+    },
+    "solver:fix-git:step-0": {
+      "expected_replay_outcome": {
+        "reward": 0.0,
+        "status": "incomplete"
+      },
+      "fidelity": "exact_pre_turn_context",
+      "replay_type": "solver_pre_turn_checkpoint"
+    },
+    "solver:gcode-to-text:step-0": {
+      "expected_replay_outcome": {
+        "reward": 0.0,
+        "status": "completed"
+      },
+      "fidelity": "exact_pre_turn_context",
+      "replay_type": "solver_pre_turn_checkpoint"
+    },
+    "solver:log-summary-date-ranges:step-0": {
+      "expected_replay_outcome": {
+        "reward": 0.0,
+        "status": "completed"
+      },
+      "fidelity": "exact_pre_turn_context",
+      "replay_type": "solver_pre_turn_checkpoint"
+    },
+    "verifier:architect_prompt:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_prompt_replay/architect_prompt/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:generic:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_prompt_replay/generic/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:insufficient_evidence:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_only_fake/insufficient_evidence/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:missing_artifact:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_only_fake/missing_artifact/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:repeated_no_progress:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_only_fake/repeated_no_progress/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:schema_mismatch:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_only_fake/schema_mismatch/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:semantic_wrong:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_only_fake/semantic_wrong/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:solver_claim_conflicts_with_raw_state:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/component_eval_20260705_verifier_only_fake/solver_claim_conflicts_with_raw_state/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    },
+    "verifier:step_0002_no_progress:verifier_packet": {
+      "expected_replay_outcome": {
+        "source_packet": "/Users/mohamud/Downloads/harnesseng/aether_next_build/fresh_canonical_runs/20260703_filter/verifier_evidence/filter-js-from-html/step_0002_no_progress/verifier_packet.json"
+      },
+      "fidelity": "reconstructed_state_only",
+      "replay_type": "frozen_verifier_packet"
+    }
+  },
+  "schema_version": "historical_replay_expectations.v1"
+}

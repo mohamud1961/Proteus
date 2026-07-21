@@ -1,0 +1,22 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fsent_03_filesystem_verifier_repair",
+  "canonical_workspace_root": "/workspace/fsverify",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/fsverify/app/config/service.yaml",
+      "kind": "repair_target",
+      "note": "Target file must be patched with required retry value."
+    },
+    {
+      "path": "solver_pack/workspace/fsverify/docs/service.yaml",
+      "kind": "decoy",
+      "note": "Decoy file must remain untouched."
+    },
+    {
+      "path": "solver_pack/workspace/fsverify/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Visible check validates candidate contract shape."
+    }
+  ]
+}

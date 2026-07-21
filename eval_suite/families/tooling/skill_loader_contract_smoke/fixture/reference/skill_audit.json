@@ -1,0 +1,74 @@
+{
+  "skills_discovered": [
+    "alpha-skill",
+    "tool-linked"
+  ],
+  "skill_order_is_deterministic": true,
+  "frontmatter_summary": {
+    "alpha-skill": {
+      "description": "Alpha description",
+      "allowed_tools": [
+        "read_file",
+        "mcp__qa_server__Echo_Tool"
+      ],
+      "user_invocable": false,
+      "execution_context": "fork",
+      "paths": [
+        "src",
+        "docs/*.md"
+      ]
+    },
+    "tool-linked": {
+      "description": "Tool-linked skill",
+      "allowed_tools": [
+        "mcp__qa_server__Echo_Tool"
+      ],
+      "user_invocable": true,
+      "execution_context": null,
+      "paths": [
+        "src"
+      ]
+    }
+  },
+  "collision_reason_codes": {
+    "same_file": [
+      "duplicate_skill_realpath"
+    ],
+    "same_name": [
+      "skill_name_collision"
+    ]
+  },
+  "selection_reason_codes": {
+    "missing": [
+      "skill_not_found"
+    ],
+    "duplicate_ref": [
+      "duplicate_skill_ref"
+    ],
+    "path_scope_mismatch": [
+      "skill_path_scope_mismatch"
+    ]
+  },
+  "visible_context": {
+    "recorded_in_prefix": true,
+    "contains_base_directory": true,
+    "contains_skill_body": true,
+    "bounded": true,
+    "truncated": false
+  },
+  "metadata_retention": {
+    "hooks_present": true,
+    "hook_matcher_count": 1,
+    "unsupported_hook_events": [
+      "Stop"
+    ],
+    "linked_mcp_tools": [
+      "mcp__qa_server__Echo_Tool"
+    ]
+  },
+  "hidden_behavior": {
+    "implicit_prefix_mutation": false,
+    "implicit_hook_execution": false,
+    "implicit_mcp_invocation": false
+  }
+}

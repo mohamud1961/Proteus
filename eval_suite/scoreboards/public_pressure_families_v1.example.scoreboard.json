@@ -1,0 +1,226 @@
+{
+  "board_id": "public_pressure_families_v1",
+  "example_only": true,
+  "scope_label": "public pressure family examples",
+  "result_rows": [
+    {
+      "run_id": "toolchain_bootstrap_runner_repair_summary",
+      "eval_id": "environment_bootstrap_runner_repair",
+      "task_pack_id": "environment_bootstrap_runner_repair",
+      "family": "pressure_family_hard",
+      "surface_type": "environment_toolchain",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/families/environment/environment_bootstrap_runner_repair/solver_pack/",
+      "artifact_refs": [
+        "eval_suite/families/environment/environment_bootstrap_runner_repair/task_pack.yaml",
+        "eval_suite/families/environment/environment_bootstrap_runner_repair/fixture_manifest.json"
+      ],
+      "trace_refs": [
+        "eval_suite/families/environment/environment_bootstrap_runner_repair/solver_pack/visible_verifier.py"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/families/environment/environment_bootstrap_runner_repair/grader/grade.py",
+      "score": 1.0
+    },
+    {
+      "run_id": "service_lifecycle_readiness_summary",
+      "eval_id": "service_lifecycle_readiness_flagship",
+      "task_pack_id": "service_lifecycle_readiness_flagship",
+      "family": "pressure_family_hard",
+      "surface_type": "service_orchestration",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/families/service/service_lifecycle_readiness_flagship/solver_pack/service/",
+      "artifact_refs": [
+        "eval_suite/families/service/service_lifecycle_readiness_flagship/task_pack.yaml",
+        "eval_suite/families/service/service_lifecycle_readiness_flagship/fixture_manifest.json"
+      ],
+      "trace_refs": [
+        "eval_suite/families/service/service_lifecycle_readiness_flagship/solver_pack/service/runtime/launcher.py",
+        "eval_suite/families/service/service_lifecycle_readiness_flagship/solver_pack/service/runtime/probe.py"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/families/service/service_lifecycle_readiness_flagship/grader/grade.py",
+      "score": 1.0
+    },
+    {
+      "run_id": "filesystem_decoy_target_selection_summary",
+      "eval_id": "filesystem_decoy_target_selection",
+      "task_pack_id": "filesystem_decoy_target_selection",
+      "family": "pressure_family_hard",
+      "surface_type": "filesystem_path",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/families/filesystem/filesystem_decoy_target_selection/solver_pack/",
+      "artifact_refs": [
+        "eval_suite/families/filesystem/filesystem_decoy_target_selection/task_pack.yaml",
+        "eval_suite/families/filesystem/filesystem_decoy_target_selection/fixture_manifest.json"
+      ],
+      "trace_refs": [
+        "eval_suite/families/filesystem/filesystem_decoy_target_selection/solver_pack/visible_verifier.py"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/families/filesystem/filesystem_decoy_target_selection/grader/grade.py",
+      "score": 1.0
+    },
+    {
+      "run_id": "hidden_verifier_repair_summary",
+      "eval_id": "hidden_verifier_repair",
+      "task_pack_id": "hidden_verifier_repair",
+      "family": "pressure_family_hard",
+      "surface_type": "verification_completion",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/families/verification/hidden_verifier_repair/solver_pack/",
+      "artifact_refs": [
+        "eval_suite/families/verification/hidden_verifier_repair/task_pack.yaml",
+        "eval_suite/families/verification/hidden_verifier_repair/fixture_manifest.json"
+      ],
+      "trace_refs": [
+        "eval_suite/families/verification/hidden_verifier_repair/solver_pack/visible_verifier.py"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/families/verification/hidden_verifier_repair/grader/grade.py",
+      "score": 1.0
+    },
+    {
+      "run_id": "structured_retrieval_reduction_summary",
+      "eval_id": "structured_retrieval_reduction",
+      "task_pack_id": "structured_retrieval_reduction",
+      "family": "pressure_family_hard",
+      "surface_type": "retrieval_reduction",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_pack_examples",
+      "environment_ref": "eval_suite/families/retrieval/structured_retrieval_reduction/solver_pack/",
+      "artifact_refs": [
+        "eval_suite/families/retrieval/structured_retrieval_reduction/task_pack.yaml",
+        "eval_suite/families/retrieval/structured_retrieval_reduction/fixture_manifest.json"
+      ],
+      "trace_refs": [
+        "eval_suite/families/retrieval/structured_retrieval_reduction/solver_pack/visible_verifier.py"
+      ],
+      "closure_status": "promoted_pack_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/families/retrieval/structured_retrieval_reduction/grader/grade.py",
+      "score": 1.0
+    }
+  ],
+  "scoreboard": {
+    "row_count": 5,
+    "totals": {
+      "pass": 5,
+      "fail": 0,
+      "invalid": 0,
+      "total": 5
+    },
+    "cost_summary": {
+      "run_count": 5,
+      "model_backed_run_count": 0,
+      "total_input_messages": 0,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_output_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "usd": 0.0,
+      "usd_estimate": 0.0,
+      "cost_breakdown_usd": {
+        "input_cost": 0.0,
+        "cached_input_cost": 0.0,
+        "output_cost": 0.0,
+        "total_cost": 0.0
+      },
+      "pricing_model_ids": []
+    },
+    "by_family": {
+      "pressure_family_hard": {
+        "pass": 5,
+        "fail": 0,
+        "invalid": 0,
+        "total": 5
+      }
+    },
+    "by_surface_type": {
+      "environment_toolchain": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "service_orchestration": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "filesystem_path": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "verification_completion": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "retrieval_reduction": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      }
+    },
+    "by_admission_level": {
+      "diagnostic": {
+        "pass": 5,
+        "fail": 0,
+        "invalid": 0,
+        "total": 5
+      }
+    },
+    "by_contamination_status": {
+      "clean": {
+        "pass": 5,
+        "fail": 0,
+        "invalid": 0,
+        "total": 5
+      }
+    },
+    "by_failure_class": {
+      "none": {
+        "pass": 5,
+        "fail": 0,
+        "invalid": 0,
+        "total": 5
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema": "aether.official_task_board.v1",
+  "source": {
+    "archive": "official_tasks(1).zip",
+    "archive_sha256": "08a751eaa5cac33913abc50bfc7d97f2cb38766b54e475c6746f9146194ed762",
+    "task_count": 90,
+    "classification_scope": "evaluation-only; never imported by production harness",
+    "classification_inputs": ["public instruction.md", "public task.toml metadata", "public environment filenames"],
+    "excluded_from_classification": ["solution content", "official tests content", "grader outputs"]
+  },
+  "corpus_summary": {
+    "difficulty_counts": {"easy": 4, "medium": 55, "hard": 30, "unknown": 1},
+    "category_counts": {
+      "software-engineering": 26,
+      "system-administration": 9,
+      "scientific-computing": 8,
+      "security": 8,
+      "data-science": 8,
+      "debugging": 5,
+      "file-operations": 5,
+      "data-processing": 4,
+      "mathematics": 4,
+      "model-training": 4,
+      "machine-learning": 3,
+      "data-querying": 1,
+      "games": 1,
+      "optimization": 1,
+      "personal-assistant": 1,
+      "video-processing": 1,
+      "uncategorized": 1
+    },
+    "task_dimensions": [
+      "code_implementation", "debug_repair", "build_install_toolchain", "service_protocol",
+      "data_transform_query", "scientific_numeric", "ml_model", "security_forensics",
+      "perception_media", "binary_reverse_engineering", "version_control_history",
+      "process_concurrency", "emulation_virtualization", "formal_symbolic",
+      "performance_optimization", "external_acquisition"
+    ],
+    "verification_surfaces": [
+      "exact_artifact", "command_exit_output", "numeric_tolerance_threshold",
+      "protocol_interaction", "visual_semantic", "performance_resource", "hidden_adversarial"
+    ],
+    "harness_risks": [
+      "false_clean_proxy", "stale_evidence", "long_context_output", "process_identity",
+      "derived_representation", "isolation_secret", "external_dependency"
+    ]
+  },
+  "smoke_board": [
+    {"task_id": "cancel-async-tasks", "covers": ["code_implementation", "process_concurrency", "hidden_adversarial"]},
+    {"task_id": "custom-memory-heap-crash", "covers": ["debug_repair", "build_install_toolchain", "stale_evidence"]},
+    {"task_id": "build-pmars", "covers": ["external_acquisition", "build_install_toolchain", "command_exit_output"]},
+    {"task_id": "compile-compcert", "covers": ["build_install_toolchain", "long_context_output", "toolchain_state"]},
+    {"task_id": "kv-store-grpc", "covers": ["service_protocol", "process_identity", "protocol_interaction"]},
+    {"task_id": "nginx-request-logging", "covers": ["service_protocol", "process_identity", "stale_evidence"]},
+    {"task_id": "pypi-server", "covers": ["service_protocol", "external_dependency", "protocol_interaction"]},
+    {"task_id": "regex-log", "covers": ["data_transform_query", "exact_artifact", "hidden_adversarial"]},
+    {"task_id": "sparql-university", "covers": ["data_transform_query", "structured_data", "semantic_query"]},
+    {"task_id": "multi-source-data-merger", "covers": ["data_transform_query", "long_context_output", "artifact_accounting"]},
+    {"task_id": "db-wal-recovery", "covers": ["data_recovery", "binary_reverse_engineering", "stale_evidence"]},
+    {"task_id": "git-leak-recovery", "covers": ["version_control_history", "security_forensics", "secret_handling"]},
+    {"task_id": "openssl-selfsigned-cert", "covers": ["security_forensics", "exact_artifact", "independent_verification"]},
+    {"task_id": "vulnerable-secret", "covers": ["binary_reverse_engineering", "security_forensics", "isolation_secret"]},
+    {"task_id": "adaptive-rejection-sampler", "covers": ["scientific_numeric", "code_implementation", "input_validation"]},
+    {"task_id": "raman-fitting", "covers": ["scientific_numeric", "numeric_tolerance_threshold", "derived_representation"]},
+    {"task_id": "tune-mjcf", "covers": ["performance_optimization", "numeric_tolerance_threshold", "iterative_verification"]},
+    {"task_id": "train-fasttext", "covers": ["ml_model", "performance_resource", "long_running_process"]},
+    {"task_id": "torch-tensor-parallelism", "covers": ["ml_model", "process_concurrency", "hidden_adversarial"]},
+    {"task_id": "video-processing", "covers": ["perception_media", "derived_representation", "visual_semantic"]},
+    {"task_id": "code-from-image", "covers": ["perception_media", "derived_representation", "exact_artifact"]},
+    {"task_id": "qemu-alpine-ssh", "covers": ["emulation_virtualization", "service_protocol", "process_identity"]},
+    {"task_id": "schemelike-metacircular-eval", "covers": ["formal_symbolic", "code_implementation", "command_exit_output"]},
+    {"task_id": "write-compressor", "covers": ["binary_reverse_engineering", "performance_resource", "exact_artifact"]}
+  ],
+  "full_board": [
+    "adaptive-rejection-sampler", "bn-fit-modify", "break-filter-js-from-html", "build-cython-ext",
+    "build-pmars", "build-pov-ray", "caffe-cifar-10", "cancel-async-tasks", "chess-best-move",
+    "circuit-fibsqrt", "cobol-modernization", "code-from-image", "compile-compcert",
+    "configure-git-webserver", "constraints-scheduling", "count-dataset-tokens", "crack-7z-hash",
+    "custom-memory-heap-crash", "db-wal-recovery", "distribution-search", "dna-assembly", "dna-insert",
+    "execution-gate-toy", "extract-elf", "extract-moves-from-video", "feal-differential-cryptanalysis",
+    "feal-linear-cryptanalysis", "filter-js-from-html", "financial-document-processor",
+    "fix-code-vulnerability", "fix-git", "fix-ocaml-gc", "gcode-to-text", "git-leak-recovery",
+    "git-multibranch", "gpt2-codegolf", "headless-terminal", "hf-model-inference",
+    "install-windows-3.11", "kv-store-grpc", "large-scale-text-editing", "largest-eigenval",
+    "llm-inference-batching-scheduler", "log-summary-date-ranges", "mailman", "make-doom-for-mips",
+    "make-mips-interpreter", "mcmc-sampling-stan", "merge-diff-arc-agi-task",
+    "model-extraction-relu-logits", "modernize-scientific-stack", "mteb-leaderboard", "mteb-retrieve",
+    "multi-source-data-merger", "nginx-request-logging", "openssl-selfsigned-cert", "overfull-hbox",
+    "password-recovery", "path-tracing", "path-tracing-reverse", "polyglot-c-py", "polyglot-rust-c",
+    "portfolio-optimization", "protein-assembly", "prove-plus-comm", "pypi-server", "pytorch-model-cli",
+    "pytorch-model-recovery", "qemu-alpine-ssh", "qemu-startup", "query-optimize", "raman-fitting",
+    "regex-chess", "regex-log", "reshard-c4-data", "rstan-to-pystan", "sam-cell-seg",
+    "sanitize-git-repo", "schemelike-metacircular-eval", "sparql-university", "sqlite-db-truncate",
+    "sqlite-with-gcov", "torch-pipeline-parallelism", "torch-tensor-parallelism", "train-fasttext",
+    "tune-mjcf", "video-processing", "vulnerable-secret", "winning-avg-corewars", "write-compressor"
+  ]
+}

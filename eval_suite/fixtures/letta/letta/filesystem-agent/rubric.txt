@@ -1,0 +1,1 @@
+Fallback rubric for deterministic adapter diagnostics.

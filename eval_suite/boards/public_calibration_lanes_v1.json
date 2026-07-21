@@ -1,0 +1,50 @@
+{
+  "board_id": "public_calibration_lanes_v1",
+  "board_type": "public_calibration_summary",
+  "scope_label": "public adapter-driven calibration lanes",
+  "lane_groups": [
+    {
+      "group_id": "tool_call_lane",
+      "public_name": "tool-call calibration",
+      "surface_type": "tool_call",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Sanitized adapter-facing tool-call lane.",
+      "lane_ref": "eval_suite/calibration_lanes/tool_call/lane_manifest.json"
+    },
+    {
+      "group_id": "retrieval_lane",
+      "public_name": "retrieval calibration",
+      "surface_type": "retrieval",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Sanitized adapter-facing retrieval lane.",
+      "lane_ref": "eval_suite/calibration_lanes/retrieval/lane_manifest.json"
+    },
+    {
+      "group_id": "filesystem_lane",
+      "public_name": "filesystem calibration",
+      "surface_type": "filesystem",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Sanitized adapter-facing filesystem lane.",
+      "lane_ref": "eval_suite/calibration_lanes/filesystem/lane_manifest.json"
+    },
+    {
+      "group_id": "terminal_lane",
+      "public_name": "terminal-style challenge calibration",
+      "surface_type": "terminal",
+      "admission_level": "diagnostic",
+      "contamination_status": "clean",
+      "provenance_note": "Sanitized terminal-style challenge lane.",
+      "lane_ref": "eval_suite/calibration_lanes/terminal/lane_manifest.json"
+    }
+  ],
+  "scoreboard_ref": "eval_suite/scoreboards/public_calibration_lanes_v1.example.scoreboard.json",
+  "contamination_policy": {
+    "status": "clean",
+    "source": "sanitized_private_registry_promoted_fixtures",
+    "notes": "public calibration surface with promoted fixture material"
+  },
+  "notes": "Adapter-driven public calibration surface with promoted fixtures and lane manifests."
+}

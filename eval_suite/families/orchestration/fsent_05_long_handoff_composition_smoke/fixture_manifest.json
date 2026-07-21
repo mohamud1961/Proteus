@@ -1,0 +1,22 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fsent_05_long_handoff_composition_smoke",
+  "canonical_workspace_root": "/workspace/handoff",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/handoff/stage/inbox/artifact_seed.json",
+      "kind": "source_artifact",
+      "note": "Initial artifact seed that must survive handoff."
+    },
+    {
+      "path": "solver_pack/workspace/handoff/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Visible check validates candidate fields."
+    },
+    {
+      "path": "solver_pack/workspace/handoff/docs/stale_handoff_notes.md",
+      "kind": "decoy",
+      "note": "Outdated handoff flow with wrong final path."
+    }
+  ]
+}

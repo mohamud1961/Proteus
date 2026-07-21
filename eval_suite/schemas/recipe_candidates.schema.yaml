@@ -1,0 +1,81 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: final_harness_eval_suite/recipe_candidates.schema.yaml
+title: Final Harness Recipe Candidates
+type: object
+additionalProperties: false
+required:
+  - schema_version
+  - board_id
+  - recipes
+properties:
+  schema_version:
+    type: string
+    const: final_harness_recipe_candidates.v1
+  board_id:
+    type: string
+    const: final_harness_eval_suite_v1
+  generated_at:
+    type: string
+  recipes:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required:
+        - recipe_id
+        - recipe_role
+        - authority_label
+        - included_mechanism_ids
+        - excluded_mechanism_ids
+        - included_family_winner_refs
+        - evidence_refs
+        - rationale
+      properties:
+        recipe_id:
+          type: string
+          enum:
+            - recipe_control
+            - recipe_candidate_a
+            - recipe_candidate_b
+        recipe_role:
+          type: string
+          enum:
+            - control
+            - candidate
+        authority_label:
+          type: string
+          enum:
+            - debug
+            - equivalent
+            - native
+            - certified
+        included_mechanism_ids:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        excluded_mechanism_ids:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        included_family_winner_refs:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        evidence_refs:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+        rationale:
+          type: string
+          minLength: 1
+        compatibility_risk_notes:
+          type: array
+          items:
+            type: string
+            minLength: 1

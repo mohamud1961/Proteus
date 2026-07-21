@@ -1,0 +1,11 @@
+{
+  "tool_name": "dispatch_ticket",
+  "required_args": [
+    "ticket_id",
+    "owner"
+  ],
+  "forbidden_aliases": [
+    "legacy_dispatch",
+    "dispatch_without_args"
+  ]
+}

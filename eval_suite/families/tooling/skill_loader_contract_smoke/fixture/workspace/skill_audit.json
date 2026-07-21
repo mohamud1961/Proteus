@@ -1,0 +1,47 @@
+{
+  "skills_discovered": [
+    "tool-linked",
+    "alpha-skill"
+  ],
+  "skill_order_is_deterministic": false,
+  "frontmatter_summary": {
+    "alpha-skill": {
+      "description": "Wrong description",
+      "allowed_tools": [
+        "read_file"
+      ],
+      "user_invocable": true,
+      "execution_context": null,
+      "paths": [
+        "src"
+      ]
+    }
+  },
+  "collision_reason_codes": {
+    "same_file": [],
+    "same_name": []
+  },
+  "selection_reason_codes": {
+    "missing": [],
+    "duplicate_ref": [],
+    "path_scope_mismatch": []
+  },
+  "visible_context": {
+    "recorded_in_prefix": false,
+    "contains_base_directory": false,
+    "contains_skill_body": false,
+    "bounded": false,
+    "truncated": true
+  },
+  "metadata_retention": {
+    "hooks_present": false,
+    "hook_matcher_count": 0,
+    "unsupported_hook_events": [],
+    "linked_mcp_tools": []
+  },
+  "hidden_behavior": {
+    "implicit_prefix_mutation": true,
+    "implicit_hook_execution": true,
+    "implicit_mcp_invocation": true
+  }
+}

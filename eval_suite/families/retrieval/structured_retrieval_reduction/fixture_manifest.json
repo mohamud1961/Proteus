@@ -1,0 +1,77 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "structured_retrieval_reduction",
+  "canonical_workspace_root": "/workspace/extract",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_001.txt",
+      "kind": "evidence",
+      "note": "Move 1: e4 e5"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_002.txt",
+      "kind": "evidence",
+      "note": "Move 2: Nf3 Nc6"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_003.txt",
+      "kind": "evidence",
+      "note": "Move 3: Bb5 a6"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_004.txt",
+      "kind": "evidence",
+      "note": "Duplicate of move 2 (must be deduplicated)"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_005.txt",
+      "kind": "evidence",
+      "note": "Move 4: Ba4 Nf6"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_006.txt",
+      "kind": "decoy",
+      "note": "Stale frame (must be excluded)"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_007.txt",
+      "kind": "evidence",
+      "note": "Move 7: Bxf7+ (will be corrected by frame_010)"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_008.txt",
+      "kind": "evidence",
+      "note": "Move 5: O-O Be7"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_009.txt",
+      "kind": "evidence",
+      "note": "Duplicate of move 1 (must be deduplicated)"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_010.txt",
+      "kind": "evidence",
+      "note": "Correction: move 7 is Bc4 O-O (overrides frame_007)"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_011.txt",
+      "kind": "evidence",
+      "note": "Move 6: Re1 b5"
+    },
+    {
+      "path": "solver_pack/workspace/extract/source/frames/frame_012.txt",
+      "kind": "evidence",
+      "note": "Move 8: d3 d6"
+    },
+    {
+      "path": "solver_pack/workspace/extract/spec/output_format.md",
+      "kind": "spec",
+      "note": "Exact output format specification"
+    },
+    {
+      "path": "solver_pack/workspace/extract/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Readiness gate: checks out/moves.txt exists and has content"
+    }
+  ]
+}

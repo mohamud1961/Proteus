@@ -1,0 +1,57 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fhard_06_original_repo_recovery_flagship",
+  "canonical_workspace_root": "/workspace/repo",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/repo/README_RECOVERY.md",
+      "kind": "instruction_noise",
+      "note": "Contains stale and current process notes."
+    },
+    {
+      "path": "solver_pack/workspace/repo/services/catalog/config/runtime.env",
+      "kind": "repair_target",
+      "note": "Must be patched to expected runtime values."
+    },
+    {
+      "path": "solver_pack/workspace/repo/services/catalog/config/runtime.env.bak",
+      "kind": "decoy",
+      "note": "Looks fresh but has stale token and wrong endpoint."
+    },
+    {
+      "path": "solver_pack/workspace/repo/ops/release/handoff_manifest.json",
+      "kind": "constraint",
+      "note": "Defines artifact location and closure ticket format."
+    },
+    {
+      "path": "solver_pack/workspace/repo/data/checkpoints/checkpoint_a.json",
+      "kind": "evidence",
+      "note": "Partial hash segments and candidate host."
+    },
+    {
+      "path": "solver_pack/workspace/repo/data/checkpoints/checkpoint_b.json",
+      "kind": "evidence",
+      "note": "Contradicts old host; includes selected host and queue."
+    },
+    {
+      "path": "solver_pack/workspace/repo/data/checkpoints/checkpoint_c.json",
+      "kind": "evidence",
+      "note": "Contains closure ticket suffix and commit marker."
+    },
+    {
+      "path": "solver_pack/workspace/repo/reports/incident/postmortem_draft.md",
+      "kind": "noise",
+      "note": "Human report with incorrect final ticket id."
+    },
+    {
+      "path": "solver_pack/workspace/repo/reports/incident/ops_chat_excerpt.log",
+      "kind": "noise",
+      "note": "Includes obsolete env var names."
+    },
+    {
+      "path": "solver_pack/workspace/repo/scripts/verify_recovery.py",
+      "kind": "visible_verifier",
+      "note": "Visible verifier that checks basic shape only."
+    }
+  ]
+}

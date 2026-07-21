@@ -1,0 +1,22 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "service_lifecycle_readiness_flagship",
+  "canonical_workspace_root": "/workspace/service",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/service/spec/service_contract.md",
+      "kind": "specification",
+      "note": "Fully specifies the HTTP service contract: port, endpoints, responses."
+    },
+    {
+      "path": "solver_pack/workspace/service/scripts/start_service.py",
+      "kind": "scaffold",
+      "note": "Skeleton implementation the solver may use or ignore."
+    },
+    {
+      "path": "solver_pack/workspace/service/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Readiness gate: checks out/service_impl.py exists."
+    }
+  ]
+}

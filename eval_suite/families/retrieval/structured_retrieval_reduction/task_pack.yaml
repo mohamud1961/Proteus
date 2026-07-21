@@ -1,0 +1,29 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: structured_retrieval_reduction
+row_id: structured_retrieval_reduction
+row_type: sentinel
+is_flagship: false
+provenance_type: original_private
+admission_level_target: certified
+primary_clusters:
+  - retrieval/reduction
+  - verification/completion
+canonical_workspace_root: /workspace/extract
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 180
+expected_outputs:
+  candidate_txt: /workspace/extract/out/moves.txt
+task_brief: >-
+  Parse ordered frame-text fixtures containing chess move notations with
+  duplicates, contradictions, and stale segments, then reconcile to produce
+  the correct reduced move list in exact format.

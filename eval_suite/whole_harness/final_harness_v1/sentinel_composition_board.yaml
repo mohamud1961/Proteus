@@ -1,0 +1,115 @@
+schema_version: final_harness_sentinel_composition_board.v1
+board_id: final_harness_eval_suite_v1
+required_gate_policy: all_rows_must_pass
+rerun_policy:
+  screening_runs: 1
+  stability_runs_for_eligible_recipes: 1
+  second_invalidity_policy: block_recipe_as_unstable
+rows:
+  - row_id: fsent_01_tool_call_composite
+    row_type: sentinel
+    promotion_gate: required
+    purpose: private_tool_call_semantics_and_result_attribution
+    blocks_promotion_when: tool_call_semantic_regression_or_overclaim
+    critical_clusters:
+      - tooling/tool-call
+      - verification/completion
+    provenance_type: private_homolog
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_sentinel_composition_build_adversarial_review.md
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/tooling/fsent_01_tool_call_composite/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+  - row_id: fsent_02_runtime_workspace_contract
+    row_type: sentinel
+    promotion_gate: required
+    purpose: runtime_workspace_and_invalidity_classification_contract
+    blocks_promotion_when: runtime_contract_regresses_or_invalidity_is_misclassified
+    critical_clusters:
+      - environment/toolchain
+      - filesystem/path
+      - verification/completion
+    provenance_type: original_private
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_sentinel_composition_build_adversarial_review.md
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/environment/fsent_02_runtime_workspace_contract/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+  - row_id: fsent_03_filesystem_verifier_repair
+    row_type: composition
+    promotion_gate: required
+    purpose: filesystem_target_selection_plus_verifier_before_completion
+    blocks_promotion_when: wrong_target_or_visible_only_success_is_accepted
+    critical_clusters:
+      - filesystem/path
+      - verification/completion
+    provenance_type: original_private
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_sentinel_composition_build_adversarial_review.md
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/filesystem/fsent_03_filesystem_verifier_repair/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+  - row_id: fsent_04_retrieval_reduction_closure
+    row_type: sentinel
+    promotion_gate: required
+    purpose: evidence_projection_and_final_reduction_under_distractors
+    blocks_promotion_when: stale_or_unsupported_closure_is_accepted
+    critical_clusters:
+      - retrieval/reduction
+      - verification/completion
+    provenance_type: original_private
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_sentinel_composition_build_adversarial_review.md
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/retrieval/fsent_04_retrieval_reduction_closure/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+  - row_id: fsent_05_long_handoff_composition_smoke
+    row_type: composition
+    promotion_gate: required
+    purpose: short_multi_step_artifact_handoff_with_final_identity_grading
+    blocks_promotion_when: artifact_identity_or_delayed_verification_is_lost
+    critical_clusters:
+      - long-horizon orchestration
+      - retrieval/reduction
+      - verification/completion
+    provenance_type: original_private
+    contamination_status_expectation: clean
+    contamination_review_ref: work/ledger/final_harness_eval_suite/reviews/stage_sentinel_composition_build_adversarial_review.md
+    task_pack_slot:
+      task_pack_ref: eval_suite/families/orchestration/fsent_05_long_handoff_composition_smoke/task_pack.yaml
+      expected_now: true
+      pending_placeholder: false
+      integration_owner: principal
+critical_cluster_map:
+  tooling/tool-call:
+    row_ids:
+      - fsent_01_tool_call_composite
+  environment/toolchain:
+    row_ids:
+      - fsent_02_runtime_workspace_contract
+  filesystem/path:
+    row_ids:
+      - fsent_02_runtime_workspace_contract
+      - fsent_03_filesystem_verifier_repair
+  verification/completion:
+    row_ids:
+      - fsent_01_tool_call_composite
+      - fsent_02_runtime_workspace_contract
+      - fsent_03_filesystem_verifier_repair
+      - fsent_04_retrieval_reduction_closure
+      - fsent_05_long_handoff_composition_smoke
+  retrieval/reduction:
+    row_ids:
+      - fsent_04_retrieval_reduction_closure
+      - fsent_05_long_handoff_composition_smoke
+  long-horizon orchestration:
+    row_ids:
+      - fsent_05_long_handoff_composition_smoke

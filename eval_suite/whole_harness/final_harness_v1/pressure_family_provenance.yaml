@@ -1,0 +1,86 @@
+schema_version: pressure_family_provenance.v1
+board_id: final_harness_eval_suite_v1
+rows:
+  - row_id: environment_bootstrap_runner_repair
+    source_benchmark_family: environment_bootstrap_and_toolchain_runner_resolution
+    source_asset_or_env_reference: eval_suite_v1 seed lineage plus runner-contract homolog traces
+    what_reused:
+      - toolchain bootstrap pressure
+      - runner command discovery under conflicting docs
+      - invalid_vs_capability classification surface
+    mutated_dimensions:
+      - workspace names and file graph
+      - runner aliases and package manager clues
+      - report contract fields and candidate artifact naming
+    preserved_causal_pressure:
+      - wrong runner selection leads to false completion
+      - environment preflight needed before claiming pass
+    contamination_assessment: mutated pressure-family row with hidden truth isolation; no direct row text copied
+    direct_public_row_copy: false
+  - row_id: service_lifecycle_readiness_flagship
+    source_benchmark_family: service_process_readiness
+    source_asset_or_env_reference: eval_suite_v1 service readiness seeds and homologized process lifecycle pressure
+    what_reused:
+      - delayed readiness confirmation requirement
+      - wrong-port false success traps
+      - cleanup-before-completion discipline
+    mutated_dimensions:
+      - service topology, endpoint route, and config names
+      - port constants and payload conventions
+      - receipt schema and completion contract
+    preserved_causal_pressure:
+      - long-horizon orchestration with readiness probe loops
+      - process lifecycle cleanup as pass condition
+    contamination_assessment: benchmark pressure preserved with mutated fixture and hidden port truth; no row copy
+    direct_public_row_copy: false
+  - row_id: filesystem_decoy_target_selection
+    source_benchmark_family: filesystem_target_selection
+    source_asset_or_env_reference: filesystem wrong-target family seeds with decoy path graph mutation
+    what_reused:
+      - decoy-heavy path selection pressure
+      - wrong-file patch risk under stale docs
+      - verification-completion coupling
+    mutated_dimensions:
+      - repository layout and target filenames
+      - generated-noise and stale-doc distractors
+      - patch manifest output shape
+    preserved_causal_pressure:
+      - path identity drift under similar filenames
+      - false pass risk from non-target edits
+    contamination_assessment: mutated decoy map and hidden target path; no benchmark row cloning
+    direct_public_row_copy: false
+  - row_id: hidden_verifier_repair
+    source_benchmark_family: verification_completion_recovery
+    source_asset_or_env_reference: visible-pass-hidden-fail seed lineage with hidden regression mutation
+    what_reused:
+      - visible check can pass while true behavior fails
+      - repair plus rerun closure discipline
+      - false completion prevention logic
+    mutated_dimensions:
+      - module names and hidden case semantics
+      - visible vs hidden verifier split details
+      - fix report schema and acceptance details
+    preserved_causal_pressure:
+      - hidden verifier failure requires real repair
+      - completion blocked until rerun evidence exists
+    contamination_assessment: hidden case withheld and fixture mutated; pressure-family but not copied
+    direct_public_row_copy: false
+  - row_id: structured_retrieval_reduction
+    source_benchmark_family: extract_moves_from_video
+    source_asset_or_env_reference: extract-moves-from-video failure family with mutated asset and contract
+    what_reused:
+      - fetch or download path requirement
+      - ffmpeg frame extraction pressure
+      - OCR-driven move parsing and reduction
+      - contradiction reconciliation and false completion risk
+    mutated_dimensions:
+      - clip/source reference
+      - requested answer shape and report fields
+      - move sequence targets and distractor notes
+      - verifier details and hidden PGN checks
+    preserved_causal_pressure:
+      - toolchain + retrieval + reduction coupling
+      - contradictory evidence needs explicit reconciliation
+      - unsupported completion must fail
+    contamination_assessment: required video-family pressure retained with custom asset and hidden truth gating; no direct public row copy
+    direct_public_row_copy: false

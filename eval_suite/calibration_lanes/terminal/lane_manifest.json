@@ -1,0 +1,8 @@
+{
+  "lane_id": "terminal_lane",
+  "surface_type": "terminal",
+  "artifact_refs": [
+    "eval_suite/calibration_lanes/terminal/reference/final_harness_task.md"
+  ],
+  "notes": "Public terminal-style challenge calibration lane."
+}

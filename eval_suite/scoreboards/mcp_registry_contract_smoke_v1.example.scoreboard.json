@@ -1,0 +1,136 @@
+{
+  "board_id": "mcp_registry_contract_smoke_v1",
+  "example_only": true,
+  "scope_label": "public_smoke_example_not_benchmark_evidence",
+  "result_rows": [
+    {
+      "run_id": "mcp_registry_contract_smoke_pass",
+      "eval_id": "mcp_registry_contract_smoke_v1",
+      "task_pack_id": "mcp_registry_contract_smoke_v1",
+      "family": "mcp_registry_contract_smoke",
+      "surface_type": "synthetic_substrate_smoke",
+      "admission_level": "diagnostic",
+      "backend_ref": "debug_local_no_sandbox",
+      "environment_ref": "pass/environment_manifest.json",
+      "artifact_refs": [
+        "pass/artifact_bundle.json"
+      ],
+      "trace_refs": [
+        "pass/trace.json"
+      ],
+      "closure_status": "closed",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/families/tooling/mcp_registry_contract_smoke/grader.py",
+      "grader_ref": "pass/grader_output.json",
+      "score": 1.0
+    },
+    {
+      "run_id": "mcp_registry_contract_smoke_known_bad",
+      "eval_id": "mcp_registry_contract_smoke_v1",
+      "task_pack_id": "mcp_registry_contract_smoke_v1",
+      "family": "mcp_registry_contract_smoke",
+      "surface_type": "synthetic_substrate_smoke",
+      "admission_level": "diagnostic",
+      "backend_ref": "debug_local_no_sandbox",
+      "environment_ref": "known_bad/environment_manifest.json",
+      "artifact_refs": [
+        "known_bad/artifact_bundle.json"
+      ],
+      "trace_refs": [
+        "known_bad/trace.json"
+      ],
+      "closure_status": "closed",
+      "task_truth_status": "fail",
+      "contamination_status": "clean",
+      "failure_class": "verification_grading",
+      "reason_codes": [
+        "mcp_discovery_not_deterministic",
+        "mcp_hook_permission_evidence_missing",
+        "mcp_schema_mapping_not_faithful",
+        "mcp_typed_results_mismatch",
+        "native_tool_regression_detected"
+      ],
+      "verifier_ref": "eval_suite/families/tooling/mcp_registry_contract_smoke/grader.py",
+      "grader_ref": "known_bad/grader_output.json",
+      "score": 0.0
+    }
+  ],
+  "scoreboard": {
+    "row_count": 2,
+    "totals": {
+      "pass": 1,
+      "fail": 1,
+      "invalid": 0,
+      "total": 2
+    },
+    "cost_summary": {
+      "run_count": 2,
+      "model_backed_run_count": 0,
+      "total_input_messages": 0,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_output_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "usd": 0.0,
+      "usd_estimate": 0.0,
+      "cost_breakdown_usd": {
+        "input_cost": 0.0,
+        "cached_input_cost": 0.0,
+        "output_cost": 0.0,
+        "total_cost": 0.0
+      },
+      "pricing_model_ids": []
+    },
+    "by_family": {
+      "mcp_registry_contract_smoke": {
+        "pass": 1,
+        "fail": 1,
+        "invalid": 0,
+        "total": 2
+      }
+    },
+    "by_surface_type": {
+      "synthetic_substrate_smoke": {
+        "pass": 1,
+        "fail": 1,
+        "invalid": 0,
+        "total": 2
+      }
+    },
+    "by_admission_level": {
+      "diagnostic": {
+        "pass": 1,
+        "fail": 1,
+        "invalid": 0,
+        "total": 2
+      }
+    },
+    "by_contamination_status": {
+      "clean": {
+        "pass": 1,
+        "fail": 1,
+        "invalid": 0,
+        "total": 2
+      }
+    },
+    "by_failure_class": {
+      "none": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "verification_grading": {
+        "pass": 0,
+        "fail": 1,
+        "invalid": 0,
+        "total": 1
+      }
+    }
+  }
+}

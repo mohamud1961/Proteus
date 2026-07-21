@@ -1,0 +1,11 @@
+{
+  "bundle_output_path": "artifacts/recovery/final/recovery_bundle.json",
+  "required_bundle_fields": [
+    "closure_ticket",
+    "runtime_host",
+    "queue_name",
+    "token_suffix",
+    "commit_marker"
+  ],
+  "ticket_prefix": "RCV-2026-"
+}

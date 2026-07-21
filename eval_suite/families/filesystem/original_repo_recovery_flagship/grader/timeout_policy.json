@@ -1,0 +1,15 @@
+{
+  "schema_version": "eval_grader_timeout_policy.v1",
+  "max_runtime_seconds": 60,
+  "retry_loop_threshold": 3,
+  "classification_precedence": [
+    "infra_timeout",
+    "step_budget",
+    "generic"
+  ],
+  "rules": {
+    "infra_timeout": "invalid_environment_timeout",
+    "step_budget": "timeout_step_budget_exhausted",
+    "generic": "timeout_without_completion"
+  }
+}

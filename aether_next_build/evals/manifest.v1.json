@@ -1,0 +1,485 @@
+{
+  "schema": "aether.harness_eval_manifest.v1",
+  "title": "Aether-Next Harness Certification Evals v1",
+  "source_scorecard": "HARNESS_CODE_SCORECARD_V1.md",
+  "rules": {
+    "production_path_only": true,
+    "official_task_taxonomy_is_eval_only": true,
+    "models_require_explicit_opt_in": true,
+    "vm_requires_explicit_opt_in": true,
+    "missing_target_fails_closed": true,
+    "final_marker_required": true
+  },
+  "scorecard_ids": [
+    "A1",
+    "A2",
+    "P1",
+    "P2",
+    "P3",
+    "S1",
+    "S2",
+    "S3",
+    "R1",
+    "R2",
+    "R3",
+    "E1",
+    "E2",
+    "E3",
+    "C1",
+    "V1",
+    "V2",
+    "V3",
+    "W1",
+    "W2",
+    "W3",
+    "X1",
+    "X2",
+    "X3",
+    "O1",
+    "O2",
+    "G1",
+    "G2",
+    "G3",
+    "T1",
+    "T2"
+  ],
+  "cases": [
+    {
+      "id": "provider_protocol",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 180,
+      "covers": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "targets": [
+        "tests/test_provider_output_boundary.py",
+        "tests/test_azure_backoff.py",
+        "tests/test_azure_split.py",
+        "tests/test_azure_telemetry.py",
+        "tests/test_model_hooks.py",
+        "tests/test_model_request_contract.py"
+      ]
+    },
+    {
+      "id": "solver_causal_loop",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 180,
+      "covers": [
+        "S1",
+        "S2",
+        "S3",
+        "W3"
+      ],
+      "targets": [
+        "tests/test_observation_boundary.py",
+        "tests/test_context_tool_result_visibility.py",
+        "tests/test_goal_harness_execution.py",
+        "tests/test_runtime_enforcement.py",
+        "tests/test_kernel.py",
+        "tests/test_dispatch_state_delta.py"
+      ]
+    },
+    {
+      "id": "architect_ir_compiler",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 180,
+      "covers": [
+        "R1",
+        "R2",
+        "R3",
+        "A1"
+      ],
+      "targets": [
+        "tests/test_envmap_cleanup.py",
+        "tests/test_architect_kernel_surface.py",
+        "tests/test_vnext_configurability.py",
+        "tests/test_vnext_workbench_ir.py",
+        "tests/test_run_adapter.py",
+        "tests/test_kernel_config.py",
+        "tests/test_semantic_evidence_compilation.py"
+      ]
+    },
+    {
+      "id": "evidence_proof_completion",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 180,
+      "covers": [
+        "E1",
+        "E2",
+        "E3",
+        "C1",
+        "V1"
+      ],
+      "targets": [
+        "tests/test_completion.py",
+        "tests/test_completion_conjunction.py",
+        "tests/test_completion_evidence_protocol.py",
+        "tests/test_inspection_registry_and_freshness.py",
+        "tests/test_proof_contract.py",
+        "tests/test_proof_contract_integration.py",
+        "tests/test_verifier_proof_bridge.py",
+        "tests/test_anti_self_confirmation.py"
+      ]
+    },
+    {
+      "id": "verifier_findings_ownership",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 180,
+      "covers": [
+        "V1",
+        "V2",
+        "V3",
+        "X3"
+      ],
+      "targets": [
+        "tests/test_finding_evidence_lifecycle.py",
+        "tests/test_verifier_generation_quarantine.py",
+        "tests/test_verifier_recovery_contracts.py",
+        "tests/test_verifier_state_only.py",
+        "tests/test_verifier_stalemate.py",
+        "tests/test_vnext_memory_context_verifier.py"
+      ]
+    },
+    {
+      "id": "workspace_process_service_truth",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 240,
+      "covers": [
+        "W1",
+        "W2",
+        "W3"
+      ],
+      "targets": [
+        "tests/test_workspace_state.py",
+        "tests/test_process_service_generation.py",
+        "tests/test_worldstate_process_projection.py",
+        "tests/test_real_executor.py",
+        "tests/test_docker_executor_state_delta.py"
+      ]
+    },
+    {
+      "id": "security_isolation_provenance",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 240,
+      "covers": [
+        "X1",
+        "X2",
+        "X3",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "targets": [
+        "tests/test_filesystem_and_redaction_security.py",
+        "tests/test_network_policy_enforcement.py",
+        "tests/test_runtime_context_security.py",
+        "tests/test_operational_evidence_finalization.py",
+        "tests/test_docker_runner_model_preflight.py",
+        "tests/test_grader_results.py",
+        "tests/test_snapshot.py"
+      ]
+    },
+    {
+      "id": "context_output_retention",
+      "layer": "component",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 180,
+      "covers": [
+        "O1",
+        "O2",
+        "S2"
+      ],
+      "targets": [
+        "tests/test_truthful_output_capture.py",
+        "tests/test_context_tool_result_visibility.py",
+        "tests/test_prompt_cache_stability.py",
+        "tests/test_v5_context_epochs.py",
+        "tests/test_memory_loop_fixes.py",
+        "tests/test_memory_query_traces.py"
+      ]
+    },
+    {
+      "id": "architecture_purity",
+      "layer": "component",
+      "kind": "builtin",
+      "builtin": "architecture_purity",
+      "required": true,
+      "timeout_s": 60,
+      "covers": [
+        "A1",
+        "A2"
+      ]
+    },
+    {
+      "id": "context_growth_probe",
+      "layer": "component",
+      "kind": "builtin",
+      "builtin": "context_growth_probe",
+      "required": true,
+      "timeout_s": 60,
+      "covers": [
+        "O1",
+        "O2"
+      ]
+    },
+    {
+      "id": "official_task_board_integrity",
+      "layer": "task_corpus",
+      "kind": "builtin",
+      "builtin": "official_task_board_integrity",
+      "required": true,
+      "timeout_s": 60,
+      "covers": [
+        "T1"
+      ]
+    },
+    {
+      "id": "archetype_matrix_coverage",
+      "layer": "task_corpus",
+      "kind": "builtin",
+      "builtin": "archetype_matrix_coverage",
+      "required": true,
+      "timeout_s": 60,
+      "covers": [
+        "T1"
+      ]
+    },
+    {
+      "id": "scorecard_eval_coverage",
+      "layer": "meta",
+      "kind": "builtin",
+      "builtin": "scorecard_eval_coverage",
+      "required": true,
+      "timeout_s": 60,
+      "covers": [
+        "T1"
+      ]
+    },
+    {
+      "id": "deterministic_system_scenarios",
+      "layer": "system",
+      "kind": "builtin",
+      "builtin": "deterministic_system_scenarios",
+      "required": true,
+      "timeout_s": 120,
+      "covers": [
+        "S1",
+        "S2",
+        "S3",
+        "R1",
+        "R2",
+        "E1",
+        "E2",
+        "C1",
+        "V1",
+        "V2",
+        "V3",
+        "W1",
+        "T1"
+      ]
+    },
+    {
+      "id": "official_archetype_system_contracts",
+      "layer": "system",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 300,
+      "covers": [
+        "S1",
+        "S2",
+        "E1",
+        "E2",
+        "C1",
+        "V1",
+        "W1",
+        "W2",
+        "X1",
+        "O1",
+        "T1"
+      ],
+      "targets": [
+        "tests/test_chatgpt_integration_scenarios.py",
+        "tests/test_runtime_truthfulness_slices.py",
+        "tests/test_live_protocol_proof_homolog.py",
+        "tests/test_proof_contract_integration.py",
+        "tests/test_process_service_generation.py",
+        "tests/test_local_vision_delta.py",
+        "tests/test_truthful_output_capture.py",
+        "tests/test_runtime_context_security.py",
+        "tests/test_semantic_evidence_compilation.py",
+        "tests/test_anti_self_confirmation.py"
+      ]
+    },
+    {
+      "id": "known_bad_replay",
+      "layer": "system",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 240,
+      "covers": [
+        "C1",
+        "V1",
+        "V2",
+        "V3",
+        "T1"
+      ],
+      "targets": [
+        "tests/test_verifier_knownbad_eval.py",
+        "tests/test_source_complete_replay.py",
+        "tests/test_controlled_replay_eval.py",
+        "tests/test_historical_replay_engine.py"
+      ]
+    },
+    {
+      "id": "canonical_current_suite",
+      "layer": "system",
+      "kind": "pytest",
+      "required": true,
+      "timeout_s": 600,
+      "covers": [
+        "T1",
+        "T2"
+      ],
+      "targets": [
+        "tests"
+      ],
+      "pytest_args": [
+        "--ignore=tests/v5_ported"
+      ]
+    },
+    {
+      "id": "legacy_collection_health",
+      "layer": "migration",
+      "kind": "pytest_collect",
+      "required": false,
+      "timeout_s": 180,
+      "covers": [
+        "A2",
+        "T2"
+      ],
+      "targets": [
+        "tests/v5_ported"
+      ]
+    },
+    {
+      "id": "architect_model_board",
+      "layer": "model_role",
+      "kind": "plan",
+      "gate": "model",
+      "required": false,
+      "covers": [
+        "R1",
+        "R2",
+        "R3",
+        "T1"
+      ],
+      "board": "architect",
+      "samples": 3
+    },
+    {
+      "id": "solver_checkpoint_board",
+      "layer": "model_role",
+      "kind": "plan",
+      "gate": "model",
+      "required": false,
+      "covers": [
+        "P1",
+        "P2",
+        "P3",
+        "S1",
+        "S2",
+        "S3",
+        "T1"
+      ],
+      "board": "solver",
+      "samples": 3,
+      "runner": "scripts/run_solver_checkpoint_eval.py"
+    },
+    {
+      "id": "verifier_model_board",
+      "layer": "model_role",
+      "kind": "plan",
+      "gate": "model",
+      "required": false,
+      "covers": [
+        "E1",
+        "E2",
+        "E3",
+        "C1",
+        "V1",
+        "V2",
+        "V3",
+        "T1"
+      ],
+      "board": "verifier",
+      "samples": 3
+    },
+    {
+      "id": "perception_model_board",
+      "layer": "model_role",
+      "kind": "plan",
+      "gate": "model",
+      "required": false,
+      "covers": [
+        "E1",
+        "E2",
+        "W1",
+        "T1"
+      ],
+      "board": "perception",
+      "samples": 3,
+      "runner": "scripts/run_official_task_eval_board.py"
+    },
+    {
+      "id": "official_model_smoke_board",
+      "layer": "model_system",
+      "kind": "plan",
+      "gate": "model",
+      "required": false,
+      "covers": [
+        "T1"
+      ],
+      "board": "smoke",
+      "samples": 3
+    },
+    {
+      "id": "official_model_full_board",
+      "layer": "model_system",
+      "kind": "plan",
+      "gate": "model",
+      "required": false,
+      "covers": [
+        "T1"
+      ],
+      "board": "full",
+      "samples": 3
+    },
+    {
+      "id": "fresh_vm_parity",
+      "layer": "environment",
+      "kind": "plan",
+      "gate": "vm",
+      "required": false,
+      "covers": [
+        "T2"
+      ]
+    }
+  ]
+}

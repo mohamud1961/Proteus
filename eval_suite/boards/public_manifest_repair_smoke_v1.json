@@ -1,0 +1,18 @@
+{
+  "board_id": "public_manifest_repair_smoke_v1",
+  "board_type": "public_smoke_example",
+  "task_family": "public_manifest_repair_smoke",
+  "task_pack_ref": "eval_suite/families/filesystem/public_manifest_repair_smoke/task_pack.json",
+  "grader_ref": "eval_suite/families/filesystem/public_manifest_repair_smoke/grader.py",
+  "fixture_root_ref": "eval_suite/families/filesystem/public_manifest_repair_smoke/fixture",
+  "scoreboard_ref": "eval_suite/scoreboards/public_manifest_repair_smoke_v1.example.scoreboard.json",
+  "smoke_runner_ref": "tools/run_public_manifest_repair_smoke.py",
+  "admission_level": "diagnostic",
+  "surface_type": "verifier_repair",
+  "contamination_policy": {
+    "status": "clean",
+    "source": "original_synthetic",
+    "public_benchmark_row": false
+  },
+  "notes": "Public smoke only; not benchmark evidence."
+}

@@ -1,0 +1,14 @@
+{
+  "project": "Atlas Notes",
+  "release": "1.4.0",
+  "maintainer": "platform-ops",
+  "files": [
+    "release/manifest.json",
+    "release/summary.txt",
+    "release/checksum.txt",
+    "notes/obsolete.md"
+  ],
+  "status": "draft",
+  "editor_notes": "temporary patch pending QA",
+  "generated_by": "staging-bot"
+}

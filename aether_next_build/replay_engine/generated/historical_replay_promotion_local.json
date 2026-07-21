@@ -1,0 +1,42 @@
+{
+  "gates": [
+    {
+      "detail": "required stage evidence is absent or not passed",
+      "evidence": "",
+      "name": "architect_only_8",
+      "status": "blocked"
+    },
+    {
+      "detail": "required stage evidence is absent or not passed",
+      "evidence": "",
+      "name": "verifier_frozen_9",
+      "status": "blocked"
+    },
+    {
+      "detail": "required stage evidence is absent or not passed",
+      "evidence": "",
+      "name": "solver_checkpoints_6",
+      "status": "blocked"
+    },
+    {
+      "detail": "required stage evidence is absent or not passed",
+      "evidence": "",
+      "name": "compiler_workbench_board",
+      "status": "blocked"
+    },
+    {
+      "detail": "required stage evidence is absent or not passed",
+      "evidence": "",
+      "name": "first_divergence_replay",
+      "status": "blocked"
+    },
+    {
+      "detail": "required stage evidence is absent or not passed",
+      "evidence": "",
+      "name": "short_sentinels",
+      "status": "blocked"
+    }
+  ],
+  "manifest_sha256": "f0ab75beea9270c78a51a9e6617163d14c106a6d1086cc81291d6a90d7b7d9d6",
+  "status": "NOT READY FOR UNRESTRICTED FULL RUNS"
+}
