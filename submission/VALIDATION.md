@@ -1,6 +1,6 @@
 # Validation record
 
-Validation was run from the Proteus packaging worktree and then repeated from a fresh clone of branch `codex/proteus-hackathon-submission`.
+Validation was run from the Proteus packaging worktree and then repeated from a fresh clone of branch `codex/proteus-hackathon-submission`. The final package dependency commits were authored and committed on July 21, 2026 at 23:59 BST.
 
 ## Fresh install
 
@@ -48,7 +48,17 @@ Result: exit 0. The result included three successful Solver action receipts (wri
 
 ## Pushed-branch cold clone
 
-The pushed branch was cloned again from GitHub into a separate directory and repeated the editable install, import smoke, demo, replay eval, certification board, and source-matched test command. The result is recorded here after the final push.
+The final pushed branch was cloned again from GitHub into a separate directory and repeated the editable install, import smoke, replay eval, certification board, and source-matched test command.
+
+The exact-remote results were:
+
+- editable `.[dev]` install: passed
+- imports for `proteus`, `aether_next`, `harness.aether2`, `runner`, `eval_suite`, and `evals`: passed
+- replay baseline: passed; known-bad case: rejected as expected
+- component certification board: passed, all 13 required cases passed
+- exact tracked-source audit: passed, 853 tracked blobs, no credential-path/content findings
+- source-matched smoke: 887 passed, 38 skipped, 3 failed
+
 
 The repository's Codex review helper was also invoked. Its test lane passed, but the helper could not start its bundled native review binary (`ENOENT`) on this host. That review limitation is recorded rather than presented as a clean automated review.
 
