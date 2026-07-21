@@ -13,10 +13,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "pyyaml", "httpx"]
-live = ["litellm"]
+dev = ["pytest>=8", "pyyaml", "httpx", "openai"]
+live = ["litellm", "openai"]
 vision = ["pymupdf", "rapidocr-onnxruntime"]
-full = ["litellm", "pymupdf", "pyyaml", "rapidocr-onnxruntime", "httpx"]
+full = ["litellm", "pymupdf", "pyyaml", "rapidocr-onnxruntime", "httpx", "openai"]
 
 [project.scripts]
 proteus = "proteus.cli:main"
