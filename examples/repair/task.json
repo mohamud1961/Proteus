@@ -1,0 +1,5 @@
+{
+  "kind": "repair",
+  "description": "Future example: reproduce a failing check, apply a bounded repair, and require fresh verifier evidence.",
+  "status": "planned_extension_not_part_of_required_demo"
+}

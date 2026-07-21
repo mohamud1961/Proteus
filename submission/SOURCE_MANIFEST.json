@@ -1,0 +1,25 @@
+{
+  "package": "Proteus",
+  "source_product": "Aether",
+  "source_repository": "harnesseng",
+  "source_commit": "adc210c3fa339790594cd965fc25397321235055",
+  "source_worktree": "/private/tmp/aether-qualified-integration",
+  "included": [
+    "Aether-derived role boundaries and evidence discipline",
+    "Aether-derived fail-closed runtime and verifier concepts",
+    "new Proteus packaging, replay demo, portable evals, and documentation"
+  ],
+  "excluded": [
+    "private benchmark tasks",
+    "credentials and secret values",
+    "Azure VM artifacts",
+    "TerminalBench task payloads",
+    "legacy stub demo paths",
+    "unverified model-board claims"
+  ],
+  "live_provider": {
+    "model_default": "gpt-5.6",
+    "required_for_demo": false,
+    "credential_variable": "OPENAI_API_KEY"
+  }
+}
