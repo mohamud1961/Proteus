@@ -1,8 +1,8 @@
-"""Canonical Aether package.
+"""OLD compatibility alias for the Proteus/Aether-Next runtime.
 
-During consolidation, the implementation still lives under
-``aether_next_build/aether_next``. This package exposes that implementation under
-the stable ``aether`` import path without moving files or changing behavior.
+The implementation still lives under ``aether_next_build/aether_next``. This
+import path is retained for backward compatibility; new public code should use
+Proteus and the canonical source path without changing behavior.
 """
 from __future__ import annotations
 

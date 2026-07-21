@@ -1,6 +1,6 @@
-# Aether-2
+# OLD / REFERENCE ONLY: Aether-2
 
-Canonical public package boundary for the Aether-2 harness line.
+This directory is retained for compatibility and historical comparison. It is not the current Proteus harness. The current canonical runtime is `aether_next_build/aether_next/`; the public product facade is `proteus/`.
 
 ## Implemented Code
 

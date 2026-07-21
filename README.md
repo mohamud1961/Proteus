@@ -23,14 +23,16 @@ The demo is deterministic replay by design. It creates a temporary workbench, ex
 
 ## Full harness surfaces
 
-- `aether_next/` — canonical Aether-Next runtime and verifier implementation.
-- `aether_next_build/` — runner entrypoints, deterministic eval runners, role-eval scripts, and the complete Aether-Next test suite.
+- `aether_next_build/aether_next/` — latest canonical Proteus runtime and verifier implementation.
+- `aether_next/` — source-compatible mirror of the latest canonical runtime.
 - `runner/` — eval CLI, model-client boundary, schemas, and substrate execution.
-- `harness/` — Aether-2 compatibility/reference runtime.
-- `eval_suite/` and `evals/` — public task packs, graders, schemas, boards, and manifest-driven eval framework.
-- `tests/` — root harness tests; the Aether-Next tests are retained under `aether_next_build/tests/` beside their source-matched runner.
+- `harness/aether2/` — **OLD / REFERENCE ONLY** Aether-2 compatibility runtime.
+- `aether/` — **OLD / COMPATIBILITY ONLY** import alias for the canonical runtime.
+- `aether_next_build/reference_legacy/` — **OLD / QUARANTINED** reference implementations for historical replay.
+- `aether_next_build/` — runner entrypoints, deterministic eval runners, role-eval scripts, and the complete source-matched test suite.
+- `eval_suite/`, `evals/`, and `tests/` — public task packs, graders, schemas, boards, tests, and manifest-driven eval framework.
 
-The source package excludes generated run directories, credentials, VM state, and official/private task payloads. Historical results remain provenance rather than silently becoming live scores. The public-facing product is Proteus; `aether_next/`, `aether_next_build/`, and `harness/aether2/` are retained source-compatible internal paths.
+The source package excludes generated run directories, credentials, VM state, and official/private task payloads. Historical results remain provenance rather than silently becoming live scores. The public-facing product is Proteus; aether_next_build/aether_next/ is canonical, aether_next/ is its source-compatible mirror, and the explicitly marked old paths are retained only for compatibility and historical reference.
 
 For the full source-matched test inventory use `./scripts/run_tests.sh`. It keeps the documented V5 integration-boundary tests visible in the tree but excludes them from the source-matched smoke command; historical replay tests skip explicitly when their external trace corpus is absent. The current source-matched Proteus baseline, synchronized to the latest clean Aether-Next source, still has three known runtime regressions, recorded in [validation](submission/VALIDATION.md).
 

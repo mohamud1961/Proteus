@@ -2,6 +2,11 @@
   "package": "Proteus",
   "source_product": "Aether",
   "public_product": "Proteus",
+  "old_surfaces": [
+    "aether/",
+    "harness/aether2/",
+    "aether_next_build/reference_legacy/"
+  ],
   "source_repository": "harnesseng",
   "source_commit": "679e5f174b055657fc9641db2fc74af072e2a196",
   "source_worktree": "authoritative clean Aether checkout",
