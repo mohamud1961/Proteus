@@ -5,10 +5,10 @@ The source authority for the Aether-derived design review was the clean worktree
 - repository: `harnesseng`
 - worktree: clean source checkout used for package construction (not vendored)
 - branch: `codex/aether-qualified-integration`
-- source commit: `adc210c3fa339790594cd965fc25397321235055`
+- source commit: `679e5f174b055657fc9641db2fc74af072e2a196`
 - observed status: clean at audit time
 
-Its immediate history includes the evaluator-fidelity change in `adc210c3`, provider-contract qualification evidence in `3442a1f5`, and the layered certification base in `aa800976`. The current dirty checkout at `/Users/mohamud/Downloads/harnesseng` was not copied as source authority.
+Its immediate history includes the latest evaluator-fidelity change in `679e5f17`, overlay-path virtualization in `a7c87c34`, targeted role-evaluation evidence in `ec9abf70`, provider-contract qualification evidence in `3442a1f5`, and the layered certification base in `aa800976`. The current dirty checkout at `/Users/mohamud/Downloads/harnesseng` was not copied as source authority.
 
 The source record distinguishes implementation commits from evidence-only commits and preserves negative classifications. In particular, fresh certification evidence and model-board evidence are not silently upgraded into a public product score. The Proteus package is the full public source boundary derived from that authority: it includes the Aether-Next runtime and runner, the Aether-2 compatibility harness, public eval substrate and fixtures, tests, and scripts. Private VM/model artifacts and benchmark payloads are intentionally excluded.
 

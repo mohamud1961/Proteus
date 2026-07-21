@@ -66,7 +66,7 @@ The source record reports deterministic certification evidence, but also preserv
 
 ### July 21 — package and publicize the product boundary
 
-The source branch continued evaluator-fidelity and provider-contract work through commit `adc210c3fa339790594cd965fc25397321235055`. The current Proteus package was then constructed on its own submission branch, with a fresh install path, replay demo, source manifest, validation record, and explicit limitations.
+The source branch continued evaluator-fidelity and provider-contract work through `adc210c3fa339790594cd965fc25397321235055`, then reached the latest clean source commit `679e5f174b055657fc9641db2fc74af072e2a196` with overlay virtualization, verifier-round classification, and targeted known-bad evaluation coverage. The current Proteus package was then constructed on its own submission branch, with a fresh install path, replay demo, source manifest, validation record, and explicit limitations.
 
 ## Post-deadline work
 

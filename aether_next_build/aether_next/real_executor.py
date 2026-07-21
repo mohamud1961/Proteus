@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import fnmatch
 import os
+import platform
+import pwd
 import signal
 import subprocess
 import uuid
@@ -309,6 +311,70 @@ class SubprocessExecutor:
             stderr_overflow_path=stderr_overflow,
             stdout_bytes_total=stdout_total,
             stderr_bytes_total=stderr_total,
+            timed_out=timed_out,
+        )
+
+    def run_command_with_virtual_workspace(
+        self,
+        command: str,
+        *,
+        virtual_workspace_root: str = "/app",
+        timeout_s: int = 30,
+    ) -> CommandResult:
+        """Run against this workspace through an isolated Linux bind mount.
+
+        Frozen host replays have no native ``/app`` namespace.  Rather than
+        pretending that absolute task paths work, use a private root mount
+        namespace when the host explicitly supports it.  The mount dies with
+        the child process, so neither the original workspace nor the host
+        ``/app`` is mutated.  Unsupported hosts fail closed for this route.
+        """
+        if virtual_workspace_root != "/app" or platform.system() != "Linux":
+            return CommandResult(
+                command=command, exit_code=126,
+                stderr="overlay_virtual_workspace_unavailable: isolated /app mount requires Linux",
+            )
+        user = pwd.getpwuid(os.getuid()).pw_name
+        namespace_script = (
+            'set -eu; mkdir -p /app; mount --bind "$1" /app; '
+            'exec runuser -u "$2" -- bash -lc "$3"'
+        )
+        effective_timeout = timeout_s if timeout_s > 0 else self._default_timeout_s
+        before = _snapshot_mtimes(self._root)
+        timed_out = False
+        try:
+            proc = subprocess.run(
+                [
+                    "sudo", "-n", "unshare", "--mount", "--fork", "--propagation", "private",
+                    "bash", "-c", namespace_script, "aether-overlay", self._root, user, command,
+                ],
+                cwd=self._root,
+                capture_output=True,
+                text=True, errors="replace",
+                timeout=effective_timeout,
+            )
+            exit_code = proc.returncode
+            raw_stdout, raw_stderr = proc.stdout, proc.stderr
+        except subprocess.TimeoutExpired as exc:
+            timed_out = True
+            exit_code = 124
+            raw_stdout = _decode_partial(exc.stdout)
+            raw_stderr = _decode_partial(exc.stderr) + (
+                f"\n[harness] virtual-workspace command timed out after {effective_timeout}s"
+            )
+        if exit_code != 0 and "sudo:" in raw_stderr:
+            raw_stderr = "overlay_virtual_workspace_unavailable: " + raw_stderr
+        stdout_total, stderr_total = len(raw_stdout), len(raw_stderr)
+        stdout, stdout_overflow = self._spooler.finalize(raw_stdout, "stdout")
+        stderr, stderr_overflow = self._spooler.finalize(raw_stderr, "stderr")
+        after = _snapshot_mtimes(self._root)
+        modified = tuple(sorted(rel for rel, mtime in after.items() if rel in before and before[rel] != mtime))
+        produced = tuple(sorted(rel for rel in after if rel not in before))
+        return CommandResult(
+            command=command, exit_code=exit_code, stdout=stdout, stderr=stderr,
+            modified_paths=modified, produced_artifacts=produced, metrics={},
+            stdout_overflow_path=stdout_overflow, stderr_overflow_path=stderr_overflow,
+            stdout_bytes_total=stdout_total, stderr_bytes_total=stderr_total,
             timed_out=timed_out,
         )
 

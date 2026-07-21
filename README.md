@@ -2,7 +2,7 @@
 
 Proteus is the full public harness: an Architect turns task truth into a bounded workbench, a Solver operates through that workbench, and an independent Verifier checks the resulting workspace. The runtime records action receipts and evidence so a judge can inspect what actually happened.
 
-Proteus is the public Build Week product derived from the longer-running Aether research project. Aether is the history and source of the execution, evidence, evaluation, and role-separation ideas; Proteus is the portable package and demo surface.
+Proteus is the public product name for this repository and runtime. It is derived from the longer-running Aether research project; Aether remains the provenance/history label and is retained only in internal compatibility paths and source records. Proteus is the portable package and demo surface.
 
 ## Run it from a fresh clone
 
@@ -30,9 +30,9 @@ The demo is deterministic replay by design. It creates a temporary workbench, ex
 - `eval_suite/` and `evals/` — public task packs, graders, schemas, boards, and manifest-driven eval framework.
 - `tests/` — root harness tests; the Aether-Next tests are retained under `aether_next_build/tests/` beside their source-matched runner.
 
-The source package excludes generated run directories, credentials, VM state, and official/private task payloads. Historical results remain provenance rather than silently becoming live scores.
+The source package excludes generated run directories, credentials, VM state, and official/private task payloads. Historical results remain provenance rather than silently becoming live scores. The public-facing product is Proteus; `aether_next/`, `aether_next_build/`, and `harness/aether2/` are retained source-compatible internal paths.
 
-For the full source-matched test inventory use `./scripts/run_tests.sh`. It keeps the documented V5 integration-boundary tests visible in the tree but excludes them from the source-matched smoke command; historical replay tests skip explicitly when their external trace corpus is absent. The current source-matched Aether baseline still has three known runtime regressions, recorded in [validation](submission/VALIDATION.md).
+For the full source-matched test inventory use `./scripts/run_tests.sh`. It keeps the documented V5 integration-boundary tests visible in the tree but excludes them from the source-matched smoke command; historical replay tests skip explicitly when their external trace corpus is absent. The current source-matched Proteus baseline, synchronized to the latest clean Aether-Next source, still has three known runtime regressions, recorded in [validation](submission/VALIDATION.md).
 
 ## What a judge should inspect
 

@@ -9,6 +9,7 @@ from pathlib import Path
 
 from aether_next.compiler import CapabilityRegistry, ConfigCompiler
 from aether_next.ledger import ExecutionLedger
+from aether_next.execution import CommandResult
 from aether_next.real_executor import SubprocessExecutor
 from aether_next.runtime_ir import CapabilityDescriptor, EnvMap, RuntimeConfigIR
 from aether_next.verifier_inspector import (
@@ -92,6 +93,41 @@ def test_fixture_path_escapes_are_rejected() -> None:
             result = overlay.write_fixture("../escape.txt", "nope")
             assert "error" in result
             assert not Path(root).parent.joinpath("escape.txt").exists()
+        finally:
+            overlay.teardown()
+
+
+def test_overlay_rejects_source_symlink_that_escapes_workspace() -> None:
+    with tempfile.TemporaryDirectory() as root:
+        Path(root, "outside-link").symlink_to("/etc")
+        overlay = VerifierOverlay(SubprocessExecutor(root), root)
+
+        result = overlay.ensure()
+
+        assert result["error"].startswith("overlay_symlink_escape_rejected")
+
+
+def test_overlay_dispatches_app_paths_to_virtual_workspace_capability() -> None:
+    class _VirtualExecutor:
+        def __init__(self) -> None:
+            self.calls: list[tuple[str, str]] = []
+
+        def run_command_with_virtual_workspace(self, command: str, *, virtual_workspace_root: str, timeout_s: int) -> CommandResult:
+            self.calls.append((command, virtual_workspace_root))
+            return CommandResult(command=command, exit_code=0, stdout="mounted")
+
+    with tempfile.TemporaryDirectory() as root:
+        Path(root, "input.txt").write_text("source")
+        overlay = VerifierOverlay(SubprocessExecutor(root), root)
+        try:
+            assert "error" not in overlay.ensure()
+            virtual = _VirtualExecutor()
+            overlay._overlay_executor = virtual
+
+            result = overlay.run_command("cat /app/input.txt")
+
+            assert result["success"] is True
+            assert virtual.calls == [("cat /app/input.txt", "/app")]
         finally:
             overlay.teardown()
 

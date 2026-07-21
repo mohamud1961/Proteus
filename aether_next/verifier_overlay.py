@@ -12,6 +12,7 @@ This is a generic capability class -- no task-specific logic belongs here.
 from __future__ import annotations
 
 import base64
+import os
 import posixpath
 import uuid
 from typing import Any
@@ -58,6 +59,10 @@ class VerifierOverlay:
             return {"overlay_root": self._overlay_root, "created": False}
         if self._setup_error:
             return {"error": self._setup_error}
+        escape = self._symlink_escape_error(self._workspace_root)
+        if escape:
+            self._setup_error = escape
+            return {"error": self._setup_error}
         candidate = f"{self._workspace_root}.verifier_overlay_{uuid.uuid4().hex[:8]}"
         copy_cmd = (
             f"rm -rf {_shell_quote(candidate)} && "
@@ -79,6 +84,20 @@ class VerifierOverlay:
         self._overlay_executor = factory(candidate)
         return {"overlay_root": candidate, "created": True}
 
+    @staticmethod
+    def _symlink_escape_error(root: str) -> str:
+        """Reject copies containing symlinks that resolve outside the workspace."""
+        root_real = os.path.realpath(root)
+        for directory, names, files in os.walk(root, followlinks=False):
+            for name in (*names, *files):
+                path = os.path.join(directory, name)
+                if not os.path.islink(path):
+                    continue
+                target = os.path.realpath(path)
+                if target != root_real and not target.startswith(root_real + os.sep):
+                    return f"overlay_symlink_escape_rejected: {os.path.relpath(path, root)}"
+        return ""
+
     def run_command(self, command: str, *, timeout_s: int | None = None) -> dict[str, Any]:
         """Run a command with the overlay as working directory.
 
@@ -89,10 +108,18 @@ class VerifierOverlay:
             return {"error": state["error"]}
         requested = self._max_command_timeout_s if timeout_s is None else int(timeout_s)
         assert self._overlay_executor is not None
-        result = self._overlay_executor.run_command(
-            command,
-            timeout_s=max(1, min(requested, self._max_command_timeout_s)),
-        )
+        capped_timeout = max(1, min(requested, self._max_command_timeout_s))
+        virtual_root = "/app" in command
+        virtual_runner = getattr(self._overlay_executor, "run_command_with_virtual_workspace", None)
+        if virtual_root and callable(virtual_runner):
+            result = virtual_runner(command, virtual_workspace_root="/app", timeout_s=capped_timeout)
+        elif virtual_root and self._workspace_root != "/app":
+            return {"error": "overlay_virtual_workspace_unavailable: /app is not mounted for this executor"}
+        else:
+            result = self._overlay_executor.run_command(command, timeout_s=capped_timeout)
+        escape = self._symlink_escape_error(self._overlay_root or "")
+        if escape:
+            return {"error": escape}
         return {
             "overlay_root": self._overlay_root,
             "command": command,

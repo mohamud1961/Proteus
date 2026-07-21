@@ -1,8 +1,9 @@
 {
   "package": "Proteus",
   "source_product": "Aether",
+  "public_product": "Proteus",
   "source_repository": "harnesseng",
-  "source_commit": "adc210c3fa339790594cd965fc25397321235055",
+  "source_commit": "679e5f174b055657fc9641db2fc74af072e2a196",
   "source_worktree": "authoritative clean Aether checkout",
   "inventory": {
     "aether_next_runtime_python_files": 85,

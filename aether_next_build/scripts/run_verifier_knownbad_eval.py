@@ -124,6 +124,19 @@ def _inspection_environment_validity(
     return (not issues, tuple(sorted(set(issues))))
 
 
+def _is_bounded_verifier_protocol_failure(exc: Exception) -> bool:
+    """Recognize a verifier that exhausted valid inspection rounds without a verdict.
+
+    This is deliberately narrower than general ``ModelOutputError`` handling.
+    A provider/parser failure invalidates the measurement, while a verifier that
+    receives valid inspection results and still never returns a verdict is a
+    scoreable failure of the model-facing protocol.
+    """
+    return isinstance(exc, ModelOutputError) and str(exc) == (
+        "verifier exceeded bounded inspection rounds without returning a verdict"
+    )
+
+
 def _historical_launch_commands(trace: Mapping[str, Any]) -> tuple[str, ...]:
     """Extract explicit background launches from recorded solver actions.
 
@@ -306,15 +319,22 @@ def _run_case(
         executor = SubprocessExecutor(workspace)
         envmap = EnvMap(task_prompt=compiled.task_prompt, workspace_root=workspace)
         overlay = VerifierOverlay(executor, workspace)
-    hooks_for_inspection = None
-    if vision_model is not None:
-        hooks_for_inspection = ModelHooks(
+    inspection_rounds: list[dict[str, Any]] = []
+    hooks: ModelHooks | None = None
+    model_run_id = ""
+    if mode == "model":
+        assert verifier_model is not None
+        model_run_id = f"verifier-knownbad:{uuid.uuid4().hex}"
+        # The verifier and every inspection route share one hook instance so
+        # text and vision receipts have the same immutable run/task lineage.
+        hooks = ModelHooks(
             architect_model=lambda m, *, max_output_tokens=8000: "{}",
             solver_model=lambda m, *, max_output_tokens=8000: "{}",
+            verifier_model=verifier_model,
             vision_model=vision_model,
+            run_id=model_run_id,
+            task_id=str(case["task"]),
         )
-
-    inspection_rounds: list[dict[str, Any]] = []
 
     def inspector(requests: tuple[VerifierInspectionRequest, ...]) -> list[dict[str, Any]]:
         results = execute_verifier_inspection_requests(
@@ -324,7 +344,7 @@ def _run_case(
             executor=executor,
             envmap=envmap,
             overlay=overlay,
-            hooks=hooks_for_inspection,
+            hooks=hooks,
         )
         inspection_rounds.append({
             "requests": [asdict(request) for request in requests],
@@ -349,7 +369,6 @@ def _run_case(
         "runtime_mode": runtime_mode,
         "runtime_setup": setup_receipts,
     }
-    hooks: ModelHooks | None = None
     try:
         if mode == "dry":
             # Plumbing proof without a model: execute one representative
@@ -364,17 +383,8 @@ def _run_case(
                 "prediction": "not_evaluated_dry_mode",
             })
             return row
-        assert verifier_model is not None
-        model_run_id = f"verifier-knownbad:{uuid.uuid4().hex}"
-        hooks = ModelHooks(
-            architect_model=lambda m, *, max_output_tokens=8000: "{}",
-            solver_model=lambda m, *, max_output_tokens=8000: "{}",
-            verifier_model=verifier_model,
-            vision_model=vision_model,
-            run_id=model_run_id,
-            task_id=str(case["task"]),
-        )
         row["model_run_id"] = model_run_id
+        assert hooks is not None
         raw = hooks.verify_with_inspector(packet, compiled, ledger, inspector=inspector)
         parsed = parse_model_verifier_result(raw)
         converted = parsed.verdict != "completed"
@@ -403,15 +413,37 @@ def _run_case(
         return row
     except (AzureModelError, ModelOutputError) as exc:
         valid, issues = _inspection_environment_validity(inspection_rounds)
-        row.update({
-            "mode": "model",
-            "measurement_valid": False,
-            "measurement_issues": list(issues) if not valid else ["provider_or_model_output_invalid"],
-            "prediction": "INVALID_ENVIRONMENT" if not valid else "INVALID_PROVIDER",
-            "provider_error_type": type(exc).__name__,
-            "provider_error": str(exc),
-            "inspection_rounds": inspection_rounds,
-        })
+        if not valid:
+            row.update({
+                "mode": "model",
+                "measurement_valid": False,
+                "measurement_issues": list(issues),
+                "prediction": "INVALID_ENVIRONMENT",
+                "provider_error_type": type(exc).__name__,
+                "provider_error": str(exc),
+                "inspection_rounds": inspection_rounds,
+            })
+        elif _is_bounded_verifier_protocol_failure(exc):
+            row.update({
+                "mode": "model",
+                "measurement_valid": True,
+                "measurement_issues": [],
+                "prediction": "MISS",
+                "model_protocol_failure": "verifier_inspection_round_limit_exceeded",
+                "model_error_type": type(exc).__name__,
+                "model_error": str(exc),
+                "inspection_rounds": inspection_rounds,
+            })
+        else:
+            row.update({
+                "mode": "model",
+                "measurement_valid": False,
+                "measurement_issues": ["provider_or_model_output_invalid"],
+                "prediction": "INVALID_PROVIDER",
+                "provider_error_type": type(exc).__name__,
+                "provider_error": str(exc),
+                "inspection_rounds": inspection_rounds,
+            })
         return row
     finally:
         if hooks is not None:
@@ -427,6 +459,23 @@ def _run_case(
             )
         overlay.teardown()
         _stop_container_replay(container_id)
+
+
+def _model_callables(args: Any) -> tuple[Callable[..., str], Callable[..., str] | None]:
+    """Construct the text and optional semantic-vision routes explicitly."""
+    from aether_next.providers.azure_model import make_azure_callable, make_azure_vision_callable
+
+    verifier_model = make_azure_callable(
+        deployment_env=args.deploy_env, key_env=args.key_env, endpoint_env=args.endpoint_env,
+        role="verifier",
+    )
+    vision_model = None
+    if args.vision_deploy_env:
+        vision_model = make_azure_vision_callable(
+            deployment_env=args.vision_deploy_env, key_env=args.key_env,
+            endpoint_env=args.endpoint_env,
+        )
+    return verifier_model, vision_model
 
 
 def main() -> int:
@@ -454,17 +503,7 @@ def main() -> int:
     verifier_model = None
     vision_model = None
     if args.mode == "model":
-        from aether_next.providers.azure_model import make_azure_callable
-
-        verifier_model = make_azure_callable(
-            deployment_env=args.deploy_env, key_env=args.key_env, endpoint_env=args.endpoint_env,
-            role="verifier",
-        )
-        if args.vision_deploy_env:
-            vision_model = make_azure_callable(
-                deployment_env=args.vision_deploy_env, key_env=args.key_env,
-                endpoint_env=args.endpoint_env,
-            )
+        verifier_model, vision_model = _model_callables(args)
 
     wanted = {name.strip() for name in args.tasks.split(",") if name.strip()}
     rows: list[dict[str, Any]] = []
