@@ -36,4 +36,10 @@ Result: exit 0. The result included three successful Solver action receipts (wri
 - No API key values, private benchmark payloads, Azure VM artifacts, or legacy stub demo output were copied into the package.
 - The known-bad mutation changes the saved artifact after Solver completion; the independent Verifier rejects it.
 
+## Pushed-branch cold clone
+
+The pushed branch was cloned again from GitHub into a separate directory and repeated the editable install, test suite, and eval command. Result: 5 tests passed; baseline passed; known-bad failed closed; clone status was clean.
+
+The repository's Codex review helper was also invoked. Its test lane passed, but the helper could not start its bundled native review binary (`ENOENT`) on this host. That review limitation is recorded rather than presented as a clean automated review.
+
 These checks establish package readiness only. They do not establish live-model performance, a TerminalBench score, or a Devpost submission after the published deadline.
