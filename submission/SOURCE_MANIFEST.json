@@ -3,28 +3,27 @@
   "source_product": "Aether",
   "public_product": "Proteus",
   "old_surfaces": [
-    "aether/",
-    "harness/aether2/",
-    "aether_next_build/reference_legacy/"
+    "older_variants/aether/",
+    "older_variants/harness/",
+    "older_variants/reference_legacy/"
   ],
   "source_repository": "harnesseng",
   "source_commit": "679e5f174b055657fc9641db2fc74af072e2a196",
   "source_worktree": "authoritative clean Aether checkout",
   "inventory": {
-    "aether_next_runtime_python_files": 85,
-    "aether_next_build_runtime_python_files": 85,
-    "harness_python_files": 102,
+    "older_variants_harness_python_files": 102,
     "runner_python_files": 7,
-    "eval_suite_files": 300,
+    "eval_suite_files": 320,
     "aether_next_tests_python_files": 119,
-    "root_tests_python_files": 34
+    "root_tests_python_files": 30,
+    "proteus_runtime_python_files": 85
   },
   "included": [
-    "Aether-Next runtime and verifier source",
-    "Aether-Next runner and deterministic eval entrypoints",
-    "root runner, harness, eval_suite, public graders, schemas, boards, and tests",
+    "Proteus runtime, compiler, solver, verifier, and replay demo",
+    "Proteus runner and deterministic evaluation entrypoints",
+    "runner, eval_suite/evals, public graders, schemas, boards, and tests",
     "Aether-derived role boundaries and evidence discipline",
-    "new Proteus packaging, replay demo, and documentation"
+    "older variants retained for compatibility and historical audit"
   ],
   "excluded": [
     "generated eval/run output directories",

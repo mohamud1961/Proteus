@@ -5,28 +5,28 @@ from pathlib import Path
 from types import SimpleNamespace
 import time
 
-from harness.aether2.control.completion import (
+from older_variants.harness.aether2.control.completion import (
     _build_operational_verification_feedback,
 )
-from harness.aether2.control.execution_context import ExecutionContext
-from harness.aether2.control.verification_context import _ReadOnlyVerificationContext
-from harness.aether2.control.verification_rounds import _run_verification_rounds
-from harness.aether2.runtime.context import ContextManager
-from harness.aether2.runtime.executor import ContainerExecutor
-from harness.aether2.runtime.jobs import JobRegistry
-from harness.aether2.runtime.run_config import ContextPackPolicy
-from harness.aether2.runtime.sessions import SessionRegistry
-from harness.aether2.runtime.verify import (
+from older_variants.harness.aether2.control.execution_context import ExecutionContext
+from older_variants.harness.aether2.control.verification_context import _ReadOnlyVerificationContext
+from older_variants.harness.aether2.control.verification_rounds import _run_verification_rounds
+from older_variants.harness.aether2.runtime.context import ContextManager
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.jobs import JobRegistry
+from older_variants.harness.aether2.runtime.run_config import ContextPackPolicy
+from older_variants.harness.aether2.runtime.sessions import SessionRegistry
+from older_variants.harness.aether2.runtime.verify import (
     DiscrepancyReport,
     RequirementResult,
     _downgrade_nonblocking_process_gaps,
     _uncovered_constraint_results,
     verify_fresh_context,
 )
-from harness.aether2.runtime.verify_report import _inspection_payload
-from harness.aether2.traces.delta import with_evidence_ledger
-from harness.aether2.traces.receipt_store import QueryableReceiptStore
-from harness.aether2.traces.task_local_tools import TaskLocalToolRegistry
+from older_variants.harness.aether2.runtime.verify_report import _inspection_payload
+from older_variants.harness.aether2.traces.delta import with_evidence_ledger
+from older_variants.harness.aether2.traces.receipt_store import QueryableReceiptStore
+from older_variants.harness.aether2.traces.task_local_tools import TaskLocalToolRegistry
 
 
 def _report(requirement: str, evidence: str, *, reason_codes: tuple[str, ...] = ()) -> DiscrepancyReport:
@@ -246,8 +246,8 @@ def test_active_blockers_are_verifier_evidence_not_verifier_suppression(monkeypa
     def _fake_monitor(**kwargs):  # noqa: ANN003
         return {"applies": False}, kwargs["start_snapshot"]
 
-    monkeypatch.setattr("harness.aether2.control.verification_rounds.verify_fresh_context", _fake_verify)
-    monkeypatch.setattr("harness.aether2.control.verification_rounds._monitor_persistent_runtime", _fake_monitor)
+    monkeypatch.setattr("older_variants.harness.aether2.control.verification_rounds.verify_fresh_context", _fake_verify)
+    monkeypatch.setattr("older_variants.harness.aether2.control.verification_rounds._monitor_persistent_runtime", _fake_monitor)
 
     state = {
         "verification_rounds": 0,
@@ -487,9 +487,9 @@ def test_verification_round_rebase_preserves_receipt_continuity(monkeypatch, tmp
         captured["snapshot"] = kwargs.get("receipt_continuity_snapshot")
         return context_obj
 
-    monkeypatch.setattr("harness.aether2.control.verification_rounds.verify_fresh_context", _fake_verify)
-    monkeypatch.setattr("harness.aether2.control.verification_rounds._monitor_persistent_runtime", _fake_monitor)
-    monkeypatch.setattr("harness.aether2.control.verification_rounds.rebase", _fake_rebase)
+    monkeypatch.setattr("older_variants.harness.aether2.control.verification_rounds.verify_fresh_context", _fake_verify)
+    monkeypatch.setattr("older_variants.harness.aether2.control.verification_rounds._monitor_persistent_runtime", _fake_monitor)
+    monkeypatch.setattr("older_variants.harness.aether2.control.verification_rounds.rebase", _fake_rebase)
 
     state = {
         "verification_rounds": 0,
@@ -578,8 +578,8 @@ def test_task_done_evidence_floor_is_verifier_evidence_not_precheck_veto(monkeyp
     def _fake_monitor(**kwargs):  # noqa: ANN003
         return {"applies": False}, kwargs["start_snapshot"]
 
-    monkeypatch.setattr("harness.aether2.control.verification_rounds.verify_fresh_context", _fake_verify)
-    monkeypatch.setattr("harness.aether2.control.verification_rounds._monitor_persistent_runtime", _fake_monitor)
+    monkeypatch.setattr("older_variants.harness.aether2.control.verification_rounds.verify_fresh_context", _fake_verify)
+    monkeypatch.setattr("older_variants.harness.aether2.control.verification_rounds._monitor_persistent_runtime", _fake_monitor)
 
     state = {
         "verification_rounds": 0,

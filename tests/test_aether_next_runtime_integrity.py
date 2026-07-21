@@ -6,19 +6,19 @@ from pathlib import Path
 from types import SimpleNamespace
 
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "aether_next_build"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from aether_next.kernel import KernelResult
-from aether_next.execution import CommandResult
-from aether_next.kernel import AetherNextKernel
-from aether_next.ledger import Receipt
-from aether_next.no_progress import NoProgressController
-from aether_next.runtime_ir import ActionRequest
-from aether_next.real_executor import SubprocessExecutor
-from aether_next.runners import docker_runner
-from aether_next.ledger import ExecutionLedger
-from aether_next.verifier import parse_model_verifier_result
-from aether_next.verifier_probes import inspect_artifact_probe
+from proteus.aether_next.kernel import KernelResult
+from proteus.aether_next.execution import CommandResult
+from proteus.aether_next.kernel import AetherNextKernel
+from proteus.aether_next.ledger import Receipt
+from proteus.aether_next.no_progress import NoProgressController
+from proteus.aether_next.runtime_ir import ActionRequest
+from proteus.aether_next.real_executor import SubprocessExecutor
+from proteus.aether_next.runners import docker_runner
+from proteus.aether_next.ledger import ExecutionLedger
+from proteus.aether_next.verifier import parse_model_verifier_result
+from proteus.aether_next.verifier_probes import inspect_artifact_probe
 
 
 def test_timeout_that_grader_passes_is_not_classified_as_task_failure() -> None:
@@ -357,7 +357,7 @@ def test_no_progress_detects_repeated_failed_service_probe() -> None:
 
 
 def test_official_yaml_task_metadata_and_instruction_are_public_inputs(tmp_path: Path) -> None:
-    from aether_next.task_metadata_loader import load_task_instruction, load_task_metadata
+    from proteus.aether_next.task_metadata_loader import load_task_instruction, load_task_metadata
 
     task_dir = tmp_path / "official-yaml"
     task_dir.mkdir()

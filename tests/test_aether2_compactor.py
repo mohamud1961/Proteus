@@ -6,8 +6,8 @@ import json
 from dataclasses import dataclass, field
 from typing import Any
 
-from harness.aether2.runtime.compactor import build_fact_ledger, rebase, should_rebase
-from harness.aether2.runtime.context import ContextManager
+from older_variants.harness.aether2.runtime.compactor import build_fact_ledger, rebase, should_rebase
+from older_variants.harness.aether2.runtime.context import ContextManager
 
 
 CRITICAL_REQUIREMENT = "CRITICAL_REQUIREMENT: use_python3_not_python2"

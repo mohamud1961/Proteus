@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import harness.aether2 as public_api
-from harness.aether2.runtime.context import ContextManager
-from harness.aether2.skills import (
+import older_variants.harness.aether2 as public_api
+from older_variants.harness.aether2.runtime.context import ContextManager
+from older_variants.harness.aether2.skills import (
     BundledSkillDefinition,
     SkillRegistry,
     build_skill_prefix_message,
@@ -18,7 +18,7 @@ from harness.aether2.skills import (
     parse_frontmatter_document,
     render_skill_context_block,
 )
-from harness.aether2.tools import FakeLocalMcpServer, McpServerConfig, McpToolDescriptor, McpToolResult, build_mcp_tool_name, build_native_tool_registry, connect_fake_local_server
+from older_variants.harness.aether2.tools import FakeLocalMcpServer, McpServerConfig, McpToolDescriptor, McpToolResult, build_mcp_tool_name, build_native_tool_registry, connect_fake_local_server
 
 
 def _write_skill(path: Path, text: str) -> None:

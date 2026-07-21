@@ -13,7 +13,7 @@ from eval_suite.schemas.eval_substrate_contracts import (
     validate_result_row,
     validate_task_pack,
 )
-from harness.aether2.runtime.route_schemas import SchemaValidationError
+from older_variants.harness.aether2.runtime.route_schemas import SchemaValidationError
 
 ADAPTER_AUTHORITIES = ("native", "equivalent", "shaped")
 EXPECTED_ANSWER_FORMATS = ("text", "json", "tool_call_sequence", "artifact_ref")

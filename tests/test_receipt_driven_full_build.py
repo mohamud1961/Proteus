@@ -3,21 +3,21 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from harness.aether2.control.execution_context import ExecutionContext
-from harness.aether2.control.candidate_preservation import CandidatePreservation
-from harness.aether2.control.completion import _build_proof_state
-from harness.aether2.control.action_helpers import _envelope_to_message
-from harness.aether2.runtime.context import ContextManager, sanitize_model_visible_payload
-from harness.aether2.runtime.adaptive_profile_helpers import solver_visible_orientation
-from harness.aether2.runtime.executor import ContainerExecutor
-from harness.aether2.runtime.jobs import JobRegistry
-from harness.aether2.runtime.run_config import ContextPackPolicy, make_harness_run_config
-from harness.aether2.runtime.sessions import SessionRegistry
-from harness.aether2.tools.native import dispatch
-from harness.aether2.traces.failure_cards import build_failure_card, classify_failure
-from harness.aether2.traces.envelope import build_envelope
-from harness.aether2.traces.receipt_store import QueryableReceiptStore, parse_plan_update
-from harness.aether2.traces.task_local_tools import TaskLocalToolRegistry
+from older_variants.harness.aether2.control.execution_context import ExecutionContext
+from older_variants.harness.aether2.control.candidate_preservation import CandidatePreservation
+from older_variants.harness.aether2.control.completion import _build_proof_state
+from older_variants.harness.aether2.control.action_helpers import _envelope_to_message
+from older_variants.harness.aether2.runtime.context import ContextManager, sanitize_model_visible_payload
+from older_variants.harness.aether2.runtime.adaptive_profile_helpers import solver_visible_orientation
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.jobs import JobRegistry
+from older_variants.harness.aether2.runtime.run_config import ContextPackPolicy, make_harness_run_config
+from older_variants.harness.aether2.runtime.sessions import SessionRegistry
+from older_variants.harness.aether2.tools.native import dispatch
+from older_variants.harness.aether2.traces.failure_cards import build_failure_card, classify_failure
+from older_variants.harness.aether2.traces.envelope import build_envelope
+from older_variants.harness.aether2.traces.receipt_store import QueryableReceiptStore, parse_plan_update
+from older_variants.harness.aether2.traces.task_local_tools import TaskLocalToolRegistry
 
 
 def _ctx(tmp_path: Path) -> tuple[ExecutionContext, Path]:

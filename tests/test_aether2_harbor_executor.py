@@ -7,14 +7,14 @@ import time
 from pathlib import Path
 from types import SimpleNamespace
 
-from harness.aether2.control.execution_context import ExecutionContext
-from harness.aether2.control.execution_context import RunResult
-from harness.aether2.runtime.bridge_harbor import _attach_grader_reward, build_harbor_run_manifest
-from harness.aether2.runtime.executor import ContainerExecutor
-from harness.aether2.runtime.harbor_backend import HarborExecutor, HarborSessionRegistry, probe_harbor_workspace
-from harness.aether2.runtime.jobs import JobRegistry
-from harness.aether2.runtime.sessions import SessionRegistry
-from harness.aether2.runtime.task_spec import TaskSpec
+from older_variants.harness.aether2.control.execution_context import ExecutionContext
+from older_variants.harness.aether2.control.execution_context import RunResult
+from older_variants.harness.aether2.runtime.bridge_harbor import _attach_grader_reward, build_harbor_run_manifest
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.harbor_backend import HarborExecutor, HarborSessionRegistry, probe_harbor_workspace
+from older_variants.harness.aether2.runtime.jobs import JobRegistry
+from older_variants.harness.aether2.runtime.sessions import SessionRegistry
+from older_variants.harness.aether2.runtime.task_spec import TaskSpec
 
 
 class FakeHarborEnvironment:

@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import harness.aether2 as public_api
+import older_variants.harness.aether2 as public_api
 from pathlib import Path
 
-from harness.aether2.agents import (
+from older_variants.harness.aether2.agents import (
     AgentDefinition,
     AgentInlineMcpServer,
     AgentMcpServerRef,
@@ -18,8 +18,8 @@ from harness.aether2.agents import (
     get_active_agents_from_list,
     load_agents_from_directory,
 )
-from harness.aether2.skills import SkillHookMetadata, SkillRegistry, create_skill_spec
-from harness.aether2.tools import (
+from older_variants.harness.aether2.skills import SkillHookMetadata, SkillRegistry, create_skill_spec
+from older_variants.harness.aether2.tools import (
     FakeLocalMcpServer,
     McpServerConfig,
     McpToolDescriptor,

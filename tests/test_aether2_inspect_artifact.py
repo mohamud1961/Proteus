@@ -3,10 +3,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from harness.aether2.control.execution_context import ExecutionContext
-from harness.aether2.runtime.executor import ContainerExecutor
-from harness.aether2.runtime.jobs import JobRegistry
-from harness.aether2.runtime.sessions import SessionRegistry
+from older_variants.harness.aether2.control.execution_context import ExecutionContext
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.jobs import JobRegistry
+from older_variants.harness.aether2.runtime.sessions import SessionRegistry
 
 
 def _make_context(tmp_path: Path) -> ExecutionContext:
@@ -31,7 +31,7 @@ def test_inspect_artifact_uses_pdf_text_backend_when_available(monkeypatch, tmp_
     pdf_path.write_bytes(b"%PDF-1.4\n")
 
     monkeypatch.setattr(
-        "harness.aether2.control.execution_context._inspect_pdf_content",
+        "older_variants.harness.aether2.control.execution_context._inspect_pdf_content",
         lambda target, max_chars: ("Invoice Total 123.45 VAT 12.34", "pdf_text", None),
     )
 
@@ -50,7 +50,7 @@ def test_inspect_artifact_uses_image_ocr_backend_when_available(monkeypatch, tmp
     image_path.write_bytes(b"\xff\xd8\xff")
 
     monkeypatch.setattr(
-        "harness.aether2.control.execution_context._inspect_image_content",
+        "older_variants.harness.aether2.control.execution_context._inspect_image_content",
         lambda target, max_chars: ("Amount Due 44.10", None),
     )
 
@@ -69,7 +69,7 @@ def test_inspect_artifact_keeps_metadata_only_when_backends_unavailable(monkeypa
     image_path.write_bytes(b"\xff\xd8\xff")
 
     monkeypatch.setattr(
-        "harness.aether2.control.execution_context._inspect_image_content",
+        "older_variants.harness.aether2.control.execution_context._inspect_image_content",
         lambda target, max_chars: (None, "OCR backend unavailable"),
     )
 
@@ -88,9 +88,9 @@ def test_ocr_image_text_surfaces_backend_init_error(monkeypatch, tmp_path: Path)
     def _boom() -> None:
         raise RuntimeError("missing model blob")
 
-    monkeypatch.setattr("harness.aether2.control.execution_context._rapidocr_engine", _boom)
+    monkeypatch.setattr("older_variants.harness.aether2.control.execution_context._rapidocr_engine", _boom)
 
-    from harness.aether2.control.execution_context import _ocr_image_text
+    from older_variants.harness.aether2.control.execution_context import _ocr_image_text
 
     text, note = _ocr_image_text(image_path, max_chars=200)
     assert text is None

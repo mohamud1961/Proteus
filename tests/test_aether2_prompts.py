@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from harness.aether2.runtime.prompts import MECHANICAL_SYSTEM_PROMPT, SYSTEM_PROMPT, TASK_DONE_REMINDER
-from harness.aether2.tools.native import TOOL_SCHEMAS
+from older_variants.harness.aether2.runtime.prompts import MECHANICAL_SYSTEM_PROMPT, SYSTEM_PROMPT, TASK_DONE_REMINDER
+from older_variants.harness.aether2.tools.native import TOOL_SCHEMAS
 
 
 def test_task_done_reminder_requires_exact_artifact_self_check() -> None:

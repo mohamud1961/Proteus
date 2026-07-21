@@ -5,18 +5,18 @@ import shutil
 import time
 from pathlib import Path
 
-from harness.aether2.control.execution_context import ToolInvocationRecord
-from harness.aether2.control.loop import ExecutionContext, run_aether2_loop
-from harness.aether2.control.requirements import _extract_stated_requirements
-from harness.aether2.hooks import HookRegistry, HookResult, PermissionDecision, PermissionDecisionReason
-from harness.aether2.runtime.executor import ContainerExecutor
-from harness.aether2.runtime.jobs import JobRegistry
-from harness.aether2.runtime.model_client import ModelResponse
-from harness.aether2.runtime.prompts import SYSTEM_PROMPT
-from harness.aether2.runtime.run_config import build_baseline_run_config
-from harness.aether2.runtime.sessions import SessionRegistry
-from harness.aether2.runtime.task_spec import TaskSpec
-from harness.aether2.tools.native import dispatch_with_hooks
+from older_variants.harness.aether2.control.execution_context import ToolInvocationRecord
+from older_variants.harness.aether2.control.loop import ExecutionContext, run_aether2_loop
+from older_variants.harness.aether2.control.requirements import _extract_stated_requirements
+from older_variants.harness.aether2.hooks import HookRegistry, HookResult, PermissionDecision, PermissionDecisionReason
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.jobs import JobRegistry
+from older_variants.harness.aether2.runtime.model_client import ModelResponse
+from older_variants.harness.aether2.runtime.prompts import SYSTEM_PROMPT
+from older_variants.harness.aether2.runtime.run_config import build_baseline_run_config
+from older_variants.harness.aether2.runtime.sessions import SessionRegistry
+from older_variants.harness.aether2.runtime.task_spec import TaskSpec
+from older_variants.harness.aether2.tools.native import dispatch_with_hooks
 
 
 def _make_execution_context(tmp_path: Path, hook_registry: HookRegistry | None = None) -> tuple[ExecutionContext, Path]:
@@ -204,12 +204,12 @@ def _freeze_identity_surfaces(monkeypatch) -> None:  # noqa: ANN001
         uuid_tick["value"] += 1
         return _StaticUUID(f"{uuid_tick['value']:032x}")
 
-    import harness.aether2.control.execution_context as execution_context_module
-    import harness.aether2.control.loop as loop_module
-    import harness.aether2.control.verification_rounds as verification_rounds_module
-    import harness.aether2.runtime.executor as executor_module
-    import harness.aether2.traces.envelope as envelope_module
-    from harness.aether2.runtime.orientation import OrientationSnapshot
+    import older_variants.harness.aether2.control.execution_context as execution_context_module
+    import older_variants.harness.aether2.control.loop as loop_module
+    import older_variants.harness.aether2.control.verification_rounds as verification_rounds_module
+    import older_variants.harness.aether2.runtime.executor as executor_module
+    import older_variants.harness.aether2.traces.envelope as envelope_module
+    from older_variants.harness.aether2.runtime.orientation import OrientationSnapshot
 
     monkeypatch.setattr(execution_context_module.time, "monotonic", fake_monotonic)
     monkeypatch.setattr(loop_module.time, "monotonic", fake_monotonic)
@@ -478,7 +478,7 @@ def test_permission_argument_mutation_is_denied_in_first_port_slice(tmp_path: Pa
 
 
 def test_hook_and_permission_exports_are_public() -> None:
-    import harness.aether2 as public_api
+    import older_variants.harness.aether2 as public_api
 
     assert public_api.HookRegistry is HookRegistry
     assert public_api.PermissionDecision is PermissionDecision

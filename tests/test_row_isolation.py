@@ -1,11 +1,11 @@
-"""Tests for harness.aether2.runtime.row_isolation — generic stale-port hygiene guard."""
+"""Tests for older_variants.harness.aether2.runtime.row_isolation — generic stale-port hygiene guard."""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from harness.aether2.runtime.row_isolation import (
+from older_variants.harness.aether2.runtime.row_isolation import (
     CleanupReceipt,
     ListenerEntry,
     clean_stale_listeners,
@@ -19,9 +19,9 @@ def _listener(port: int, pid: int | None = None, name: str = "test") -> Listener
 def test_stale_listener_is_cleaned(tmp_path: Path) -> None:
     """A stale same-run listener NOT in baseline and NOT protected IS killed."""
     killed_pids: list[int] = []
-    orig_kill = __import__("harness.aether2.runtime.row_isolation", fromlist=["_safe_kill"])._safe_kill
+    orig_kill = __import__("older_variants.harness.aether2.runtime.row_isolation", fromlist=["_safe_kill"])._safe_kill
 
-    import harness.aether2.runtime.row_isolation as mod
+    import older_variants.harness.aether2.runtime.row_isolation as mod
 
     def fake_kill(pid: int) -> bool:
         killed_pids.append(pid)
@@ -52,7 +52,7 @@ def test_stale_listener_is_cleaned(tmp_path: Path) -> None:
 
 def test_protected_candidate_is_not_killed(tmp_path: Path) -> None:
     """A viable-locked candidate PID must NEVER be killed."""
-    import harness.aether2.runtime.row_isolation as mod
+    import older_variants.harness.aether2.runtime.row_isolation as mod
 
     killed_pids: list[int] = []
 
@@ -82,7 +82,7 @@ def test_protected_candidate_is_not_killed(tmp_path: Path) -> None:
 
 def test_cleanup_receipt_is_written(tmp_path: Path) -> None:
     """A cleanup receipt JSON file is written to receipt_dir."""
-    import harness.aether2.runtime.row_isolation as mod
+    import older_variants.harness.aether2.runtime.row_isolation as mod
 
     mod._safe_kill = lambda pid: True  # noqa: ARG005
     try:

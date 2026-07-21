@@ -6,7 +6,7 @@ from proteus.models import SolverAction
 
 
 class ReplaySolver:
-    """Deterministic solver provider used for the judge demo and offline evals."""
+    """Deterministic solver provider used for the judge demo and offline eval_suite.evals."""
 
     provider_name = "replay"
 

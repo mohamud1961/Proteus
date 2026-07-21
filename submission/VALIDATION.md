@@ -18,13 +18,13 @@ OCR/PDF dependencies without making the judge path depend on them.
 
 ```text
 /private/tmp/proteus-light-venv-2/bin/python - <<'PY'
-import proteus, aether_next, harness.aether2, runner.cli
-import eval_suite.schemas.eval_substrate_contracts, evals.framework
+import proteus, proteus.aether_next, older_variants.harness.aether2, runner.cli
+import eval_suite.schemas.eval_substrate_contracts, eval_suite.evals.framework
 print("imports: ok")
 PY
 imports: ok
 
-/private/tmp/proteus-light-venv-2/bin/python -m evals.run_evals
+/private/tmp/proteus-light-venv-2/bin/python -m eval_suite.evals.run_evals
 baseline: passed=True expected=True
 known_bad: passed=False expected=False
 
@@ -53,7 +53,7 @@ The final pushed branch was cloned again from GitHub into a separate directory a
 The exact-remote results were:
 
 - editable `.[dev]` install: passed
-- imports for `proteus`, `aether_next`, `harness.aether2`, `runner`, `eval_suite`, and `evals`: passed
+- imports for `proteus`, `proteus.aether_next`, `older_variants.harness.aether2`, `runner`, and `eval_suite`: passed
 - replay baseline: passed; known-bad case: rejected as expected
 - component certification board: passed, all 13 required cases passed
 - exact tracked-source audit: passed, 853 tracked blobs, no credential-path/content findings
@@ -62,7 +62,7 @@ The exact-remote results were:
 
 The repository's Codex review helper was also invoked. Its test lane passed, but the helper could not start its bundled native review binary (`ENOENT`) on this host. That review limitation is recorded rather than presented as a clean automated review.
 
-The full source-matched smoke run (`python3 -m pytest -q tests aether_next_build/tests --ignore=aether_next_build/tests/v5_ported`) produced 891 passed, 38 skipped, and 3 failed. The 3 failures reproduce in the authoritative Aether worktree at `tests/test_aether_next_runtime_integrity.py` and are existing runtime regressions: two Docker process-probe expectations and one verifier-evidence-intervening-step expectation. The failures are not hidden or converted into passes.
+The full source-matched smoke run (`python3 -m pytest -q tests --ignore=tests/aether_next/v5_ported`) produced 891 passed, 38 skipped, and 3 failed. The 3 failures reproduce in the authoritative Aether worktree at `tests/test_aether_next_runtime_integrity.py` and are existing runtime regressions: two Docker process-probe expectations and one verifier-evidence-intervening-step expectation. The failures are not hidden or converted into passes.
 
 The V5 port suite remains present and intentionally exposes its documented API integration boundary when run directly. It is not included in the passing smoke count.
 

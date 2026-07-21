@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 set -euo pipefail
-python3 -m pytest -q tests aether_next_build/tests --ignore=aether_next_build/tests/v5_ported
+python3 -m pytest -q tests --ignore=tests/aether_next/v5_ported
