@@ -1,0 +1,9 @@
+{
+  "lane_id": "tool_call_lane",
+  "surface_type": "tool_call",
+  "artifact_refs": [
+    "eval_suite/calibration_lanes/tool_call/apis/",
+    "eval_suite/calibration_lanes/tool_call/samples/tool_call_composite_samples.json"
+  ],
+  "notes": "Public adapter-facing tool-call calibration lane."
+}

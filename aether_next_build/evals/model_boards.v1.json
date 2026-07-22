@@ -1,0 +1,172 @@
+{
+  "schema": "aether.model_role_boards.v1",
+  "global_rules": {
+    "samples_per_case": 3,
+    "default_effort": "low",
+    "deterministic_pass_required": true,
+    "production_source_identity_required": true,
+    "task_taxonomy_delivered_to_models": false,
+    "official_grader_authoritative_only_for_system_board": true
+  },
+  "boards": {
+    "architect": {
+      "purpose": "Can the Architect convert raw public task facts into a mechanically valid, complete model-authored runtime configuration?",
+      "runner": "run_architect_only_eval.py",
+      "tasks_from": "official_task_board.v1.json:smoke_board",
+      "model_input": [
+        "public task prompt",
+        "factual EnvMap",
+        "fixed runtime manual",
+        "resource limits"
+      ],
+      "forbidden_model_input": [
+        "official tests",
+        "solution",
+        "grader output",
+        "task-family label",
+        "expected strategy"
+      ],
+      "metrics": [
+        "strict_parse_rate",
+        "mechanical_compile_rate",
+        "prompt_span_anchor_rate",
+        "clause_coverage_rate",
+        "proof_route_materialisation_rate",
+        "false_success_trap_quality",
+        "unsupported_field_rate",
+        "task_family_leakage_rate"
+      ],
+      "promotion": {
+        "strict_parse_rate": 1.0,
+        "mechanical_compile_rate": 1.0,
+        "unsupported_field_rate": 0.0,
+        "task_family_leakage_rate": 0.0,
+        "minimum_case_reliability": "2_of_3"
+      }
+    },
+    "solver": {
+      "purpose": "Can the Solver choose one high-value causal action from current evidence and update correctly after the exact result?",
+      "runner": "scripts/run_solver_checkpoint_eval.py",
+      "checkpoints": [
+        "inspect_before_edit",
+        "failed_command_pivot",
+        "service_launch_then_fresh_probe",
+        "large_output_handle_retrieval",
+        "stale_evidence_after_mutation",
+        "verifier_finding_repair",
+        "derived_representation_lineage",
+        "submission_coherence"
+      ],
+      "metrics": [
+        "provider_validity",
+        "protocol_validity",
+        "single_action_rate",
+        "semantic_next_action_quality",
+        "latest_result_use",
+        "equivalent_repeat_rate",
+        "unobserved_dependency_rate",
+        "premature_submission_rate"
+      ],
+      "promotion": {
+        "provider_validity": 1.0,
+        "protocol_validity": 1.0,
+        "single_action_rate": 1.0,
+        "equivalent_repeat_rate": 0.0,
+        "unobserved_dependency_rate": 0.0,
+        "premature_submission_rate": 0.0,
+        "minimum_decisive_actions": "22_of_24",
+        "minimum_case_reliability": "2_of_3"
+      }
+    },
+    "verifier": {
+      "purpose": "Can the state-only Verifier distinguish current success, repairable task failure and harness/tooling failure without Solver-journey leakage?",
+      "runner": "scripts/run_verifier_knownbad_eval.py plus known-good replay set",
+      "sets": [
+        "known_bad_false_clean_states",
+        "known_good_completed_states",
+        "stale_generation_states",
+        "wrong_process_owner_states",
+        "insufficient_visual_representation_states",
+        "tooling_failure_states"
+      ],
+      "metrics": [
+        "false_clean_rate",
+        "false_block_rate",
+        "owner_attribution_accuracy",
+        "inspection_id_citation_rate",
+        "fresh_generation_rate",
+        "specific_repair_rate",
+        "journey_leakage_rate"
+      ],
+      "promotion": {
+        "false_clean_rate": 0.0,
+        "false_block_rate": 0.0,
+        "owner_attribution_accuracy": 1.0,
+        "inspection_id_citation_rate": 1.0,
+        "fresh_generation_rate": 1.0,
+        "journey_leakage_rate": 0.0
+      }
+    },
+    "perception": {
+      "purpose": "Can model-selected generic perception produce useful representations while preserving source and derivation lineage?",
+      "runner": "scripts/run_official_task_eval_board.py --board smoke --tasks code-from-image,video-processing,extract-moves-from-video,gcode-to-text,sam-cell-seg",
+      "official_tasks": [
+        "code-from-image",
+        "video-processing",
+        "extract-moves-from-video",
+        "gcode-to-text",
+        "sam-cell-seg"
+      ],
+      "metrics": [
+        "representation_creation_rate",
+        "source_hash_binding_rate",
+        "derivation_manifest_rate",
+        "semantic_observation_quality",
+        "stale_representation_rejection_rate",
+        "self_certification_rate"
+      ],
+      "promotion": {
+        "source_hash_binding_rate": 1.0,
+        "derivation_manifest_rate": 1.0,
+        "stale_representation_rejection_rate": 1.0,
+        "self_certification_rate": 0.0,
+        "minimum_case_reliability": "2_of_3"
+      }
+    },
+    "system_smoke": {
+      "purpose": "Does the full model-led harness solve a stratified official board without false completion or false blocking?",
+      "runner": "scripts/run_official_task_eval_board.py --board smoke",
+      "tasks_from": "official_task_board.v1.json:smoke_board",
+      "metrics": [
+        "official_reward",
+        "sample_reliability",
+        "false_clean_count",
+        "false_block_count",
+        "provider_protocol_failure_rate",
+        "evidence_finalisation_rate",
+        "steps",
+        "efficiency"
+      ],
+      "promotion": {
+        "false_clean_count": 0,
+        "false_block_count": 0,
+        "provider_protocol_failure_rate": 0.0,
+        "evidence_finalisation_rate": 1.0
+      }
+    },
+    "system_full": {
+      "purpose": "Final official 90-task system measurement.",
+      "runner": "scripts/run_official_task_eval_board.py --board full",
+      "tasks_from": "official_task_board.v1.json:full_board",
+      "metrics": [
+        "all system_smoke metrics",
+        "official_pass_rate",
+        "per-task 3-sample reliability"
+      ],
+      "promotion": {
+        "claim_harness_ready": "all deterministic and integrity gates pass",
+        "claim_100_percent_tbench": "official_pass_rate == 1.0 under declared sample policy"
+      }
+    }
+  }
+}

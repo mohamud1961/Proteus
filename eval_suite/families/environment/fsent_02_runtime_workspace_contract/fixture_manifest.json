@@ -1,0 +1,22 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fsent_02_runtime_workspace_contract",
+  "canonical_workspace_root": "/workspace/runtime",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/runtime/config/runtime_contract.json",
+      "kind": "contract",
+      "note": "Defines required python command, cwd, and runner behavior."
+    },
+    {
+      "path": "solver_pack/workspace/runtime/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Visible check validates output schema fields."
+    },
+    {
+      "path": "solver_pack/workspace/runtime/docs/stale_runner_guidance.md",
+      "kind": "decoy",
+      "note": "Stale guidance suggesting python instead of python3."
+    }
+  ]
+}

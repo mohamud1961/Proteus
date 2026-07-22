@@ -1,0 +1,30 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: noisy_open_workflow
+row_id: noisy_open_workflow
+row_type: hard
+is_flagship: false
+provenance_type: original_private
+admission_level_target: certified
+primary_clusters:
+  - retrieval/reduction
+  - filesystem/path
+  - verification/completion
+canonical_workspace_root: /workspace/case
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 300
+expected_outputs:
+  candidate_json: /workspace/case/out/final_submission.json
+  closure_report: /workspace/case/final/closure_report.md
+task_brief: >-
+  Navigate a noisy open workflow with ambiguous notes, resolve the true decision path,
+  and produce a deterministic closure report that survives hidden checks.

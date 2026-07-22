@@ -1,0 +1,29 @@
+{
+  "harness_id": "runtime_control_harness_v1",
+  "scope": "public_smoke_eval_harness",
+  "family_pack_refs": [
+    "eval_suite/families/filesystem/public_manifest_repair_smoke/task_pack.json",
+    "eval_suite/families/runtime_contract/homolog_contract_smoke/task_pack.json",
+    "eval_suite/families/environment/runtime_policy_hook_smoke/task_pack.json",
+    "eval_suite/families/tooling/mcp_registry_contract_smoke/task_pack.json",
+    "eval_suite/families/tooling/skill_loader_contract_smoke/task_pack.json",
+    "eval_suite/families/orchestration/subagent_handoff_contract_smoke/task_pack.json"
+  ],
+  "board_refs": [
+    "eval_suite/boards/public_manifest_repair_smoke_v1.json",
+    "eval_suite/boards/homolog_contract_smoke_v1.json",
+    "eval_suite/boards/runtime_policy_hook_smoke_v1.json",
+    "eval_suite/boards/mcp_registry_contract_smoke_v1.json",
+    "eval_suite/boards/skill_loader_contract_smoke_v1.json",
+    "eval_suite/boards/subagent_handoff_contract_smoke_v1.json"
+  ],
+  "scoreboard_refs": [
+    "eval_suite/scoreboards/public_manifest_repair_smoke_v1.example.scoreboard.json",
+    "eval_suite/scoreboards/homolog_contract_smoke_v1.example.scoreboard.json",
+    "eval_suite/scoreboards/runtime_policy_hook_smoke_v1.example.scoreboard.json",
+    "eval_suite/scoreboards/mcp_registry_contract_smoke_v1.example.scoreboard.json",
+    "eval_suite/scoreboards/skill_loader_contract_smoke_v1.example.scoreboard.json",
+    "eval_suite/scoreboards/subagent_handoff_contract_smoke_v1.example.scoreboard.json"
+  ],
+  "notes": "Public harness-level registry for executable smoke eval families."
+}

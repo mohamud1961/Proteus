@@ -1,0 +1,29 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: fsent_02_runtime_workspace_contract
+row_id: fsent_02_runtime_workspace_contract
+row_type: sentinel
+is_flagship: false
+provenance_type: original_private
+admission_level_target: certified
+primary_clusters:
+  - environment/toolchain
+  - filesystem/path
+  - verification/completion
+canonical_workspace_root: /workspace/runtime
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 180
+expected_outputs:
+  candidate_json: /workspace/runtime/out/final_submission.json
+task_brief: >-
+  Validate runtime contract discipline around python command, workspace root,
+  runner selection, and invalid-vs-capability classification.

@@ -1,0 +1,7 @@
+{
+  "runtime_host_candidate": "catalog-core.internal",
+  "queue_name": "catalog_reconcile_q",
+  "token_suffix": "47af",
+  "source": "checkpoint_b",
+  "supersedes": "runtime.env"
+}

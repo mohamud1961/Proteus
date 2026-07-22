@@ -1,0 +1,55 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: final_harness_eval_suite/current_stack_manifest.schema.yaml
+title: Final Harness Current Stack Manifest
+type: object
+additionalProperties: false
+required:
+  - schema_version
+  - board_id
+  - freeze_status
+  - base_route_id
+  - included_mechanism_ids
+  - excluded_mechanism_ids
+  - authority_label
+  - evidence_refs
+properties:
+  schema_version:
+    type: string
+    const: final_harness_current_stack_manifest.v1
+  board_id:
+    type: string
+    const: final_harness_eval_suite_v1
+  generated_at:
+    type: string
+  freeze_status:
+    type: string
+    enum:
+      - provisional_pre_family_completion
+      - frozen_for_board_entry
+  base_route_id:
+    type: string
+    minLength: 1
+  included_mechanism_ids:
+    type: array
+    minItems: 1
+    items:
+      type: string
+      minLength: 1
+  excluded_mechanism_ids:
+    type: array
+    items:
+      type: string
+      minLength: 1
+  authority_label:
+    type: string
+    enum:
+      - debug
+      - equivalent
+      - native
+      - certified
+  evidence_refs:
+    type: array
+    minItems: 1
+    items:
+      type: string
+      minLength: 1

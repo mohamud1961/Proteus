@@ -1,0 +1,8 @@
+{
+  "lane_id": "retrieval_lane",
+  "surface_type": "retrieval",
+  "artifact_refs": [
+    "eval_suite/calibration_lanes/retrieval/reference/Verified.csv"
+  ],
+  "notes": "Public adapter-facing retrieval calibration lane."
+}

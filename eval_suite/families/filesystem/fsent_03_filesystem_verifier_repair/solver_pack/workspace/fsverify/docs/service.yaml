@@ -1,0 +1,3 @@
+service:
+  retries: 99
+  mode: legacy

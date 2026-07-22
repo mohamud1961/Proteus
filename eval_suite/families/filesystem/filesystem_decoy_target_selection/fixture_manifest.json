@@ -1,0 +1,32 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "filesystem_decoy_target_selection",
+  "canonical_workspace_root": "/workspace/decoy",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/decoy/services/alpha/config.yaml",
+      "kind": "decoy",
+      "note": "Decoy config — must remain untouched."
+    },
+    {
+      "path": "solver_pack/workspace/decoy/services/beta/config.yaml",
+      "kind": "repair_target",
+      "note": "True target — timeout must be patched to 300."
+    },
+    {
+      "path": "solver_pack/workspace/decoy/services/gamma/config.yaml",
+      "kind": "decoy",
+      "note": "Decoy config — must remain untouched."
+    },
+    {
+      "path": "solver_pack/workspace/decoy/deploy_manifest.json",
+      "kind": "evidence",
+      "note": "References the active service — solver uses this to infer target."
+    },
+    {
+      "path": "solver_pack/workspace/decoy/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Readiness gate — checks candidate contract shape only."
+    }
+  ]
+}

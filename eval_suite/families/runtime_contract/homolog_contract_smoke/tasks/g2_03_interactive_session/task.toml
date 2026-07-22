@@ -1,0 +1,2 @@
+[environment]
+docker_image = "aether2-g2-03-interactive-session:latest"

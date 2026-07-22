@@ -1,0 +1,130 @@
+{
+  "schema": "aether.archetype_matrix.v1",
+  "rule": "evaluation-only matrix; no labels are supplied to production models",
+  "dimensions": {
+    "code_implementation": {
+      "deterministic_targets": ["tests/test_chatgpt_integration_scenarios.py", "tests/test_runtime_enforcement.py"],
+      "official_tasks": ["cancel-async-tasks", "schemelike-metacircular-eval"]
+    },
+    "debug_repair": {
+      "deterministic_targets": ["tests/test_repair.py", "tests/test_runtime_truthfulness_slices.py"],
+      "official_tasks": ["custom-memory-heap-crash", "fix-ocaml-gc"]
+    },
+    "build_install_toolchain": {
+      "deterministic_targets": ["tests/test_live_checks.py", "tests/test_route_preflight.py"],
+      "official_tasks": ["build-pmars", "compile-compcert"]
+    },
+    "service_protocol": {
+      "deterministic_targets": ["tests/test_live_protocol_proof_homolog.py", "tests/test_process_service_generation.py"],
+      "official_tasks": ["kv-store-grpc", "nginx-request-logging", "pypi-server"]
+    },
+    "data_transform_query": {
+      "deterministic_targets": ["tests/test_semantic_evidence_compilation.py", "tests/test_proof_contract_integration.py"],
+      "official_tasks": ["regex-log", "sparql-university", "multi-source-data-merger"]
+    },
+    "scientific_numeric": {
+      "deterministic_targets": ["tests/test_proof_contract.py", "tests/test_semantic_evidence_compilation.py"],
+      "official_tasks": ["adaptive-rejection-sampler", "raman-fitting", "tune-mjcf"]
+    },
+    "ml_model": {
+      "deterministic_targets": ["tests/test_truthful_output_capture.py", "tests/test_runtime_truthfulness_slices.py"],
+      "official_tasks": ["train-fasttext", "torch-tensor-parallelism", "pytorch-model-cli"]
+    },
+    "security_forensics": {
+      "deterministic_targets": ["tests/test_filesystem_and_redaction_security.py", "tests/test_runtime_context_security.py"],
+      "official_tasks": ["git-leak-recovery", "openssl-selfsigned-cert", "vulnerable-secret"]
+    },
+    "perception_media": {
+      "deterministic_targets": ["tests/test_local_vision_delta.py", "tests/test_perception_vision.py"],
+      "official_tasks": ["video-processing", "code-from-image", "extract-moves-from-video"]
+    },
+    "binary_reverse_engineering": {
+      "deterministic_targets": ["tests/test_truthful_output_capture.py", "tests/test_completion_evidence_protocol.py"],
+      "official_tasks": ["extract-elf", "write-compressor", "db-wal-recovery"]
+    },
+    "version_control_history": {
+      "deterministic_targets": ["tests/test_source_complete_replay.py", "tests/test_operational_evidence_finalization.py"],
+      "official_tasks": ["git-leak-recovery", "git-multibranch", "sanitize-git-repo"]
+    },
+    "process_concurrency": {
+      "deterministic_targets": ["tests/test_process_service_generation.py", "tests/test_worldstate_process_projection.py"],
+      "official_tasks": ["cancel-async-tasks", "torch-tensor-parallelism", "llm-inference-batching-scheduler"]
+    },
+    "emulation_virtualization": {
+      "deterministic_targets": ["tests/test_process_service_generation.py", "tests/test_live_protocol_proof_homolog.py"],
+      "official_tasks": ["qemu-alpine-ssh", "qemu-startup", "install-windows-3.11"]
+    },
+    "formal_symbolic": {
+      "deterministic_targets": ["tests/test_semantic_evidence_compilation.py", "tests/test_proof_contract.py"],
+      "official_tasks": ["prove-plus-comm", "schemelike-metacircular-eval", "constraints-scheduling"]
+    },
+    "performance_optimization": {
+      "deterministic_targets": ["tests/test_verifier_economics.py", "tests/test_truthful_output_capture.py"],
+      "official_tasks": ["tune-mjcf", "query-optimize", "winning-avg-corewars"]
+    },
+    "external_acquisition": {
+      "deterministic_targets": ["tests/test_network_policy_enforcement.py", "tests/test_route_preflight.py"],
+      "official_tasks": ["build-pmars", "build-pov-ray", "mteb-retrieve"]
+    }
+  },
+  "verification_surfaces": {
+    "exact_artifact": {
+      "deterministic_targets": ["tests/test_completion_evidence_protocol.py", "tests/test_proof_contract_integration.py"],
+      "official_tasks": ["openssl-selfsigned-cert", "regex-log"]
+    },
+    "command_exit_output": {
+      "deterministic_targets": ["tests/test_truthful_output_capture.py", "tests/test_live_checks.py"],
+      "official_tasks": ["compile-compcert", "schemelike-metacircular-eval"]
+    },
+    "numeric_tolerance_threshold": {
+      "deterministic_targets": ["tests/test_proof_contract.py", "tests/test_semantic_evidence_compilation.py"],
+      "official_tasks": ["raman-fitting", "tune-mjcf"]
+    },
+    "protocol_interaction": {
+      "deterministic_targets": ["tests/test_live_protocol_proof_homolog.py", "tests/test_process_service_generation.py"],
+      "official_tasks": ["kv-store-grpc", "pypi-server"]
+    },
+    "visual_semantic": {
+      "deterministic_targets": ["tests/test_local_vision_delta.py", "tests/test_perception_vision.py"],
+      "official_tasks": ["video-processing", "code-from-image"]
+    },
+    "performance_resource": {
+      "deterministic_targets": ["tests/test_verifier_economics.py", "tests/test_kernel_deadline.py"],
+      "official_tasks": ["train-fasttext", "write-compressor"]
+    },
+    "hidden_adversarial": {
+      "deterministic_targets": ["tests/test_anti_self_confirmation.py", "tests/test_verifier_knownbad_eval.py"],
+      "official_tasks": ["cancel-async-tasks", "torch-tensor-parallelism"]
+    }
+  },
+  "harness_risks": {
+    "false_clean_proxy": {
+      "deterministic_targets": ["tests/test_completion_conjunction.py", "tests/test_verifier_knownbad_eval.py"],
+      "official_tasks": ["video-processing", "cancel-async-tasks"]
+    },
+    "stale_evidence": {
+      "deterministic_targets": ["tests/test_inspection_registry_and_freshness.py", "tests/test_finding_evidence_lifecycle.py"],
+      "official_tasks": ["db-wal-recovery", "nginx-request-logging"]
+    },
+    "long_context_output": {
+      "deterministic_targets": ["tests/test_truthful_output_capture.py", "tests/test_context_tool_result_visibility.py"],
+      "official_tasks": ["compile-compcert", "multi-source-data-merger"]
+    },
+    "process_identity": {
+      "deterministic_targets": ["tests/test_process_service_generation.py", "tests/test_worldstate_process_projection.py"],
+      "official_tasks": ["kv-store-grpc", "qemu-alpine-ssh"]
+    },
+    "derived_representation": {
+      "deterministic_targets": ["tests/test_local_vision_delta.py", "tests/test_inspection_registry_and_freshness.py"],
+      "official_tasks": ["video-processing", "raman-fitting"]
+    },
+    "isolation_secret": {
+      "deterministic_targets": ["tests/test_filesystem_and_redaction_security.py", "tests/test_network_policy_enforcement.py"],
+      "official_tasks": ["vulnerable-secret", "git-leak-recovery"]
+    },
+    "external_dependency": {
+      "deterministic_targets": ["tests/test_network_policy_enforcement.py", "tests/test_route_preflight.py"],
+      "official_tasks": ["build-pmars", "pypi-server"]
+    }
+  }
+}

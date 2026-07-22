@@ -1,0 +1,33 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: original_repo_recovery_flagship
+row_id: original_repo_recovery_flagship
+row_type: hard
+is_flagship: true
+provenance_type: original_private
+admission_level_target: certified
+primary_clusters:
+  - long-horizon orchestration
+  - retrieval/reduction
+  - verification/completion
+  - environment/toolchain
+canonical_workspace_root: /workspace/repo
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+visible_verifier: solver_pack/workspace/repo/scripts/verify_recovery.py
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 540
+expected_outputs:
+  candidate_json: /workspace/repo/out/final_submission.json
+  recovered_bundle: /workspace/repo/artifacts/recovery/final/recovery_bundle.json
+  repaired_config: /workspace/repo/services/catalog/config/runtime.env
+task_brief: >-
+  Recover a degraded repository using contradictory artifact fragments, produce a final
+  recovery bundle, and prove closure with verifier evidence.

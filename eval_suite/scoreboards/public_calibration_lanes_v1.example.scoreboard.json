@@ -1,0 +1,194 @@
+{
+  "board_id": "public_calibration_lanes_v1",
+  "example_only": true,
+  "scope_label": "public adapter calibration examples",
+  "result_rows": [
+    {
+      "run_id": "tool_call_lane_summary",
+      "eval_id": "public_calibration_lanes_v1",
+      "task_pack_id": "public_calibration_lanes_v1",
+      "family": "public_calibration_lanes",
+      "surface_type": "tool_call",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_fixture_examples",
+      "environment_ref": "eval_suite/calibration_lanes/tool_call/lane_manifest.json",
+      "artifact_refs": [
+        "eval_suite/calibration_lanes/tool_call/lane_manifest.json",
+        "eval_suite/calibration_lanes/tool_call/samples/tool_call_composite_samples.json"
+      ],
+      "trace_refs": [
+        "eval_suite/calibration_lanes/tool_call/README.md"
+      ],
+      "closure_status": "promoted_fixture_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/calibration_lanes/tool_call/lane_manifest.json",
+      "score": 1.0
+    },
+    {
+      "run_id": "retrieval_lane_summary",
+      "eval_id": "public_calibration_lanes_v1",
+      "task_pack_id": "public_calibration_lanes_v1",
+      "family": "public_calibration_lanes",
+      "surface_type": "retrieval",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_fixture_examples",
+      "environment_ref": "eval_suite/calibration_lanes/retrieval/lane_manifest.json",
+      "artifact_refs": [
+        "eval_suite/calibration_lanes/retrieval/lane_manifest.json",
+        "eval_suite/calibration_lanes/retrieval/reference/Verified.csv"
+      ],
+      "trace_refs": [
+        "eval_suite/calibration_lanes/retrieval/README.md"
+      ],
+      "closure_status": "promoted_fixture_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/calibration_lanes/retrieval/lane_manifest.json",
+      "score": 1.0
+    },
+    {
+      "run_id": "filesystem_lane_summary",
+      "eval_id": "public_calibration_lanes_v1",
+      "task_pack_id": "public_calibration_lanes_v1",
+      "family": "public_calibration_lanes",
+      "surface_type": "filesystem",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_fixture_examples",
+      "environment_ref": "eval_suite/calibration_lanes/filesystem/lane_manifest.json",
+      "artifact_refs": [
+        "eval_suite/calibration_lanes/filesystem/lane_manifest.json",
+        "eval_suite/calibration_lanes/filesystem/filesystem_code.jsonl"
+      ],
+      "trace_refs": [
+        "eval_suite/calibration_lanes/filesystem/README.md"
+      ],
+      "closure_status": "promoted_fixture_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/calibration_lanes/filesystem/lane_manifest.json",
+      "score": 1.0
+    },
+    {
+      "run_id": "terminal_lane_summary",
+      "eval_id": "public_calibration_lanes_v1",
+      "task_pack_id": "public_calibration_lanes_v1",
+      "family": "public_calibration_lanes",
+      "surface_type": "terminal",
+      "admission_level": "diagnostic",
+      "backend_ref": "public_promoted_fixture_examples",
+      "environment_ref": "eval_suite/calibration_lanes/terminal/lane_manifest.json",
+      "artifact_refs": [
+        "eval_suite/calibration_lanes/terminal/lane_manifest.json",
+        "eval_suite/calibration_lanes/terminal/reference/final_harness_task.md"
+      ],
+      "trace_refs": [
+        "eval_suite/calibration_lanes/terminal/README.md"
+      ],
+      "closure_status": "promoted_fixture_example",
+      "task_truth_status": "pass",
+      "contamination_status": "clean",
+      "failure_class": "none",
+      "reason_codes": [],
+      "verifier_ref": "eval_suite/schemas/public_eval_map_contract.md",
+      "grader_ref": "eval_suite/calibration_lanes/terminal/lane_manifest.json",
+      "score": 1.0
+    }
+  ],
+  "scoreboard": {
+    "row_count": 4,
+    "totals": {
+      "pass": 4,
+      "fail": 0,
+      "invalid": 0,
+      "total": 4
+    },
+    "cost_summary": {
+      "run_count": 4,
+      "model_backed_run_count": 0,
+      "total_input_messages": 0,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_output_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "usd": 0.0,
+      "usd_estimate": 0.0,
+      "cost_breakdown_usd": {
+        "input_cost": 0.0,
+        "cached_input_cost": 0.0,
+        "output_cost": 0.0,
+        "total_cost": 0.0
+      },
+      "pricing_model_ids": []
+    },
+    "by_family": {
+      "public_calibration_lanes": {
+        "pass": 4,
+        "fail": 0,
+        "invalid": 0,
+        "total": 4
+      }
+    },
+    "by_surface_type": {
+      "tool_call": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "retrieval": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "filesystem": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      },
+      "terminal": {
+        "pass": 1,
+        "fail": 0,
+        "invalid": 0,
+        "total": 1
+      }
+    },
+    "by_admission_level": {
+      "diagnostic": {
+        "pass": 4,
+        "fail": 0,
+        "invalid": 0,
+        "total": 4
+      }
+    },
+    "by_contamination_status": {
+      "clean": {
+        "pass": 4,
+        "fail": 0,
+        "invalid": 0,
+        "total": 4
+      }
+    },
+    "by_failure_class": {
+      "none": {
+        "pass": 4,
+        "fail": 0,
+        "invalid": 0,
+        "total": 4
+      }
+    }
+  }
+}

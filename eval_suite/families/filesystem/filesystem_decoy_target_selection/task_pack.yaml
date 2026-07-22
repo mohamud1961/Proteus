@@ -1,0 +1,29 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: filesystem_decoy_target_selection
+row_id: filesystem_decoy_target_selection
+row_type: composition
+is_flagship: false
+provenance_type: original_private
+admission_level_target: certified
+primary_clusters:
+  - filesystem/path
+  - verification/completion
+canonical_workspace_root: /workspace/decoy
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 180
+expected_outputs:
+  candidate_json: /workspace/decoy/out/final_submission.json
+  patched_target: /workspace/decoy/services/beta/config.yaml
+task_brief: >-
+  Identify the correct service config among decoys using deploy manifest evidence,
+  patch its timeout value, and preserve all decoy files unchanged.

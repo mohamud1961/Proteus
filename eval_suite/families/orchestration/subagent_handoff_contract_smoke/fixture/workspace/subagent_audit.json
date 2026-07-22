@@ -1,0 +1,39 @@
+{
+  "agent_order_is_deterministic": false,
+  "agents_loaded": [
+    "support-runner",
+    "research-auditor"
+  ],
+  "frontmatter_summary": {
+    "background": false,
+    "hooks_retained": false,
+    "mcp_servers_retained": [],
+    "permission_mode": null,
+    "skills_retained": []
+  },
+  "handoff": {
+    "external_state": false,
+    "files_changed": false,
+    "status": "complete",
+    "unresolved_risks": false,
+    "validation_commands": false
+  },
+  "resolution_summary": {
+    "mcp_issue_reason_codes": [],
+    "resolved_mcp_servers": [],
+    "resolved_skills": [],
+    "skill_issue_reason_codes": []
+  },
+  "task_packet": {
+    "evidence_expectations": false,
+    "exit_criteria": false,
+    "files_to_touch": false,
+    "objective": false,
+    "ownership": false,
+    "scope": false
+  },
+  "visibility": {
+    "no_silent_background_execution": false,
+    "parent_visible_unresolved_risks": false
+  }
+}

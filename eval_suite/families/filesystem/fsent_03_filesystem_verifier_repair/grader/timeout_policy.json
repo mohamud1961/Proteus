@@ -1,0 +1,5 @@
+{
+  "grader_timeout_seconds": 45,
+  "retry_loop_threshold": 3,
+  "classify_infra_timeout_as_invalid": true
+}

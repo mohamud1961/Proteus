@@ -1,0 +1,31 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: fsent_01_tool_call_composite
+row_id: fsent_01_tool_call_composite
+row_type: sentinel
+is_flagship: false
+provenance_type: private_homolog
+admission_level_target: certified
+primary_clusters:
+  - tooling/tool-call
+  - verification/completion
+canonical_workspace_root: /workspace/toolcall
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 180
+expected_outputs:
+  candidate_json: /workspace/toolcall/out/final_submission.json
+  dispatch_receipt: /workspace/toolcall/out/dispatch_receipt.json
+task_brief: >-
+  Execute a composite tool call path with strict argument semantics, reject
+  legacy no-op call traps, and close only after verifier-backed receipt output.
+row_contract_mode: hidden_contract_stress_test
+row_contract_note: expected ticket/owner pair is hidden-truth anchored in this variant; use as tool-contract stress row unless made solver-inferable.

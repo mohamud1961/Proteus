@@ -3,3 +3,10 @@
 __pycache__/
 .pytest_cache/
 .proteus-demo/
+*.sqlite
+*.jsonl
+local_goal_runs/
+deterministic_integration_eval_*/
+verifier_only_eval_*/
+architect_only_eval_*/
+automatic_memory_diagnostic_eval_*/

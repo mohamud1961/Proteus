@@ -1,0 +1,7 @@
+{
+  "harness_id": "runtime_control_harness_v1",
+  "scope": "public_smoke_eval_harness",
+  "family_pack_count": 6,
+  "registry_valid": true,
+  "all_family_packs_present": true
+}

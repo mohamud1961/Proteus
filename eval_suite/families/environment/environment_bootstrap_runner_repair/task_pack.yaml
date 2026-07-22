@@ -1,0 +1,47 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: environment_bootstrap_runner_repair
+suite_id: final_harness_eval_suite_v1
+row_id: environment_bootstrap_runner_repair
+row_type: sentinel
+is_flagship: false
+tier: hard
+source_type: pressure_family_mutated
+source_benchmark_family: environment_bootstrap_and_toolchain_runner_resolution
+direct_public_row_copy: false
+provenance_tags:
+  - pressure_family_mutated
+  - runner_discovery
+  - toolchain_contract
+mutated_dimensions:
+  - repository_name
+  - dependency_layout
+  - runner_aliases_and_decoys
+  - verifier_contract_surface
+preserved_causal_pressure:
+  - wrong_runner_selection
+  - package_manager_confusion
+  - false_completion_without_verified_runner
+contamination_safeguards:
+  - hidden_truth_not_present_in_solver_pack
+  - decoy_runner_docs_conflict_with_real_contract
+  - explicit_direct_public_row_copy_false_attestation
+canonical_workspace_root: /workspace/bootstrap
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 180
+expected_outputs:
+  candidate_json: /workspace/bootstrap/out/toolchain_repair_report.json
+  patches_file: /workspace/bootstrap/out/patches_applied.txt
+admission_level: draft
+task_brief: >-
+  Repair runner and toolchain contract: identify the canonical test runner,
+  apply necessary repairs, produce repair report and patch list.

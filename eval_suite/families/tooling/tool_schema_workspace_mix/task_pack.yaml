@@ -1,0 +1,31 @@
+schema_version: final_harness_task_pack.v1
+task_pack_id: tool_schema_workspace_mix
+row_id: tool_schema_workspace_mix
+row_type: hard
+is_flagship: false
+provenance_type: original_private
+admission_level_target: certified
+primary_clusters:
+  - tooling/tool-call
+  - filesystem/path
+  - retrieval/reduction
+canonical_workspace_root: /workspace/project
+solver_visible_prompt_ref: solver_pack/visible_prompt.md
+fixture_manifest_ref: fixture_manifest.json
+grader_ref: grader/grade.py
+timeout_policy_ref: grader/timeout_policy.json
+known_bad_ref: known_bad/README.md
+ceiling_ref: ceiling/README.md
+deterministic_grading: true
+runtime_contract:
+  backend: linux_container
+  network: disabled
+  python_command: python3
+  max_solver_seconds: 360
+expected_outputs:
+  candidate_json: /workspace/project/out/final_submission.json
+  dispatch_plan: /workspace/project/out/dispatch_plan.json
+  workspace_selector: /workspace/project/config/active_workspace.txt
+task_brief: >-
+  Resolve a mixed schema-and-workspace task where stale cache data and wrong call order
+  can produce plausible but incorrect dispatch plans.

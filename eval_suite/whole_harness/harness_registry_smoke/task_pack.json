@@ -1,0 +1,34 @@
+{
+  "task_id": "harness_registry_smoke_v1",
+  "task_prompt": "Produce a harness_registry_report.json file in the workspace containing a valid harness registry report. The report must include: 'harness_id' set to 'runtime_control_harness_v1', 'scope' set to 'public_smoke_eval_harness', 'family_pack_count' set to 6 (the number of registered family packs), 'registry_valid' set to true, and 'all_family_packs_present' set to true.",
+  "fixture": {
+    "type": "synthetic_harness_registry_contract",
+    "workspace_dir": "workspace",
+    "reference_dir": "reference"
+  },
+  "canonical_root": "/app",
+  "backend_requirements": {
+    "certified_default": "linux_container",
+    "debug_backend": "debug_local_no_sandbox",
+    "network": "disabled"
+  },
+  "visible_verifier": {
+    "command": "python3 eval_suite/whole_harness/harness_registry_smoke/grader.py --workspace /app/workspace --mode visible"
+  },
+  "grader": {
+    "type": "deterministic_harness_registry_contract",
+    "score_range": [0, 1]
+  },
+  "contamination_policy": {
+    "status": "clean",
+    "source": "original_synthetic",
+    "public_benchmark_row": false
+  },
+  "artifact_capture_policy": {
+    "capture": ["environment", "artifacts", "trace"]
+  },
+  "admission_level": "diagnostic",
+  "surface_type": "synthetic_substrate_smoke",
+  "eval_level": "whole_harness",
+  "notes": "Offline deterministic smoke pack for the harness-level registry. Tests that the full harness registry report shape is produced correctly."
+}

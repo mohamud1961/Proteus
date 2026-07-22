@@ -1,0 +1,46 @@
+{
+  "task_id": "mcp_registry_contract_smoke_v1",
+  "task_prompt": "Produce a paired mcp_audit.json and mcp_registry_trace.json bundle proving MCP tool discovery is deterministic, MCP function-call schema mapping is faithful, fake local MCP invocation returns typed visible observations, timeout/error/unavailable/schema-mapping failures remain visible, permission_request/pre_tool_use/post_tool_use evidence is preserved, and native tool behavior is not regressed. Additionally, the bundle must include a 'challenge_response' field in both files, containing the exact output of invoking 'mcp__qa_server__echo_payload' with the text content of challenge.txt (defaulting to 'default_smoke_challenge' if challenge.txt is missing or empty).",
+  "fixture": {
+    "type": "synthetic_mcp_registry_contract",
+    "workspace_ref": "eval_suite/families/tooling/mcp_registry_contract_smoke/fixture/workspace",
+    "reference_ref": "eval_suite/families/tooling/mcp_registry_contract_smoke/fixture/reference",
+    "workspace_dir": "workspace",
+    "reference_dir": "reference"
+  },
+  "canonical_root": "/app",
+  "backend_requirements": {
+    "certified_default": "linux_container",
+    "debug_backend": "debug_local_no_sandbox",
+    "network": "disabled"
+  },
+  "visible_verifier": {
+    "command": "python3 eval_suite/families/tooling/mcp_registry_contract_smoke/grader.py --workspace /app/workspace --reference-root /app/reference --mode visible"
+  },
+  "hidden_verifier": {
+    "command_shape": "python3 eval_suite/families/tooling/mcp_registry_contract_smoke/grader.py --workspace <workspace_root> --reference-root <reference_root> --mode hidden",
+    "checks_ref": "hidden://mcp-registry-contract-smoke-v1",
+    "leak_hidden_checks_to_prompt": false
+  },
+  "grader": {
+    "type": "deterministic_mcp_registry_contract",
+    "score_range": [
+      0,
+      1
+    ]
+  },
+  "contamination_policy": {
+    "status": "clean",
+    "source": "original_synthetic",
+    "public_benchmark_row": false
+  },
+  "artifact_capture_policy": {
+    "capture": [
+      "environment",
+      "artifacts",
+      "trace"
+    ]
+  },
+  "admission_level": "diagnostic",
+  "surface_type": "synthetic_substrate_smoke"
+}

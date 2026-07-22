@@ -1,0 +1,22 @@
+{
+  "schema_version": "final_harness_fixture_manifest.v1",
+  "task_pack_id": "fsent_01_tool_call_composite",
+  "canonical_workspace_root": "/workspace/toolcall",
+  "fixtures": [
+    {
+      "path": "solver_pack/workspace/toolcall/contracts/tool_schema.json",
+      "kind": "contract",
+      "note": "Defines required args for dispatch tool and legacy traps."
+    },
+    {
+      "path": "solver_pack/workspace/toolcall/checks/visible_check.py",
+      "kind": "visible_verifier",
+      "note": "Visible verifier checks candidate contract shape only."
+    },
+    {
+      "path": "solver_pack/workspace/toolcall/docs/legacy_tooling_notes.md",
+      "kind": "decoy",
+      "note": "Contains stale no-argument legacy call guidance."
+    }
+  ]
+}

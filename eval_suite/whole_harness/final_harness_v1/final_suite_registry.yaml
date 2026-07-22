@@ -1,0 +1,233 @@
+schema_version: final_harness_eval_suite_registry.v1
+board_id: final_harness_eval_suite_v1
+board_version: 1
+authority_label: certified_target_pending_execution
+admission_contract_ref: work/ledger/final_harness_eval_suite_plan.md
+board_shape:
+  hard_row_count: 8
+  sentinel_or_composition_row_count: 5
+  flagship_count: 2
+required_critical_clusters:
+  - tooling/tool-call
+  - environment/toolchain
+  - filesystem/path
+  - verification/completion
+  - retrieval/reduction
+  - long-horizon orchestration
+hard_rows:
+  - row_id: environment_bootstrap_runner_repair
+    row_type: hard
+    is_flagship: false
+    critical_clusters:
+      - environment/toolchain
+      - filesystem/path
+      - verification/completion
+    provenance_type: pressure_family_mutated
+    contamination_policy: private_mutated_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+  - row_id: service_lifecycle_readiness_flagship
+    row_type: hard
+    is_flagship: true
+    critical_clusters:
+      - environment/toolchain
+      - tooling/tool-call
+      - verification/completion
+      - long-horizon orchestration
+    provenance_type: pressure_family_mutated
+    contamination_policy: private_mutated_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+  - row_id: filesystem_decoy_target_selection
+    row_type: hard
+    is_flagship: false
+    critical_clusters:
+      - filesystem/path
+      - retrieval/reduction
+      - verification/completion
+    provenance_type: pressure_family_mutated
+    contamination_policy: private_mutated_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+  - row_id: hidden_verifier_repair
+    row_type: hard
+    is_flagship: false
+    critical_clusters:
+      - verification/completion
+      - filesystem/path
+      - environment/toolchain
+    provenance_type: pressure_family_mutated
+    contamination_policy: private_mutated_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+  - row_id: structured_retrieval_reduction
+    row_type: hard
+    is_flagship: false
+    critical_clusters:
+      - retrieval/reduction
+      - filesystem/path
+      - verification/completion
+    provenance_type: pressure_family_mutated
+    contamination_policy: private_mutated_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+  - row_id: original_repo_recovery_flagship
+    row_type: hard
+    is_flagship: true
+    critical_clusters:
+      - long-horizon orchestration
+      - retrieval/reduction
+      - verification/completion
+      - environment/toolchain
+    provenance_type: original_private
+    contamination_policy: private_original_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+  - row_id: tool_schema_workspace_mix
+    row_type: hard
+    is_flagship: false
+    critical_clusters:
+      - tooling/tool-call
+      - filesystem/path
+      - retrieval/reduction
+    provenance_type: original_private
+    contamination_policy: private_original_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+  - row_id: noisy_open_workflow
+    row_type: hard
+    is_flagship: false
+    critical_clusters:
+      - retrieval/reduction
+      - filesystem/path
+      - verification/completion
+    provenance_type: original_private
+    contamination_policy: private_original_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/hard_task_registry.yaml
+    row_spec_expected_now: true
+sentinel_or_composition_rows:
+  - row_id: fsent_01_tool_call_composite
+    row_type: sentinel
+    is_flagship: false
+    critical_clusters:
+      - tooling/tool-call
+      - verification/completion
+    provenance_type: private_homolog
+    contamination_policy: private_homolog_no_direct_row_copy
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/sentinel_composition_board.yaml
+    row_spec_expected_now: true
+  - row_id: fsent_02_runtime_workspace_contract
+    row_type: sentinel
+    is_flagship: false
+    critical_clusters:
+      - environment/toolchain
+      - filesystem/path
+      - verification/completion
+    provenance_type: original_private
+    contamination_policy: private_original_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/sentinel_composition_board.yaml
+    row_spec_expected_now: true
+  - row_id: fsent_03_filesystem_verifier_repair
+    row_type: composition
+    is_flagship: false
+    critical_clusters:
+      - filesystem/path
+      - verification/completion
+    provenance_type: original_private
+    contamination_policy: private_original_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/sentinel_composition_board.yaml
+    row_spec_expected_now: true
+  - row_id: fsent_04_retrieval_reduction_closure
+    row_type: sentinel
+    is_flagship: false
+    critical_clusters:
+      - retrieval/reduction
+      - verification/completion
+    provenance_type: original_private
+    contamination_policy: private_original_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/sentinel_composition_board.yaml
+    row_spec_expected_now: true
+  - row_id: fsent_05_long_handoff_composition_smoke
+    row_type: composition
+    is_flagship: false
+    critical_clusters:
+      - long-horizon orchestration
+      - retrieval/reduction
+      - verification/completion
+    provenance_type: original_private
+    contamination_policy: private_original_eval_required
+    authority_expectation: certified
+    row_spec_ref: work/ledger/final_harness_eval_suite/sentinel_composition_board.yaml
+    row_spec_expected_now: true
+flagship_row_ids:
+  - service_lifecycle_readiness_flagship
+  - original_repo_recovery_flagship
+critical_cluster_map:
+  tooling/tool-call:
+    hard_rows:
+      - service_lifecycle_readiness_flagship
+      - tool_schema_workspace_mix
+    sentinel_or_composition_rows:
+      - fsent_01_tool_call_composite
+  environment/toolchain:
+    hard_rows:
+      - environment_bootstrap_runner_repair
+      - service_lifecycle_readiness_flagship
+      - hidden_verifier_repair
+      - original_repo_recovery_flagship
+    sentinel_or_composition_rows:
+      - fsent_02_runtime_workspace_contract
+  filesystem/path:
+    hard_rows:
+      - environment_bootstrap_runner_repair
+      - filesystem_decoy_target_selection
+      - hidden_verifier_repair
+      - structured_retrieval_reduction
+      - tool_schema_workspace_mix
+      - noisy_open_workflow
+    sentinel_or_composition_rows:
+      - fsent_02_runtime_workspace_contract
+      - fsent_03_filesystem_verifier_repair
+  verification/completion:
+    hard_rows:
+      - environment_bootstrap_runner_repair
+      - service_lifecycle_readiness_flagship
+      - filesystem_decoy_target_selection
+      - hidden_verifier_repair
+      - structured_retrieval_reduction
+      - original_repo_recovery_flagship
+      - noisy_open_workflow
+    sentinel_or_composition_rows:
+      - fsent_01_tool_call_composite
+      - fsent_02_runtime_workspace_contract
+      - fsent_03_filesystem_verifier_repair
+      - fsent_04_retrieval_reduction_closure
+      - fsent_05_long_handoff_composition_smoke
+  retrieval/reduction:
+    hard_rows:
+      - filesystem_decoy_target_selection
+      - structured_retrieval_reduction
+      - original_repo_recovery_flagship
+      - tool_schema_workspace_mix
+      - noisy_open_workflow
+    sentinel_or_composition_rows:
+      - fsent_04_retrieval_reduction_closure
+      - fsent_05_long_handoff_composition_smoke
+  long-horizon orchestration:
+    hard_rows:
+      - service_lifecycle_readiness_flagship
+      - original_repo_recovery_flagship
+    sentinel_or_composition_rows:
+      - fsent_05_long_handoff_composition_smoke

@@ -1,0 +1,18 @@
+{
+  "task_pack_id": "hidden_verifier_repair",
+  "workspace_root": "workspace/fhard_04",
+  "fixture_files": [
+    "module/validator.py",
+    "tests/test_visible_behavior.py",
+    "tests/test_regression_behavior.py",
+    "docs/troubleshooting.md"
+  ],
+  "decoys": [
+    "docs/troubleshooting.md"
+  ],
+  "contamination_safeguards": [
+    "Hidden regression case withheld from solver pack",
+    "Visible prompt does not disclose hidden assertion",
+    "Mutated module paths and data constants"
+  ]
+}

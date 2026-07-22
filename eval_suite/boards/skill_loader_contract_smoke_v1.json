@@ -1,0 +1,17 @@
+{
+  "board_id": "skill_loader_contract_smoke_v1",
+  "board_type": "public_smoke_example",
+  "task_family": "skill_loader_contract_smoke",
+  "task_pack_ref": "eval_suite/families/tooling/skill_loader_contract_smoke/task_pack.json",
+  "grader_ref": "eval_suite/families/tooling/skill_loader_contract_smoke/grader.py",
+  "fixture_root_ref": "eval_suite/families/tooling/skill_loader_contract_smoke/fixture",
+  "scoreboard_ref": "eval_suite/scoreboards/skill_loader_contract_smoke_v1.example.scoreboard.json",
+  "admission_level": "diagnostic",
+  "surface_type": "synthetic_substrate_smoke",
+  "contamination_policy": {
+    "status": "clean",
+    "source": "original_synthetic",
+    "public_benchmark_row": false
+  },
+  "notes": "Public smoke only; not benchmark evidence."
+}

@@ -1,0 +1,7 @@
+from: opslead@corp
+subject: cycle close draft
+body: OPS-440 looked done early, but final cycle moved to OPS-447.
+
+from: analyst@corp
+subject: quick note
+body: ignore sticky-note id OPS-499 unless seen in structured logs.

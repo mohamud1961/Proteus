@@ -1,0 +1,5 @@
+[03:18] switched queue from catalog_jobs => catalog_reconcile_q
+[03:22] old env file still says catalog-old.internal
+[03:33] closure ticket from checkpoint_c after commit 4c11a0
+[03:37] security patch note: runtime token format now `token-recovery-47af`
+[03:39] recovery mode must be `hardened` for post-incident runs

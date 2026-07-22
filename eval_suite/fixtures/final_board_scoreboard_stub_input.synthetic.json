@@ -1,0 +1,118 @@
+{
+  "schema_version": "final_harness_scoreboard_stub_input.v1",
+  "run_id": "synthetic_final_board_stub_20260525",
+  "recipes": [
+    {
+      "recipe_id": "recipe_alpha_eligible",
+      "row_statuses": {
+        "fhard_01_toolchain_runner_repair": "pass",
+        "fhard_02_service_orchestration_flagship": "pass",
+        "fhard_03_filesystem_decoy_patch": "pass",
+        "fhard_04_hidden_verifier_repair": "pass",
+        "fhard_05_structured_retrieval_reduction": "pass",
+        "fhard_06_original_repo_recovery_flagship": "pass",
+        "fhard_07_original_tool_schema_workspace_mix": "fail",
+        "fhard_08_original_noisy_open_workflow": "pass",
+        "fsent_01_tool_call_bfcl_composite": "pass",
+        "fsent_02_runtime_workspace_contract": "pass",
+        "fsent_03_filesystem_verifier_repair": "pass",
+        "fsent_04_retrieval_reduction_closure": "pass",
+        "fsent_05_long_handoff_composition_smoke": "pass"
+      },
+      "contamination": {
+        "contaminated_row_ids": [],
+        "unresolved_suspect_excluded_row_ids": []
+      },
+      "invalidity": {
+        "unresolved_invalid_row_ids": []
+      },
+      "stability": {
+        "status": "pass",
+        "consistency_score": 1.0
+      },
+      "cost_step_gate": "pass",
+      "composition_risk_complexity": 1,
+      "known_weaknesses": [
+        "fhard_07 regression remains unresolved"
+      ],
+      "evidence_refs": [
+        "work/ledger/final_harness_eval_suite/smokes/synthetic_scoreboard_stub"
+      ]
+    },
+    {
+      "recipe_id": "recipe_beta_failed",
+      "row_statuses": {
+        "fhard_01_toolchain_runner_repair": "pass",
+        "fhard_02_service_orchestration_flagship": "fail",
+        "fhard_03_filesystem_decoy_patch": "pass",
+        "fhard_04_hidden_verifier_repair": "fail",
+        "fhard_05_structured_retrieval_reduction": "pass",
+        "fhard_06_original_repo_recovery_flagship": "pass",
+        "fhard_07_original_tool_schema_workspace_mix": "fail",
+        "fhard_08_original_noisy_open_workflow": "pass",
+        "fsent_01_tool_call_bfcl_composite": "fail",
+        "fsent_02_runtime_workspace_contract": "pass",
+        "fsent_03_filesystem_verifier_repair": "pass",
+        "fsent_04_retrieval_reduction_closure": "pass",
+        "fsent_05_long_handoff_composition_smoke": "pass"
+      },
+      "contamination": {
+        "contaminated_row_ids": [],
+        "unresolved_suspect_excluded_row_ids": []
+      },
+      "invalidity": {
+        "unresolved_invalid_row_ids": []
+      },
+      "stability": {
+        "status": "pass",
+        "consistency_score": 0.96
+      },
+      "cost_step_gate": "warn",
+      "composition_risk_complexity": 2,
+      "known_weaknesses": [
+        "tool-call sentinel regression"
+      ],
+      "evidence_refs": [
+        "work/ledger/final_harness_eval_suite/smokes/synthetic_scoreboard_stub"
+      ]
+    },
+    {
+      "recipe_id": "recipe_gamma_invalid",
+      "row_statuses": {
+        "fhard_01_toolchain_runner_repair": "pass",
+        "fhard_02_service_orchestration_flagship": "invalid",
+        "fhard_03_filesystem_decoy_patch": "pass",
+        "fhard_04_hidden_verifier_repair": "pass",
+        "fhard_05_structured_retrieval_reduction": "pass",
+        "fhard_06_original_repo_recovery_flagship": "pass",
+        "fhard_07_original_tool_schema_workspace_mix": "pass",
+        "fhard_08_original_noisy_open_workflow": "pass",
+        "fsent_01_tool_call_bfcl_composite": "invalid",
+        "fsent_02_runtime_workspace_contract": "pass",
+        "fsent_03_filesystem_verifier_repair": "pass",
+        "fsent_04_retrieval_reduction_closure": "pass",
+        "fsent_05_long_handoff_composition_smoke": "pass"
+      },
+      "contamination": {
+        "contaminated_row_ids": [],
+        "unresolved_suspect_excluded_row_ids": []
+      },
+      "invalidity": {
+        "unresolved_invalid_row_ids": [
+          "fsent_01_tool_call_bfcl_composite"
+        ]
+      },
+      "stability": {
+        "status": "not_run"
+      },
+      "cost_step_gate": "pass",
+      "composition_risk_complexity": 1,
+      "known_weaknesses": [
+        "runtime invalidity unresolved"
+      ],
+      "evidence_refs": [
+        "work/ledger/final_harness_eval_suite/smokes/synthetic_scoreboard_stub"
+      ]
+    }
+  ]
+}

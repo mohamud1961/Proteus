@@ -1,0 +1,63 @@
+{
+  "schema_version": "public_homolog_contract_smoke.task_pack.v1",
+  "family_id": "public_homolog_contract_smoke",
+  "source_note": "Sanitized public distillation of the private G2 homolog shape.",
+  "contamination_policy": {
+    "status": "clean",
+    "source": "original_synthetic",
+    "private_row_copy": false,
+    "public_benchmark_row": false
+  },
+  "tasks": [
+    {
+      "task_id": "public_homolog_contract_smoke_file_artifact",
+      "task_type": "filesystem_artifact",
+      "failure_family": "file_creation_and_finalization",
+      "task_prompt": "Create report.txt containing exactly the single line `status: ready`.",
+      "deliverable_path": "report.txt",
+      "admission_level": "diagnostic",
+      "surface_type": "filesystem",
+      "public_notes": "Smallest smoke row in the family."
+    },
+    {
+      "task_id": "public_homolog_contract_smoke_detached_service",
+      "task_type": "service_persistence",
+      "failure_family": "background_service_survival",
+      "task_prompt": "Start a detached local service on 127.0.0.1:8123 that returns exactly `ok` and keep it alive after task completion.",
+      "deliverable_path": "service_evidence.json",
+      "admission_level": "diagnostic",
+      "surface_type": "service",
+      "public_notes": "Mirrors the service-survival pressure from the private homolog set without exposing private fixture names."
+    },
+    {
+      "task_id": "public_homolog_contract_smoke_interactive_session",
+      "task_type": "interactive_session",
+      "failure_family": "session_state_capture",
+      "task_prompt": "Open an interactive Python session, define x = 21, evaluate x * 2, and write the resulting number to result.txt.",
+      "deliverable_path": "result.txt",
+      "admission_level": "diagnostic",
+      "surface_type": "session",
+      "public_notes": "Shows that visible state can be recovered from an interactive loop."
+    },
+    {
+      "task_id": "public_homolog_contract_smoke_package_install",
+      "task_type": "package_install",
+      "failure_family": "third_party_dependency_setup",
+      "task_prompt": "Install the cowsay package, then run a small command that writes the cow output to cowsay_output.txt.",
+      "deliverable_path": "cowsay_output.txt",
+      "admission_level": "diagnostic",
+      "surface_type": "package_install",
+      "public_notes": "Keeps the install-and-run path public-safe and easy to reason about."
+    },
+    {
+      "task_id": "public_homolog_contract_smoke_long_running_job",
+      "task_type": "long_running_job",
+      "failure_family": "delayed_background_completion",
+      "task_prompt": "Launch a background job that waits briefly, writes done.txt, and is polled until completion before the task is closed.",
+      "deliverable_path": "done.txt",
+      "admission_level": "diagnostic",
+      "surface_type": "job",
+      "public_notes": "Captures the long-job lifecycle without exposing private runtime logs."
+    }
+  ]
+}

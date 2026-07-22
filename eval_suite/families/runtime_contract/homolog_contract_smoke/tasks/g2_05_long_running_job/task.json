@@ -1,0 +1,5 @@
+{
+  "task_id": "g2_05_long_running_job",
+  "workspace_root": "workspace",
+  "time_budget_sec": 180
+}

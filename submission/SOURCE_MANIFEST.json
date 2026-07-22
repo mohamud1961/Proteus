@@ -1,21 +1,40 @@
 {
   "package": "Proteus",
   "source_product": "Aether",
+  "public_product": "Proteus",
+  "old_surfaces": [
+    "aether/",
+    "harness/aether2/",
+    "aether_next_build/reference_legacy/"
+  ],
   "source_repository": "harnesseng",
-  "source_commit": "adc210c3fa339790594cd965fc25397321235055",
-  "source_worktree": "/private/tmp/aether-qualified-integration",
+  "source_commit": "679e5f174b055657fc9641db2fc74af072e2a196",
+  "source_worktree": "authoritative clean Aether checkout",
+  "inventory": {
+    "aether_next_runtime_python_files": 85,
+    "aether_next_build_runtime_python_files": 85,
+    "harness_python_files": 102,
+    "runner_python_files": 7,
+    "eval_suite_files": 300,
+    "aether_next_tests_python_files": 119,
+    "root_tests_python_files": 34
+  },
   "included": [
+    "Aether-Next runtime and verifier source",
+    "Aether-Next runner and deterministic eval entrypoints",
+    "root runner, harness, eval_suite, public graders, schemas, boards, and tests",
     "Aether-derived role boundaries and evidence discipline",
-    "Aether-derived fail-closed runtime and verifier concepts",
-    "new Proteus packaging, replay demo, portable evals, and documentation"
+    "new Proteus packaging, replay demo, and documentation"
   ],
   "excluded": [
-    "private benchmark tasks",
+    "generated eval/run output directories",
+    "private benchmark tasks and official task payloads",
     "credentials and secret values",
     "Azure VM artifacts",
     "TerminalBench task payloads",
-    "legacy stub demo paths",
-    "unverified model-board claims"
+    "legacy stub demo paths as the primary judge route",
+    "unverified model-board claims",
+    "synthetic fixture tokens are test data only and are not credentials"
   ],
   "live_provider": {
     "model_default": "gpt-5.6",
