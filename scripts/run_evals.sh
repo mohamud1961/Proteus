@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 set -euo pipefail
-python3 -m evals.run_evals
+python3 -m eval_suite.evals.run_evals

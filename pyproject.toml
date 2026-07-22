@@ -22,8 +22,8 @@ full = ["litellm", "pymupdf", "pyyaml", "rapidocr-onnxruntime", "httpx", "openai
 proteus = "proteus.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["proteus*", "aether_next*", "harness*", "runner*", "eval_suite*", "evals*"]
+include = ["proteus*", "older_variants*", "runner*", "eval_suite*", "tools*"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "aether_next_build/tests"]
+testpaths = ["tests"]
 addopts = "-ra"

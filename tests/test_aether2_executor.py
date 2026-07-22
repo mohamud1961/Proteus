@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
 
 
 def test_run_command_boundary_allows_http_route_literals(tmp_path) -> None:

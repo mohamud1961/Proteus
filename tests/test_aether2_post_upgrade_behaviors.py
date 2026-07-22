@@ -4,10 +4,10 @@ import json
 import time
 from pathlib import Path
 
-from harness.aether2.control.loop import run_aether2_loop
-from harness.aether2.runtime.executor import ContainerExecutor
-from harness.aether2.runtime.model_client import ModelResponse
-from harness.aether2.runtime.task_spec import TaskSpec
+from older_variants.harness.aether2.control.loop import run_aether2_loop
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.model_client import ModelResponse
+from older_variants.harness.aether2.runtime.task_spec import TaskSpec
 
 
 def _response(text: str = "", tool_calls: tuple[dict, ...] = ()) -> ModelResponse:
@@ -170,7 +170,7 @@ def test_cost_budget_kill_switch_stops_run_before_next_call(tmp_path: Path) -> N
 
 
 def test_estimate_token_cost_applies_long_context_surcharge() -> None:
-    from harness.aether2.control.reasoning_trace import _estimate_token_cost
+    from older_variants.harness.aether2.control.reasoning_trace import _estimate_token_cost
 
     under = {"fresh_input_tokens": 200_000, "cached_input_tokens": 0, "output_tokens": 0}
     over = {"fresh_input_tokens": 300_000, "cached_input_tokens": 0, "output_tokens": 0}

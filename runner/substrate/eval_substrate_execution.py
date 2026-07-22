@@ -11,7 +11,7 @@ import json
 import subprocess
 from typing import Any
 
-from harness.aether2.runtime.route_schemas import SchemaValidationError
+from older_variants.harness.aether2.runtime.route_schemas import SchemaValidationError
 
 CANONICAL_CWD = "/app"
 

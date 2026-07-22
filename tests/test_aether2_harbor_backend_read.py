@@ -13,10 +13,10 @@ from types import SimpleNamespace
 
 import pytest
 
-from harness.aether2.control.execution_context import ExecutionContext
-from harness.aether2.runtime.harbor_backend import HarborExecutor, _build_run_decision_markdown
-from harness.aether2.runtime.jobs import JobRegistry
-from harness.aether2.runtime.sessions import SessionRegistry
+from older_variants.harness.aether2.control.execution_context import ExecutionContext
+from older_variants.harness.aether2.runtime.harbor_backend import HarborExecutor, _build_run_decision_markdown
+from older_variants.harness.aether2.runtime.jobs import JobRegistry
+from older_variants.harness.aether2.runtime.sessions import SessionRegistry
 
 
 # ---------------------------------------------------------------------------

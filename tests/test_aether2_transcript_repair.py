@@ -10,8 +10,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from harness.aether2.runtime.model_client import Aether2ModelClient
-from harness.aether2.runtime.transcript_repair import (
+from older_variants.harness.aether2.runtime.model_client import Aether2ModelClient
+from older_variants.harness.aether2.runtime.transcript_repair import (
     DROPPED_ORPHAN,
     REPAIR_NOTICE,
     SYNTHESIZED,

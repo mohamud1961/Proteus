@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from harness.aether2.runtime.azure_openai_env import build_openai_compatible_azure_gpt54_mini_env
+from older_variants.harness.aether2.runtime.azure_openai_env import build_openai_compatible_azure_gpt54_mini_env
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 UPSTREAM_ROOT = REPO_ROOT / "research/sources/codebases/letta-evals"

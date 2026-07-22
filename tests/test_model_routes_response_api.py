@@ -3,13 +3,13 @@ from __future__ import annotations
 import sys
 import types
 
-from harness.aether2.runtime.model_routes import (
+from older_variants.harness.aether2.runtime.model_routes import (
     AZURE_OPENAI_RESPONSES_API_VERSION,
     AzureOpenAIAPIKeyModelClient,
     make_azure_openai_route,
     make_azure_gpt54_pro_route_from_env,
 )
-from harness.aether2.runtime.model_client import _tools_for_route
+from older_variants.harness.aether2.runtime.model_client import _tools_for_route
 
 
 def test_gpt53_codex_route_uses_responses_api_version_floor() -> None:

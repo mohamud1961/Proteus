@@ -3,10 +3,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from harness.aether2.runtime.compactor import rebase
-from harness.aether2.runtime.context import ContextManager
-from harness.aether2.runtime.prompts import FROZEN_SUCCESS_CONTRACT_REMINDER
-from harness.aether2.traces.receipts import ReceiptWriter
+from older_variants.harness.aether2.runtime.compactor import rebase
+from older_variants.harness.aether2.runtime.context import ContextManager
+from older_variants.harness.aether2.runtime.prompts import FROZEN_SUCCESS_CONTRACT_REMINDER
+from older_variants.harness.aether2.traces.receipts import ReceiptWriter
 
 
 class _StubModelClient:

@@ -5,28 +5,28 @@ import json
 from pathlib import Path
 from typing import Any
 
-from harness.aether2.control.ahp_preflight import run_preflight
-from harness.aether2.control.action_helpers import _build_blind_retry_blocked_envelope
-from harness.aether2.control.completion import _build_completion_contract
-from harness.aether2.runtime.adaptive_artifacts import build_config_realization_audit, write_ahp_artifacts
-from harness.aether2.runtime.adaptive_context import apply_adaptation_contract, generate_and_apply
-from harness.aether2.runtime.adaptive_profile import (
+from older_variants.harness.aether2.control.ahp_preflight import run_preflight
+from older_variants.harness.aether2.control.action_helpers import _build_blind_retry_blocked_envelope
+from older_variants.harness.aether2.control.completion import _build_completion_contract
+from older_variants.harness.aether2.runtime.adaptive_artifacts import build_config_realization_audit, write_ahp_artifacts
+from older_variants.harness.aether2.runtime.adaptive_context import apply_adaptation_contract, generate_and_apply
+from older_variants.harness.aether2.runtime.adaptive_profile import (
     AgentInitializationFailure,
     ProfileGenerationResult,
     ProfileValidationResult,
     validate_profile,
 )
-from harness.aether2.runtime.context import ContextManager
-from harness.aether2.runtime.model_client import ModelResponse
-from harness.aether2.runtime.prompts import MECHANICAL_SYSTEM_PROMPT, SYSTEM_PROMPT
-from harness.aether2.runtime.run_config import (
+from older_variants.harness.aether2.runtime.context import ContextManager
+from older_variants.harness.aether2.runtime.model_client import ModelResponse
+from older_variants.harness.aether2.runtime.prompts import MECHANICAL_SYSTEM_PROMPT, SYSTEM_PROMPT
+from older_variants.harness.aether2.runtime.run_config import (
     INVARIANT_CONTEXT_PACK_SECTIONS,
     build_baseline_run_config,
     make_harness_run_config,
     tool_names_from_schemas,
     validate_context_pack_policy,
 )
-from harness.aether2.runtime.verify import CheckResult, verify_fresh_context
+from older_variants.harness.aether2.runtime.verify import CheckResult, verify_fresh_context
 
 
 _SAMPLE_TASK = "Create hello.py and make it print Hello, World!."

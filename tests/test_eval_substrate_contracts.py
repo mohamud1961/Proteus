@@ -10,7 +10,7 @@ from eval_suite.schemas.eval_substrate_contracts import (
     validate_result_row,
     validate_task_pack,
 )
-from harness.aether2.runtime.route_schemas import SchemaValidationError
+from older_variants.harness.aether2.runtime.route_schemas import SchemaValidationError
 
 
 def _task_pack() -> dict:

@@ -13,14 +13,14 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from harness.aether2.runtime.compactor import (
+from older_variants.harness.aether2.runtime.compactor import (
     build_receipt_continuity_snapshot,
     rebase,
 )
-from harness.aether2.runtime.context import ContextManager
-from harness.aether2.runtime.run_config import ContextPackPolicy, validate_context_pack_policy
-from harness.aether2.traces.receipt_store import QueryableReceiptStore
-from harness.aether2.traces.task_local_tools import TaskLocalToolRegistry
+from older_variants.harness.aether2.runtime.context import ContextManager
+from older_variants.harness.aether2.runtime.run_config import ContextPackPolicy, validate_context_pack_policy
+from older_variants.harness.aether2.traces.receipt_store import QueryableReceiptStore
+from older_variants.harness.aether2.traces.task_local_tools import TaskLocalToolRegistry
 
 
 @dataclass

@@ -4,14 +4,14 @@ import json
 import time
 from pathlib import Path
 
-from harness.aether2.control.loop import ExecutionContext, run_aether2_loop
-from harness.aether2.hooks import HookRegistry, HookResult
-from harness.aether2.runtime.executor import ContainerExecutor
-from harness.aether2.runtime.jobs import JobRegistry
-from harness.aether2.runtime.model_client import ModelResponse
-from harness.aether2.runtime.sessions import SessionRegistry
-from harness.aether2.runtime.task_spec import TaskSpec
-from harness.aether2.tools import (
+from older_variants.harness.aether2.control.loop import ExecutionContext, run_aether2_loop
+from older_variants.harness.aether2.hooks import HookRegistry, HookResult
+from older_variants.harness.aether2.runtime.executor import ContainerExecutor
+from older_variants.harness.aether2.runtime.jobs import JobRegistry
+from older_variants.harness.aether2.runtime.model_client import ModelResponse
+from older_variants.harness.aether2.runtime.sessions import SessionRegistry
+from older_variants.harness.aether2.runtime.task_spec import TaskSpec
+from older_variants.harness.aether2.tools import (
     FakeLocalMcpServer,
     McpServerConfig,
     McpServerConnection,

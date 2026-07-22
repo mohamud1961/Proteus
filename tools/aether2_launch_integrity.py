@@ -12,8 +12,8 @@ from typing import Any, Iterable
 
 
 DEFAULT_IMPORTS = (
-    "harness.aether2",
-    "harness.aether2.control.loop",
+    "older_variants.harness.aether2",
+    "older_variants.harness.aether2.control.loop",
     "runner.aether2",
     "runner.aether2.bridge_harbor",
     "runner.aether2.executor",
